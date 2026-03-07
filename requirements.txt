@@ -4,3 +4,4 @@ numpy
 Pillow
 img2pdf
 pdf2image
+pillow-heif
