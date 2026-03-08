@@ -35,6 +35,13 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
 }
 .sub-title { color:#A0AEC0; font-size:16px; margin-top:10px; }
 
+/* 全站通用淡入动画引擎 */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+
 /* 状态文字居中 */
 .status-text { 
     color:#64B8FF !important; font-weight:600; 
@@ -68,7 +75,23 @@ div.stDownloadButton>button:active,
     box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff !important;
     padding: 20px !important;
     margin-bottom:139px
-    border: 1px solid rgba(255,255,255,0.5) !important; }
+    border: 1px solid rgba(255,255,255,0.5) !important;
+    
+/* --- 新增：平滑平展动画 --- */
+transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.6s ease !important;
+    max-height: 2000px !important; 
+    overflow: hidden !important;
+}
+
+/* 针对内部列表的平滑处理 */
+[data-testid="stFileUploader"] ul {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 /* 按钮动画 */
 button[kind="secondary"], div.stButton>button, div.stDownloadButton>button { transition: all .1s ease-in-out !important; }
