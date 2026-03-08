@@ -274,19 +274,6 @@ st.markdown("""
     box-shadow: inset -10px 0 20px #d1d9e6 !important;
     border: none !important;
 }
-
-/* 侧边栏卡片：保持和主界面一致的凸起感 */
-.sidebar-card {
-    background: #F0F4F8;
-    border-radius: 20px;
-    padding: 60px 20px 25px 20px;
-    margin: 15px;
-    box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
-    color: #64B8FF;
-    font-weight: 600;
-    text-align: center;
-    margin-bottom: 30px;
-}
 </style>
 """, unsafe_allow_html=True)
 
@@ -310,6 +297,23 @@ with st.sidebar:
             </div>
         </div>
     ''', unsafe_allow_html=True)
+    
+st.markdown("""
+<style>
+/* 侧边栏卡片：保持和主界面一致的凸起感 */
+.sidebar-card {
+    background: #F0F4F8;
+    border-radius: 20px;
+    padding: 60px 20px 25px 20px;
+    margin: 15px;
+    box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+    color: #64B8FF;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 30px;
+}
+</style>
+""", unsafe_allow_html=True)
     
     st.markdown('''
     <div class="sidebar-card">
