@@ -254,11 +254,12 @@ st.markdown("""
     background: #F0F4F8;
     border-radius: 20px;
     padding: 20px;
-    margin: 115px;
+    margin: 15px;
     box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
     color: #64B8FF;
     font-weight: 600;
     text-align: center;
+    margin-bottom: 12px;
 }
 </style>
 """, unsafe_allow_html=True)
