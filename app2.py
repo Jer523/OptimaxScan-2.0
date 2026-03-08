@@ -127,7 +127,7 @@ button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !importan
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
-    min-height: 120px !important;
+    min-height: 100px !important;
     padding: 10px 0 !important;
 }
 
