@@ -259,7 +259,7 @@ st.markdown("""
     color: #64B8FF;
     font-weight: 600;
     text-align: center;
-    margin-bottom: 12px;
+    margin-bottom: 24px;
 }
 </style>
 """, unsafe_allow_html=True)
