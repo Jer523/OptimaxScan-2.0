@@ -306,7 +306,10 @@ unsafe_allow_html=True
                     temp_images.extend(pages)
                 except: continue
             else:
-                temp_images.append(Image.open(io.BytesIO(file_bytes)))
+                else:
+                    pil_img = Image.open(io.BytesIO(file_bytes))
+                    pil_img = Image.fromarray(np.array(pil_img))
+                    temp_images.append(pil_img)
             
             for pil_img in temp_images:
                 status = get_image_status(pil_img, file_size_kb)
