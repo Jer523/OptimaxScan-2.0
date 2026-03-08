@@ -460,7 +460,7 @@ unsafe_allow_html=True
 
     if st.button(" ",use_container_width=True, key="refine_btn"):
         all_processed_bytes = []
-        progress_bar = st.progress(0.0001)   # 先显示一点颜色
+        progress_bar = st.progress(0.005)   # 先显示一点颜色
         virtual_progress = 0.02            # 当前显示进度
         real_progress = 0                  # 真实进度
         smoothing = 0.18                   # 平滑系数
