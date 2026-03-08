@@ -315,7 +315,7 @@ with st.sidebar:
         </div>
     ''', unsafe_allow_html=True)
 
-        st.markdown(f'''
+    st.markdown(f'''
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: -65px; padding-top: 100px; position: relative; z-index: 99;">
             <div style="
                 width: 102px; height: 102px; border-radius: 50%; 
