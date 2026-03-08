@@ -180,12 +180,6 @@ def process_scan_layered_from_mem(pil_img, is_small):
 # --- 3. 流光动画 ---
 st.markdown("""
 <style>
-html,body,.stApp{ height:100%; }
-.stApp{ background:#F0F4F8; display:flex; flex-direction:column; }
-.main .block-container{ padding-top:10vh; max-width:750px; padding-bottom: 120px; }
-.title-card{ background:#F0F4F8; border-radius:30px; box-shadow:15px 15px 35px #d1d9e6,-15px -15px 35px #ffffff; padding:45px 20px; text-align:center; margin-bottom:32px; }
-.main-title{ font-weight:800; font-size:52px; background:linear-gradient(135deg,#64B8FF,#42F2BF); -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:0; }
-.sub-title{ color:#A0AEC0; font-size:16px; margin-top:10px; }
 .stFileUploader{ background: #F0F4F8 !important;
     border-radius: 20px !important;
     box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff !important;
