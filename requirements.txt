@@ -1,7 +1,6 @@
 streamlit
 opencv-python-headless
-numpy
 Pillow
 img2pdf
+numpy
 pdf2image
-pillow-heif
