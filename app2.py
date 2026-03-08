@@ -291,6 +291,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
+    st.markdown(f'''
+        <div style="display: flex; justify-content: center; align-items: center; margin-bottom: 10px; padding-top: 10px;">
+            <img src="data:image/png;base64,{Icon}" style="width: 80px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
+        </div>
+    ''', unsafe_allow_html=True)
+    
     st.markdown('''
     <div class="sidebar-card">
         <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-bottom: 1px;">
