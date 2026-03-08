@@ -198,23 +198,83 @@ def process_and_compress_to_letter(pil_img):
     return output.getvalue()
 
 def process_scan_layered_from_mem(pil_img, is_small):
-    """原始内核：分层图像处理算法"""
+    """Optimax Scan Engine v2 核心算法"""
+
+    pil_img = ImageOps.exif_transpose(pil_img)
+    pil_img.thumbnail((2600,2600), Image.Resampling.BILINEAR)
+
     img_cv = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
     gray = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY)
-    
+
     if is_small:
+
         smooth = cv2.GaussianBlur(gray, (3, 3), 0)
         bg = cv2.medianBlur(smooth, 31)
+
         final = cv2.divide(smooth, bg, scale=245)
+
         clahe = cv2.createCLAHE(clipLimit=1.5, tileGridSize=(12, 12))
         final = clahe.apply(final)
-        final = cv2.addWeighted(final, 1.22, cv2.GaussianBlur(final, (0, 0), 1.5), -0.22, 0)
+
+        final = cv2.fastNlMeansDenoising(
+            final, None,
+            h=5,
+            templateWindowSize=7,
+            searchWindowSize=21
+        )
+
+        _, white_bg_mask = cv2.threshold(final, 220, 255, cv2.THRESH_BINARY)
+        final[white_bg_mask == 255] = 255
+
+        gaussian_blur = cv2.GaussianBlur(final, (0, 0), 1.5)
+        final = cv2.addWeighted(final, 1.22, gaussian_blur, -0.22, 0)
+
     else:
+
+        _, black_mask = cv2.threshold(gray, 70, 255, cv2.THRESH_BINARY_INV)
+
+        num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(
+            black_mask, connectivity=8
+        )
+
+        valid_black_mask = np.zeros_like(black_mask)
+
+        for i in range(1, num_labels):
+            if stats[i, cv2.CC_STAT_AREA] < 2500:
+                valid_black_mask[labels == i] = 255
+
         bg = cv2.medianBlur(gray, 51)
-        final = cv2.divide(gray, bg, scale=255)
-        final = cv2.fastNlMeansDenoising(final, None, h=12, templateWindowSize=7, searchWindowSize=21)
-        final = cv2.addWeighted(final, 1.6, cv2.GaussianBlur(final, (0, 0), 4), -0.6, 0)
-    
+        diff = cv2.divide(gray, bg, scale=255)
+
+        clahe = cv2.createCLAHE(clipLimit=1.2, tileGridSize=(8, 8))
+        enhanced = clahe.apply(diff)
+
+        res = cv2.adaptiveThreshold(
+            enhanced, 255,
+            cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+            cv2.THRESH_BINARY,
+            51, 20
+        )
+
+        final = cv2.addWeighted(enhanced, 0.75, res, 0.25, 0)
+
+        final[valid_black_mask == 255] = 0
+
+        final = cv2.medianBlur(final, 3)
+
+        final = cv2.fastNlMeansDenoising(
+            final, None,
+            h=12,
+            templateWindowSize=7,
+            searchWindowSize=21
+        )
+
+        _, white_bg_mask = cv2.threshold(final, 235, 255, cv2.THRESH_BINARY)
+        final[white_bg_mask == 255] = 255
+
+        gaussian_blur = cv2.GaussianBlur(final, (0, 0), 4)
+        final = cv2.addWeighted(final, 1.6, gaussian_blur, -0.6, 0)
+
     return Image.fromarray(cv2.cvtColor(final, cv2.COLOR_GRAY2RGB))
 
 # --- 3. 进度条动画 ---
