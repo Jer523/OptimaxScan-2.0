@@ -276,7 +276,6 @@ with st.sidebar:
             支持多文件、多格式混合上传<br>
             You can upload multiple files in different formats at once.
         </div>
-    </div>
         
     <div class="sidebar-card">
         <div style="text-align: center; font-size: 1.1em; color: #64B8FF; font-weight: 600; margin-bottom: 4.5px;">
