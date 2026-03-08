@@ -101,8 +101,6 @@ button:active, div.stButton>button:active, div.stDownloadButton>button:active {
     text-align: center !important;
 }
 
-/* 页脚 */
-.footer { position: fixed; bottom: 0; left: 0; width: 100%; background: #F0F4F8; text-align:center; color:#BDC3C7; font-size:13px; padding-bottom:20px; padding-top:10px; z-index: 999; }
 </style>
 """, unsafe_allow_html=True)
 
