@@ -154,6 +154,7 @@ star=get_base64("Star.png")
 check_mark=get_base64("Check Mark.png")
 download=get_base64("download.png")
 Icon=get_base64("OptimaxScan Icon.png")
+upload=get_base64("Upload.png")
 
 # --- 2. 注入原始脚本的核心功能内核 ---
 
@@ -346,7 +347,7 @@ with st.sidebar:
                     box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
                     border: 1px solid rgba(255,255,255,0.9);
                  ">
-                <img src="data:image/png;base64,{Icon}" style="width: 60px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
+                <img src="data:image/png;base64,{upload}" style="width: 60px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
             </div>
         </div>
         ''', unsafe_allow_html=True)
