@@ -69,6 +69,11 @@ div.stDownloadButton>button:active,
     padding: 20px !important;
     margin-bottom:139px
     border: 1px solid rgba(255,255,255,0.5) !important; }
+    
+/* --- 新增：平滑平展动画 --- */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    max-height: 2000px !important; /* 给一个足够大的高度上限 */
+    overflow: hidden !important;
 
 /* 按钮动画 */
 button[kind="secondary"], div.stButton>button, div.stDownloadButton>button { transition: all .1s ease-in-out !important; }
