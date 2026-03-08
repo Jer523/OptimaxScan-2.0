@@ -70,9 +70,7 @@ div.stDownloadButton>button:active,
     margin-bottom:139px
     border: 1px solid rgba(255,255,255,0.5) !important; }
 
-/* 按钮动画 */
-button[kind="secondary"], div.stButton>button, div.stDownloadButton>button { transition: all .1s ease-in-out !important; }
-button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !important; border-radius:12px !important; box-shadow:4px 4px 8px #d1d9e6,-4px -4px 8px #ffffff !important; padding:0px 25px !important; height:38px !important; margin:10px 0 !important; border:none !important; }
+
 
 /* 手机端精准适配 */
 @media (max-width: 768px) {
