@@ -187,25 +187,6 @@ st.markdown("""
     padding: 20px !important;
     border: 1px solid rgba(255,255,255,0.5) !important; }
 
-/* 1. 侧边栏基础拟态：保留内阴影增强深度感 */
-[data-testid="stSidebar"] {
-    background-color: #F0F4F8 !important;
-    box-shadow: inset -10px 0 20px #d1d9e6 !important;
-    border: none !important;
-}
-
-/* 2. 侧边栏卡片：保持和你主界面一致的凸起感 */
-.sidebar-card {
-    background: #F0F4F8;
-    border-radius: 20px;
-    padding: 20px;
-    margin: 15px;
-    box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
-    color: #64B8FF;
-    font-weight: 600;
-    text-align: center;
-}
-
 /* 按钮动画 */
 button[kind="secondary"], div.stButton>button, div.stDownloadButton>button { transition: all .1s ease-in-out !important; }
 button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !important; border-radius:12px !important; box-shadow:4px 4px 8px #d1d9e6,-4px -4px 8px #ffffff !important; padding:0px 25px !important; height:38px !important; margin:10px 0 !important; border:none !important; }
@@ -259,6 +240,26 @@ div[data-testid="stProgressBar"]{
 """,unsafe_allow_html=True)
 
 # --- 4. 侧边栏内容 ---
+/* 侧边栏基础拟态：保留内阴影增强深度感 */
+[data-testid="stSidebar"] {
+    background-color: #F0F4F8 !important;
+    box-shadow: inset -10px 0 20px #d1d9e6 !important;
+    border: none !important;
+}
+
+/* 侧边栏卡片：保持和你主界面一致的凸起感 */
+.sidebar-card {
+    background: #F0F4F8;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 15px;
+    box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+    color: #64B8FF;
+    font-weight: 600;
+    text-align: center;
+}
+
+/* 侧边栏内容 */
 with st.sidebar:
     st.markdown('''
     <div class="sidebar-card">
