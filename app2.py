@@ -282,7 +282,7 @@ with st.sidebar:
     </div>
         
     <div class="sidebar-card">
-        <div style="text-align: center; font-size: 1.1em; color: #64B8FF; font-weight: 600; margin-bottom: 10px">
+        <div style="text-align: center; font-size: 1.1em; color: #64B8FF; font-weight: 600; margin-bottom: 7px">
             上传提示 | TUTORIAL
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.25px; margin-left: 14px">
