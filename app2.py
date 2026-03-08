@@ -334,7 +334,7 @@ with st.sidebar:
 
     # --- 第二组: TUTORIAL ---
     st.markdown(f'''
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: -10px; padding-top: 50px; position: relative; z-index: 99;">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: -65px; padding-top: 20px; position: relative; z-index: 99;">
             <div style="
                 width: 102px; height: 102px; border-radius: 50%; 
                 background: #F0F4F8; display: flex; align-items: center; justify-content: center;
@@ -353,7 +353,7 @@ with st.sidebar:
     
     st.markdown('''
     <div class="sidebar-card">
-        <div style="text-align: center; font-size: 1.1em; color: #64B8FF; font-weight: 600; margin-bottom: 7px; margin-top: -50">
+        <div style="text-align: center; font-size: 1.1em; color: #64B8FF; font-weight: 600; margin-bottom: 7px">
             上传提示 | TUTORIAL
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.25px; margin-left: 14px">
