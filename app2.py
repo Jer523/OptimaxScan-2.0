@@ -20,7 +20,8 @@ st.markdown("""
 <style>
 /* 全局基础 */
 html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction:column; }
-.main .block-container { padding-top:10vh; max-width:750px; padding-bottom: 120px; }
+.main .block-container { padding-top:10vh; max-width:750px; padding-bottom: 120px; margin-left: auto !important;
+    margin-right: auto !important;}
 
 /* 标题卡片 */
 .title-card { 
@@ -272,7 +273,6 @@ st.markdown("""
     background-color: #F0F4F8 !important;
     box-shadow: inset -10px 0 20px #d1d9e6 !important;
     border: none !important;
-    margin-right:50px;
 }
 
 /* 侧边栏卡片：保持和主界面一致的凸起感 */
