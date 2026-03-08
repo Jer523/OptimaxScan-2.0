@@ -276,7 +276,7 @@ with st.sidebar:
         <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.4; margin-bottom: 1px;">
             支持多种格式批量上传
         </div>
-        <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 1.2px">
+        <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.8px">
             Mixed-Format Uploads
         </div>
     </div>
