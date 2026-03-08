@@ -363,12 +363,12 @@ with st.sidebar:
     st.markdown(f'''
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: -65px; padding-top: 20px; position: relative; z-index: 99;">
             <div style="
-                width: 98px; height: 98px; border-radius: 50%; 
+                width: 97px; height: 97px; border-radius: 50%; 
                 background: #F0F4F8; display: flex; align-items: center; justify-content: center;
                 box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
             ">
                 <div style="
-                    width: 88px; height: 88px; border-radius: 50%;
+                    width: 87px; height: 87px; border-radius: 50%;
                     background: #F0F4F8; display: flex; align-items: center; justify-content: center;
                     box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
                     border: 1px solid rgba(255,255,255,0.9);
@@ -399,12 +399,12 @@ with st.sidebar:
     st.markdown(f'''
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: -65px; margin-top: 30px; padding-top: 20px; position: relative; z-index: 99;">
             <div style="
-                width: 102px; height: 102px; border-radius: 50%; 
+                width: 97px; height: 97px; border-radius: 50%; 
                 background: #F0F4F8; display: flex; align-items: center; justify-content: center;
                 box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
             ">
                 <div style="
-                    width: 92px; height: 92px; border-radius: 50%;
+                    width: 87px; height: 87px; border-radius: 50%;
                     background: #F0F4F8; display: flex; align-items: center; justify-content: center;
                     box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
                     border: 1px solid rgba(255,255,255,0.9);
