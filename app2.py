@@ -75,6 +75,15 @@ div.stDownloadButton>button:active,
     max-height: 2000px !important; /* 给一个足够大的高度上限 */
     overflow: hidden !important;
     }
+    
+    [data-testid="stFileUploader"] ul {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
 /* 按钮动画 */
 button[kind="secondary"], div.stButton>button, div.stDownloadButton>button { transition: all .1s ease-in-out !important; }
