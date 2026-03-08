@@ -302,7 +302,6 @@ with st.sidebar:
             ">
                 <img src="data:image/png;base64,{Icon}" style="width: 80px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
             </div>
-            <div style="color: #BDC3C7; font-size: 13px; font-weight: 400; font-family: sans-serif; letter-spacing: 0.5px;">OptimaxScan v2.0</div>
         </div>
     ''', unsafe_allow_html=True)
     
