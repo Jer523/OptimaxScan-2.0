@@ -272,6 +272,7 @@ st.markdown("""
     background-color: #F0F4F8 !important;
     box-shadow: inset -10px 0 20px #d1d9e6 !important;
     border: none !important;
+    margin-right:100px;
 }
 
 /* 侧边栏卡片：保持和主界面一致的凸起感 */
@@ -281,7 +282,7 @@ st.markdown("""
     padding: 20px;
     margin: 15px;
     box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
-    color: #20B8FF;
+    color: #64B8FF;
     font-weight: 600;
     text-align: center;
     margin-bottom: 30px;
