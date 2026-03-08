@@ -99,29 +99,29 @@ transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.6s ease !imp
 button[kind="secondary"], div.stButton>button, div.stDownloadButton>button { transition: all .1s ease-in-out !important; }
 button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !important; border-radius:12px !important; box-shadow:4px 4px 8px #d1d9e6,-4px -4px 8px #ffffff !important; padding:0px 25px !important; height:38px !important; margin:10px 0 !important; border:none !important; }
 
-/* 为所有 PNG 图标添加蓝色阴影 */
+/* 为所有 PNG 图标添加高级感蓝色阴影 */
 .element-container, .stMarkdown, div[data-testid="stVerticalBlock"] > div {
     overflow: visible !important;
 }
 
+/* 统一强效自然蓝阴影 */
 img {
-    /* 颜色#64B8FF，并降低了透明度到 35% */
-    /* 三个数值分别代表：X偏移, Y偏移, 模糊半径 */
     filter: drop-shadow(0px 6px 15px rgba(100, 184, 255, 0.85)) !important;
     -webkit-filter: drop-shadow(0px 6px 15px rgba(100, 184, 255, 0.85)) !important;
-    transform: translateZ(0); /* 强制开启 GPU 加速，防止滤镜失效 */
+    transform: translateZ(0); 
+    transition: filter 0.3s ease;
 }
 
-img { filter: drop-shadow(4px 6px 10px rgba(100, 184, 255, 0.35)) !important; }
-
-/* 当鼠标悬停时，阴影稍微加强，增加互动感 */
+/* 鼠标悬停时发光增强 */
 img:hover {
-    filter: drop-shadow(6px 8px 15px rgba(100, 184, 255, 0.5));
+    filter: drop-shadow(0px 8px 20px rgba(100, 184, 255, 1.0)) !important;
+    -webkit-filter: drop-shadow(0px 8px 20px rgba(100, 184, 255, 1.0)) !important;
 }
 
-/* 侧边栏内的圆形头像框内的图标阴影微调 */
+/* 侧边栏内的圆形头像框内的图标阴影微调（稍微收敛一点） */
 [data-testid="stSidebar"] img {
-    filter: drop-shadow(2px 4px 8px rgba(100, 184, 255, 0.25));
+    filter: drop-shadow(2px 4px 10px rgba(100, 184, 255, 0.6)) !important;
+    -webkit-filter: drop-shadow(2px 4px 10px rgba(100, 184, 255, 0.6)) !important;
 }
 
 /* 手机端精准适配 */
