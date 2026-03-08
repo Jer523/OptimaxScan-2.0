@@ -274,32 +274,7 @@ st.markdown("""
     box-shadow: inset -10px 0 20px #d1d9e6 !important;
     border: none !important;
 }
-</style>
-""", unsafe_allow_html=True)
 
-with st.sidebar:
-# --- Icon Header ---
-    st.markdown(f'''
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 25px; padding-top: 20px;">
-            <div style="
-                width: 105px; height: 105px; border-radius: 50%; 
-                background: #F0F4F8; display: flex; align-items: center; justify-content: center;
-                box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
-                margin-bottom: -55px;
-            ">
-                <div style="
-                    width: 92px; height: 92px; border-radius: 50%;
-                    background: #F0F4F8; display: flex; align-items: center; justify-content: center;
-                    box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
-                    border: 1px solid rgba(255,255,255,0.9);
-                ">
-                <img src="data:image/png;base64,{Icon}" style="width: 60px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
-            </div>
-        </div>
-    ''', unsafe_allow_html=True)
-    
-st.markdown("""
-<style>
 /* 侧边栏卡片：保持和主界面一致的凸起感 */
 .sidebar-card {
     background: #F0F4F8;
@@ -314,8 +289,29 @@ st.markdown("""
 }
 </style>
 """, unsafe_allow_html=True)
+
+with st.sidebar:
+# --- Icon Header ---
+    st.markdown(f'''
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 25px; padding-top: 20px;">
+            <div style="
+                width: 105px; height: 105px; border-radius: 50%; 
+                background: #F0F4F8; display: flex; align-items: center; justify-content: center;
+                box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+                margin-bottom: -5px;
+            ">
+                <div style="
+                    width: 92px; height: 92px; border-radius: 50%;
+                    background: #F0F4F8; display: flex; align-items: center; justify-content: center;
+                    box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
+                    border: 1px solid rgba(255,255,255,0.9);
+                ">
+                <img src="data:image/png;base64,{Icon}" style="width: 60px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
+            </div>
+        </div>
+    ''', unsafe_allow_html=True)
     
-st.markdown('''
+    st.markdown('''
     <div class="sidebar-card">
         <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-bottom: 1px;">
             支持格式 | FORMATS
