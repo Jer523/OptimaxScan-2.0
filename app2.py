@@ -460,7 +460,10 @@ unsafe_allow_html=True
 
     if st.button(" ",use_container_width=True, key="refine_btn"):
         all_processed_bytes = []
-        progress_bar=st.progress(0)
+        progress_bar = st.progress(0.02)   # 先显示一点颜色
+        virtual_progress = 0.02            # 当前显示进度
+        real_progress = 0                  # 真实进度
+        smoothing = 0.18                   # 平滑系数
         
         for idx, file in enumerate(uploaded_files):
             file_bytes = file.read()
@@ -485,7 +488,9 @@ unsafe_allow_html=True
                     page_bytes = process_and_compress_to_letter(processed_img)
                 all_processed_bytes.append(page_bytes)
             
-            progress_bar.progress((idx+1)/len(uploaded_files))
+            real_progress = (idx + 1) / len(uploaded_files)
+            virtual_progress += (real_progress - virtual_progress) * smoothing
+            progress_bar.progress(virtual_progress)
 
         st.markdown(f'''<div class="status-text" style="display:flex;align-items:center;letter-spacing:-0.35px;"><img src="data:image/png;base64,{check_mark}" style="width:22px;margin-right:8px;"> 处理完成 | TASKS COMPLETE</div>''',unsafe_allow_html=True)
         st.markdown(f'''<div style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{download}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">保存文件 | DOWNLOAD PDF</span></div>''',unsafe_allow_html=True)
