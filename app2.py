@@ -67,7 +67,7 @@ div.stDownloadButton>button:active,
     background-color: transparent !important;
     border: none !important;
     display: flex !important;
-}
+} 
 
 /* 上传文件 */
 .stFileUploader{ background: #F0F4F8 !important;
@@ -127,8 +127,7 @@ button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !importan
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
-    min-height: 100px !important;
-    padding: 10px 0 !important;
+    min-height: 150px !important;
 }
 
 /* 穿透到内部文字容器，强制其内容水平居中 */
