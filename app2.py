@@ -301,7 +301,7 @@ with st.sidebar:
                 margin-bottom: 5px;
             ">
                 <div style="
-                    width: 85px; height: 85px; border-radius: 50%;
+                    width: 85px; height: 85px; border-radius: 80%;
                     background: #F0F4F8; display: flex; align-items: center; justify-content: center;
                     box-shadow: inset 6px 6px 10px #d1d9e6, inset -6px -6px 10px #ffffff;
                     border: 1px solid rgba(255,255,255,0.8);
