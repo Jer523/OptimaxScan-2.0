@@ -264,7 +264,20 @@ animation:optimaxShine 2s linear infinite;
 100%{left:120%;}
 }
 
+/* Footer */
 
+.footer{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#F0F4F8;
+text-align:center;
+color:#BDC3C7;
+font-size:13px;
+padding-bottom:20px;
+z-index:999;
+}
 
 </style>
 """, unsafe_allow_html=True)
@@ -361,20 +374,5 @@ if uploaded_files:
 # =====================================================================
 # 📍 7. 页面底部 | Footer
 # =====================================================================
-
-/* Footer */
-
-.footer{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-background:#F0F4F8;
-text-align:center;
-color:#BDC3C7;
-font-size:13px;
-padding-bottom:20px;
-z-index:999;
-}
 
 st.markdown('<div class="footer">Optimax Scan Engine v2.0 | © 2026 Jerry Yin</div>',unsafe_allow_html=True)
