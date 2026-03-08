@@ -71,38 +71,19 @@ div.stDownloadButton>button:active,
     border: 1px solid rgba(255,255,255,0.5) !important;
     
 /* --- 新增：平滑平展动画 --- */
-/* 强制执行高度过渡 */
-    display: flex !important;
-    flex-direction: column !important;
-    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1) !important;
-    max-height: 2500px !important;
+transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.6s ease !important;
+    max-height: 2000px !important; 
+    overflow: hidden !important;
 }
 
-/* 针对内部所有子元素的进入动画 */
-[data-testid="stFileUploader"] > section > div {
-    animation: slideDownFade 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards !important;
-}
-
-/* 针对上传后的列表条目 */
+/* 针对内部列表的平滑处理 */
 [data-testid="stFileUploader"] ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px 0;
-    transition: all 0.5s ease;
+    animation: fadeIn 0.5s ease-out forwards;
 }
 
-/* 定义滑入并淡出的关键帧 */
-@keyframes slideDownFade {
-    0% { 
-        opacity: 0; 
-        transform: translateY(-15px) scaleY(0.95); 
-        max-height: 0;
-    }
-    100% { 
-        opacity: 1; 
-        transform: translateY(0) scaleY(1);
-        max-height: 1000px;
-    }
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* 按钮动画 */
