@@ -318,4 +318,6 @@ unsafe_allow_html=True
         final_pdf = img2pdf.convert(all_processed_bytes)
         st.download_button(label=" ", data=final_pdf, file_name="Optimax_Refined.pdf", mime="application/pdf", use_container_width=True)
 
+# --- 6. Footnotes ---
+
 st.markdown('<div class="footer">Optimax Scan Engine v2.0 | © 2026 Jerry Yin</div>',unsafe_allow_html=True)
