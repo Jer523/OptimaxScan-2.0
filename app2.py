@@ -333,8 +333,8 @@ with st.sidebar:
     ''', unsafe_allow_html=True)
 
   st.markdown(f'''
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: -65px; padding-top: 100px; position: relative; z-index: 99;">
-            <div style="
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: -65px; padding-top: 100px; position: relative; z-index: 99;">
+        <div style="
                 width: 102px; height: 102px; border-radius: 50%; 
                 background: #F0F4F8; display: flex; align-items: center; justify-content: center;
                 box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
@@ -344,7 +344,7 @@ with st.sidebar:
                     background: #F0F4F8; display: flex; align-items: center; justify-content: center;
                     box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
                     border: 1px solid rgba(255,255,255,0.9);
-                ">
+                 ">
                 <img src="data:image/png;base64,{Icon}" style="width: 60px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
             </div>
         </div>
