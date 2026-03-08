@@ -275,11 +275,8 @@ def process_scan_layered_from_mem(pil_img, is_small):
         )
 
         final = cv2.addWeighted(enhanced, 0.75, res, 0.25, 0)
-
         final[valid_black_mask == 255] = 0
-
         final = cv2.medianBlur(final, 3)
-
         final = cv2.fastNlMeansDenoising(
             final, None,
             h=12,
