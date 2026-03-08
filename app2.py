@@ -127,7 +127,8 @@ button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !importan
     justify-content: center !important;
     align-items: center !important;
     width: 100% !important;
-    min-height: 150px !important; /* 保证凹陷区有足够高度 */
+    min-height: 120px !important;
+    padding: 10px 0 !important;
 }
 
 /* 穿透到内部文字容器，强制其内容水平居中 */
