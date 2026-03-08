@@ -363,7 +363,7 @@ with st.sidebar:
     st.markdown(f'''
         <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: -65px; padding-top: 20px; position: relative; z-index: 99;">
             <div style="
-                width: 102px; height: 102px; border-radius: 50%; 
+                width: 102px; height: 102px; border-radius: 40%; 
                 background: #F0F4F8; display: flex; align-items: center; justify-content: center;
                 box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
             ">
