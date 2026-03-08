@@ -262,10 +262,10 @@ div[data-testid="stProgressBar"]{
 with st.sidebar:
     st.markdown('''
     <div class="sidebar-card">
-        <div style="text-align: center; font-weight: bold; margin-bottom: 12px;">
+        <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-bottom: 12px;">
             设置 | SETTINGS
         </div>
-        <div style="text-align: left; font-size: 0.9em; opacity: 0.85; line-height: 1.5;">
+        <div style="text-align: left; font-size: 0.85em; color: #A0AEC0; font-weight: 400; line-height: 1.6;">
             💡 提示：支持 PDF, PNG, JPG 及 HEIC 格式。
         </div>
     </div>
