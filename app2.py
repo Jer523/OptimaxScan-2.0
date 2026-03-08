@@ -4,6 +4,7 @@ import numpy as np
 from PIL import Image, ImageOps
 import img2pdf
 import io
+import base64
 from pdf2image import convert_from_bytes
 
 # --- 1. 深度拟态 UI 配置 ---
@@ -104,7 +105,6 @@ button:active, div.stButton>button:active, div.stDownloadButton>button:active {
 """, unsafe_allow_html=True)
 
 def get_base64(path):
-    import base64
     try:
         with open(path,"rb") as f:
             return base64.b64encode(f.read()).decode()
