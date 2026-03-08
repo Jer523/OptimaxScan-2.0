@@ -4,7 +4,6 @@ import numpy as np
 from PIL import Image, ImageOps
 import img2pdf
 import io
-import os
 from pdf2image import convert_from_bytes
 
 # --- 1. 深度拟态 UI 配置 ---
