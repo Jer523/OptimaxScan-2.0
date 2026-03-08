@@ -266,11 +266,11 @@ st.markdown("""
 with st.sidebar:
     st.markdown('''
     <div class="sidebar-card">
-        <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-bottom: 8px;">
+        <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-bottom: 6px;">
             支持格式 | FORMATS
         </div>
-        <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.6;">
-            PDF, PNG, JPG, HEIC
+        <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 1.5px;">
+            PDF, JPG, PNG, HEIC
         </div>
     </div>
     ''', unsafe_allow_html=True)
