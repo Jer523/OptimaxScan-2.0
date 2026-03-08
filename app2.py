@@ -260,6 +260,8 @@ st.markdown("""
     font-weight: 600;
     text-align: center;
 }
+</style>
+""", unsafe_allow_html=True)
 
 with st.sidebar:
     st.markdown('''
