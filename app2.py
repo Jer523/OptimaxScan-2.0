@@ -300,7 +300,7 @@ with st.sidebar:
             Standard 8.5×11 Layout
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; margin-left: 14px">  
-            3. 获取黑白扫描 | Download B&W PDF
+            3. 获取黑白件 | Save B&W SCAN
         </div>
     </div>
     ''', unsafe_allow_html=True)
