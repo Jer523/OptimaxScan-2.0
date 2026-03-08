@@ -20,8 +20,7 @@ st.markdown("""
 <style>
 /* 全局基础 */
 html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction:column; }
-.main .block-container { padding-top:10vh; max-width:750px; padding-bottom: 120px; margin-left: auto !important;
-    margin-right: auto !important;}
+.main .block-container { padding-top:10vh; max-width:750px; padding-bottom: 120px; }
 
 /* 标题卡片 */
 .title-card { 
