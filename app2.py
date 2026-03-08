@@ -178,7 +178,7 @@ def process_scan_layered_from_mem(pil_img, is_small):
     
     return Image.fromarray(cv2.cvtColor(final, cv2.COLOR_GRAY2RGB))
 
-# --- 3. 流光动画 ---
+# --- 3. 进度条动画 ---
 st.markdown("""
 <style>
 .stFileUploader{ background: #F0F4F8 !important;
@@ -239,7 +239,7 @@ div[data-testid="stProgressBar"]{
 </style>
 """,unsafe_allow_html=True)
 
-# --- 4. 侧边栏内容 ---
+# --- 4. 侧边栏 ---
 st.markdown("""
 <style>
 /* 侧边栏基础拟态 */
@@ -270,7 +270,7 @@ with st.sidebar:
             设置 | SETTINGS
         </div>
         <div style="text-align: left; font-size: 0.85em; color: #A0AEC0; font-weight: 400; line-height: 1.6;">
-            💡 提示：支持 PDF, PNG, JPG 及 HEIC 格式。
+            支持 PDF, PNG, JPG 及 HEIC 格式。
         </div>
     </div>
     ''', unsafe_allow_html=True)
