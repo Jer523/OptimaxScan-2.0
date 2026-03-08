@@ -101,9 +101,9 @@ button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !importan
 
 /* 为所有 PNG 图标添加高级感蓝色阴影 */
 img {
-    /* 这里的颜色使用了 #64B8FF，并降低了透明度到 35% */
+    /* 颜色#64B8FF，并降低了透明度到 35% */
     /* 三个数值分别代表：X偏移, Y偏移, 模糊半径 */
-    filter: drop-shadow(4px 6px 10px rgba(100, 184, 255, 0.35));
+    filter: drop-shadow(4px 6px 10px rgba(100, 184, 255, 0.99));
     transition: filter 0.3s ease; /* 增加平滑过渡 */
 }
 
