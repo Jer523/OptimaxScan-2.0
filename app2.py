@@ -283,7 +283,7 @@ with st.sidebar:
         
     <div class="sidebar-card">
         <div style="text-align: center; font-size: 1.1em; color: #64B8FF; font-weight: 600; margin-bottom: 4.5px;">
-            上传提示 | TIPS
+            上传提示 | TUTORIAL
         </div>
     </div>
     ''', unsafe_allow_html=True)
