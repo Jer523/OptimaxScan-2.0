@@ -373,7 +373,7 @@ with st.sidebar:
                     box-shadow: inset 4px 4px 8px #d1d9e6, inset -4px -4px 8px #ffffff;
                     border: 1px solid rgba(255,255,255,0.9);
                 ">
-                <img src="data:image/png;base64,{Icon}" style="width: 60px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
+                <img src="data:image/png;base64,{Icon}" style="width: 55px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
             </div>
         </div>
     ''', unsafe_allow_html=True)
