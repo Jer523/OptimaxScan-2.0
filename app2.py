@@ -267,10 +267,10 @@ with st.sidebar:
     st.markdown('''
     <div class="sidebar-card">
         <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-bottom: 12px;">
-            设置 | SETTINGS
+            兼容格式 | COMPATIBILITY
         </div>
         <div style="text-align: left; font-size: 0.85em; color: #A0AEC0; font-weight: 400; line-height: 1.6;">
-            支持 PDF, PNG, JPG 及 HEIC 格式。
+            PDF, PNG, JPG, HEIC
         </div>
     </div>
     ''', unsafe_allow_html=True)
