@@ -279,7 +279,7 @@ st.markdown("""
 .sidebar-card {
     background: #F0F4F8;
     border-radius: 20px;
-    padding: 60px 20px 25px 20px;
+    padding: 80px 20px 25px 20px;
     margin: 15px;
     box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
     color: #64B8FF;
