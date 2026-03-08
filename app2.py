@@ -489,8 +489,8 @@ unsafe_allow_html=True
                 all_processed_bytes.append(page_bytes)
             
             real_progress = (idx + 1) / len(uploaded_files)
-            virtual_progress += (real_progress - virtual_progress) * smoothing
-            progress_bar.progress(virtual_progress)
+            display_progress += 0.015 # 时间驱动推进
+            display_progress = min(display_progress, real_progress) # 不允许超过真实进度
             progress_bar.progress(1.0)
 
         st.markdown(f'''<div class="status-text" style="display:flex;align-items:center;letter-spacing:-0.35px;"><img src="data:image/png;base64,{check_mark}" style="width:22px;margin-right:8px;"> 处理完成 | TASKS COMPLETE</div>''',unsafe_allow_html=True)
