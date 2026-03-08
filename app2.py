@@ -273,9 +273,11 @@ with st.sidebar:
         <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 1.2px; margin-bottom: 10px;">
             PDF, JPG, PNG, HEIC
         </div>
-        <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.4;">
-            支持多种格式批量上传<br>
-            Mixed-format uploads
+        <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.4; margin-bottom: 1px;">
+            支持多种格式批量上传
+        </div>
+        <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 1.2px">
+            Mixed-Format Uploads
         </div>
     </div>
         
