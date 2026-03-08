@@ -269,7 +269,7 @@ with st.sidebar:
         <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-bottom: 12px;">
             兼容格式 | COMPATIBILITY
         </div>
-        <div style="text-align: left; font-size: 0.85em; color: #A0AEC0; font-weight: 400; line-height: 1.6;">
+        <div style="text-align: center; font-size: 0.85em; color: #A0AEC0; font-weight: 400; line-height: 1.6;">
             PDF, PNG, JPG, HEIC
         </div>
     </div>
