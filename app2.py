@@ -48,8 +48,12 @@ div.stButton>button, div.stDownloadButton>button {
     background:#F0F4F8 !important; color:#64B8FF !important; border-radius:20px !important; border:none !important; 
     box-shadow:10px 10px 20px #d1d9e6, -10px -10px 20px #ffffff !important; font-weight:bold !important; height:65px !important; width:100% !important; 
 }
-button:active, div.stButton>button:active, div.stDownloadButton>button:active { 
-    box-shadow: inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff !important; transform: translateY(2px) !important; 
+button:active,
+div.stButton>button:active,
+div.stDownloadButton>button:active,
+[data-testid="stFileUploader"] button:active { 
+    box-shadow: inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff !important;
+    transform: translateY(2px) !important; 
 }
 
 [data-testid="stFileUploaderDropzone"] {
