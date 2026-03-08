@@ -106,7 +106,7 @@ button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !importan
 
 /* 统一强效自然蓝阴影 */
 img {
-    filter: drop-shadow(0px 6px 15px rgba(100, 184, 255, 0.85)) !important;
+    filter: drop-shadow(0px 6px 15px rgba(100, 184, 255, 0.35)) !important;
     -webkit-filter: drop-shadow(0px 6px 15px rgba(100, 184, 255, 0.85)) !important;
     transform: translateZ(0); 
     transition: filter 0.3s ease;
