@@ -208,8 +208,6 @@ st.markdown("""
 /* 按钮动画 */
 button[kind="secondary"], div.stButton>button, div.stDownloadButton>button { transition: all .1s ease-in-out !important; }
 button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !important; border-radius:12px !important; box-shadow:4px 4px 8px #d1d9e6,-4px -4px 8px #ffffff !important; padding:0px 25px !important; height:38px !important; margin:10px 0 !important; border:none !important; }
-div.stButton>button, div.stDownloadButton>button{ background:#F0F4F8 !important; color:#64B8FF !important; border-radius:20px !important; border:none !important; box-shadow:10px 10px 20px #d1d9e6, -10px -10px 20px #ffffff !important; font-weight:bold !important; height:65px !important; width:100% !important; }
-button:active, div.stButton>button:active, div.stDownloadButton>button:active { box-shadow: inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff !important; transform: translateY(2px) !important; }
 
 .status-text{ color:#64B8FF !important; font-weight:600; text-align:left !important; margin:20px 0 28px 0; margin-left:0.25em; }
 
