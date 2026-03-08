@@ -272,7 +272,7 @@ st.markdown("""
     background-color: #F0F4F8 !important;
     box-shadow: inset -10px 0 20px #d1d9e6 !important;
     border: none !important;
-    margin-right:100px;
+    margin-right:10px;
 }
 
 /* 侧边栏卡片：保持和主界面一致的凸起感 */
