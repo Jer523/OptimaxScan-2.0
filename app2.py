@@ -103,7 +103,7 @@ button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !importan
 img {
     /* 颜色#64B8FF，并降低了透明度到 35% */
     /* 三个数值分别代表：X偏移, Y偏移, 模糊半径 */
-    filter: drop-shadow(4px 6px 10px rgba(100, 184, 255, 0.80));
+    filter: drop-shadow(0px 0px 15px rgba(255, 0, 0, 1))!important;
     transition: filter 0.3s ease; /* 增加平滑过渡 */
 }
 
