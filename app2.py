@@ -99,12 +99,17 @@ transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.6s ease !imp
 button[kind="secondary"], div.stButton>button, div.stDownloadButton>button { transition: all .1s ease-in-out !important; }
 button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !important; border-radius:12px !important; box-shadow:4px 4px 8px #d1d9e6,-4px -4px 8px #ffffff !important; padding:0px 25px !important; height:38px !important; margin:10px 0 !important; border:none !important; }
 
-/* 为所有 PNG 图标添加高级感蓝色阴影 */
+/* 为所有 PNG 图标添加蓝色阴影 */
+.element-container, .stMarkdown, div[data-testid="stVerticalBlock"] > div {
+    overflow: visible !important;
+}
+
 img {
     /* 颜色#64B8FF，并降低了透明度到 35% */
     /* 三个数值分别代表：X偏移, Y偏移, 模糊半径 */
-    filter: drop-shadow(0px 0px 15px rgba(255, 0, 0, 1))!important;
-    transition: filter 0.3s ease; /* 增加平滑过渡 */
+    filter: drop-shadow(0px 6px 15px rgba(100, 184, 255, 0.85)) !important;
+    -webkit-filter: drop-shadow(0px 6px 15px rgba(100, 184, 255, 0.85)) !important;
+    transform: translateZ(0); /* 强制开启 GPU 加速，防止滤镜失效 */
 }
 
 img { filter: drop-shadow(4px 6px 10px rgba(100, 184, 255, 0.35)) !important; }
