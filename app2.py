@@ -284,7 +284,7 @@ st.markdown("""
 .sidebar-card {
     background: #F0F4F8;
     border-radius: 20px;
-    padding: 70px 20px 25px 20px;
+    padding: 100px 20px 25px 20px;
     margin: 15px;
     box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
     color: #64B8FF;
@@ -333,7 +333,7 @@ with st.sidebar:
     ''', unsafe_allow_html=True)
 
     st.markdown(f'''
-    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 0px; padding-top: 22px; position: relative; z-index: 99;">
+    <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: -65px; padding-top: 22px; position: relative; z-index: 99;">
         <div style="
                 width: 102px; height: 102px; border-radius: 50%; 
                 background: #F0F4F8; display: flex; align-items: center; justify-content: center;
