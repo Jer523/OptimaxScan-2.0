@@ -300,6 +300,12 @@ with st.sidebar:
                 box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
                 margin-bottom: 5px;
             ">
+                <div style="
+                    width: 85px; height: 85px; border-radius: 50%;
+                    background: #F0F4F8; display: flex; align-items: center; justify-content: center;
+                    box-shadow: inset 6px 6px 10px #d1d9e6, inset -6px -6px 10px #ffffff;
+                    border: 1px solid rgba(255,255,255,0.8);
+                ">
                 <img src="data:image/png;base64,{Icon}" style="width: 60px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
             </div>
         </div>
