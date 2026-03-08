@@ -298,7 +298,7 @@ with st.sidebar:
                 width: 105px; height: 105px; border-radius: 50%; 
                 background: #F0F4F8; display: flex; align-items: center; justify-content: center;
                 box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
-                margin-bottom: 5px;
+                margin-bottom: -55px;
             ">
                 <div style="
                     width: 92px; height: 92px; border-radius: 50%;
