@@ -291,7 +291,7 @@ with st.sidebar:
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: -0.05px; margin-left: 14px">
             2. 智能优化 | Start Refining
         </div>
-            <div style="text-align: left; font-size: 0.7em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.7px; margin-left: 28px">
+            <div style="text-align: left; font-size: 0.7em; font-style: italic; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.7px; margin-left: 28px">
             分析: 智能修复光线/清晰度<br>
             Auto-fix light and clarity<br>
             压缩: 体积优化，画质无损<br>
