@@ -300,7 +300,7 @@ with st.sidebar:
             Standard 8.5×11 Layout
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; margin-left: 14px">  
-            3. 获取黑白件 | Export B&W
+            3. 保存黑白 | Export B&W
         </div>
     </div>
     ''', unsafe_allow_html=True)
