@@ -315,7 +315,7 @@ with st.sidebar:
         </div>
     ''', unsafe_allow_html=True)
   
-    st.markdown('''
+
     <div class="sidebar-card">
         <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-bottom: 1px;">
             支持格式 | FORMATS
