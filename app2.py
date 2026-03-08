@@ -300,7 +300,7 @@ with st.sidebar:
                 box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
                 margin-bottom: 5px;
             ">
-                <img src="data:image/png;base64,{Icon}" style="width: 80px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
+                <img src="data:image/png;base64,{Icon}" style="width: 50px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
             </div>
         </div>
     ''', unsafe_allow_html=True)
