@@ -313,7 +313,9 @@ with st.sidebar:
                 <img src="data:image/png;base64,{Icon}" style="width: 60px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
             </div>
         </div>
-
+    ''', unsafe_allow_html=True)
+    
+    st.markdown('''
     <div class="sidebar-card">
         <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-bottom: 1px;">
             支持格式 | FORMATS
