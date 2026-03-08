@@ -6,6 +6,8 @@ import img2pdf
 import io
 import base64
 from pdf2image import convert_from_bytes
+from pillow_heif import register_heif_opener
+register_heif_opener()
 
 # --- 1. 深度拟态 UI 配置 ---
 st.set_page_config(
