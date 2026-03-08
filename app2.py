@@ -285,13 +285,13 @@ with st.sidebar:
         <div style="text-align: center; font-size: 1.1em; color: #64B8FF; font-weight: 600; margin-bottom: 10px;">
             上传提示 | TUTORIAL
         </div>
-        <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; margin-bottom: 1px;">
+        <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; margin-bottom: 5px;">
             1. 上传素材 | Upload Files<br>
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6">
             2. 智能优化 | Start Refining
         </div>
-            <div style="text-align: left; font-size: 0.7em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.7px; margin-bottom: 1px;">
+            <div style="text-align: left; font-size: 0.7em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.7px; margin-bottom: 5px;">
             分析: 光线/清晰度自适应修复<br>
             Auto-fix light and clarity<br>
             压缩: 体积优化，画质无损<br>
