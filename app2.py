@@ -26,7 +26,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
 .title-card { 
     width: 100%; background:#F0F4F8; border-radius:30px; 
     box-shadow:15px 15px 35px #d1d9e6, -15px -15px 35px #ffffff; 
-    padding:45px 20px; text-align:center; margin-bottom:45px; 
+    padding:45px 20px; text-align:center; margin-bottom:39px; 
 }
 .main-title { 
     font-weight:800; font-size:52px; 
