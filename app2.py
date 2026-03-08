@@ -285,6 +285,15 @@ with st.sidebar:
         <div style="text-align: center; font-size: 1.1em; color: #64B8FF; font-weight: 600; margin-bottom: 4.5px;">
             上传提示 | TUTORIAL
         </div>
+         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6">
+            1. 上传素材<br>
+            2. 开始优化:<br>
+            分析： 光线/清晰度自适应修复<br>
+            压缩： 体积优化，画质无损<br>
+            排版： 统一 Letter Size 布局<br>
+            3. 获取结果<br>
+            合并生成黑白扫描 PDF，点击“保存文件”。
+        </div>
     </div>
     ''', unsafe_allow_html=True)
 
