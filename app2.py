@@ -279,7 +279,7 @@ st.markdown("""
 .sidebar-card {
     background: #F0F4F8;
     border-radius: 20px;
-    padding: 20px;
+    padding: 60px 20px 20px 20px;
     margin: 15px;
     box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
     color: #64B8FF;
@@ -301,7 +301,7 @@ with st.sidebar:
                 margin-bottom: 5px;
             ">
                 <div style="
-                    width: 85px; height: 85px; border-radius: 80%;
+                    width: 85px; height: 85px; border-radius: 50%;
                     background: #F0F4F8; display: flex; align-items: center; justify-content: center;
                     box-shadow: inset 6px 6px 10px #d1d9e6, inset -6px -6px 10px #ffffff;
                     border: 1px solid rgba(255,255,255,0.8);
