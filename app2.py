@@ -153,6 +153,7 @@ folder=get_base64("Folder.png")
 star=get_base64("Star.png")
 check_mark=get_base64("Check Mark.png")
 download=get_base64("download.png")
+Icon=get_base64("OptimaxScan Icon.png")
 
 # --- 2. 注入原始脚本的核心功能内核 ---
 
