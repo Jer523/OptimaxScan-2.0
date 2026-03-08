@@ -62,6 +62,17 @@ div.stDownloadButton>button:active,
     display: flex !important;
 }
 
+/* 上传文件 */
+.stFileUploader{ background: #F0F4F8 !important;
+    border-radius: 20px !important;
+    box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff !important;
+    padding: 20px !important;
+    border: 1px solid rgba(255,255,255,0.5) !important; }
+
+/* 按钮动画 */
+button[kind="secondary"], div.stButton>button, div.stDownloadButton>button { transition: all .1s ease-in-out !important; }
+button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !important; border-radius:12px !important; box-shadow:4px 4px 8px #d1d9e6,-4px -4px 8px #ffffff !important; padding:0px 25px !important; height:38px !important; margin:10px 0 !important; border:none !important; }
+
 /* 手机端精准适配 */
 @media (max-width: 768px) {
     /* 标题微调 */
@@ -181,16 +192,6 @@ def process_scan_layered_from_mem(pil_img, is_small):
 # --- 3. 进度条动画 ---
 st.markdown("""
 <style>
-.stFileUploader{ background: #F0F4F8 !important;
-    border-radius: 20px !important;
-    box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff !important;
-    padding: 20px !important;
-    border: 1px solid rgba(255,255,255,0.5) !important; }
-
-/* 按钮动画 */
-button[kind="secondary"], div.stButton>button, div.stDownloadButton>button { transition: all .1s ease-in-out !important; }
-button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !important; border-radius:12px !important; box-shadow:4px 4px 8px #d1d9e6,-4px -4px 8px #ffffff !important; padding:0px 25px !important; height:38px !important; margin:10px 0 !important; border:none !important; }
-
 /* --- 进度条流动与流光核 --- */
 div[data-testid="stProgressBar"]{
     margin-left:0.25em;
