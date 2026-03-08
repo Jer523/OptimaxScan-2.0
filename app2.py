@@ -24,7 +24,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
 
 /* 标题卡片 */
 .title-card { 
-    width: 100%; background:#F0F4F8; border-radius:30px; 
+    width: 100%; background:#F0F4F8; border-radius:f30px; 
     box-shadow:15px 15px 35px #d1d9e6, -15px -15px 35px #ffffff; 
     padding:45px 20px; text-align:center; margin-bottom:39px; 
 }
@@ -320,7 +320,7 @@ with st.sidebar:
         <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-bottom: 1px;">
             支持格式 | FORMATS
         </div>
-        <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 1.2px; margin-bottom: 10px;">
+        <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 1.2px; margin-bottom: 40px;">
             PDF, JPG, PNG, HEIC
         </div>
         <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.4; margin-bottom: 1px;">
