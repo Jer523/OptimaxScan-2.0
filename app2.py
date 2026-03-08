@@ -285,12 +285,16 @@ with st.sidebar:
         <div style="text-align: center; font-size: 1.1em; color: #64B8FF; font-weight: 600; margin-bottom: 10px;">
             上传提示 | TUTORIAL
         </div>
-         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6">
+        <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6">
             1. 上传素材 | Upload Files<br>
-            2. 开始优化 | Start Refining<br>
+            2. 开始优化 | Start Refining
+        </div>
+            <div style="text-align: center; font-size: 0.7em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.7px">
             分析: 光线/清晰度自适应修复<br>
             压缩: 体积优化，画质无损<br>
             排版: 统一 Letter Size 布局<br>
+        </div>
+        <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6">  
             3. 点击“保存文件”，获取黑白扫描 PDF
         </div>
     </div>
