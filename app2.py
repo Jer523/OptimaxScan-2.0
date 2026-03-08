@@ -240,14 +240,14 @@ div[data-testid="stProgressBar"]{
 """,unsafe_allow_html=True)
 
 # --- 4. 侧边栏内容 ---
-/* 侧边栏基础拟态：保留内阴影增强深度感 */
+/* 1. 侧边栏基础拟态：保留内阴影增强深度感 */
 [data-testid="stSidebar"] {
     background-color: #F0F4F8 !important;
     box-shadow: inset -10px 0 20px #d1d9e6 !important;
     border: none !important;
 }
 
-/* 侧边栏卡片：保持和你主界面一致的凸起感 */
+/* 2. 侧边栏卡片：保持和你主界面一致的凸起感 */
 .sidebar-card {
     background: #F0F4F8;
     border-radius: 20px;
@@ -259,7 +259,6 @@ div[data-testid="stProgressBar"]{
     text-align: center;
 }
 
-/* 侧边栏内容 */
 with st.sidebar:
     st.markdown('''
     <div class="sidebar-card">
