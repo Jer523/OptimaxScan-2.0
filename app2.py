@@ -461,6 +461,7 @@ unsafe_allow_html=True
     if st.button(" ",use_container_width=True, key="refine_btn"):
         all_processed_bytes = []
         progress_bar = st.progress(0.01)   # 先显示一点颜色
+        display_progress = 0.001           # 初始化
         virtual_progress = 0.02            # 当前显示进度
         real_progress = 0                  # 真实进度
         smoothing = 0.18                   # 平滑系数
@@ -489,8 +490,8 @@ unsafe_allow_html=True
                 all_processed_bytes.append(page_bytes)
             
             real_progress = (idx + 1) / len(uploaded_files)
-            display_progress += 0.015 # 时间驱动推进
-            display_progress = min(display_progress, real_progress) # 不允许超过真实进度
+            dvirtual_progress += (real_progress - virtual_progress) * smoothing
+            progress_bar.progress(virtual_progress)
             progress_bar.progress(1.0)
 
         st.markdown(f'''<div class="status-text" style="display:flex;align-items:center;letter-spacing:-0.35px;"><img src="data:image/png;base64,{check_mark}" style="width:22px;margin-right:8px;"> 处理完成 | TASKS COMPLETE</div>''',unsafe_allow_html=True)
