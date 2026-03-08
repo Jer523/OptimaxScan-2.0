@@ -4,7 +4,7 @@ import numpy as np
 from PIL import Image, ImageOps
 import img2pdf
 import io
-import base64
+import base64if uploaded_files:
 from pdf2image import convert_from_bytes
 
 # --- 1. 深度拟态 UI 配置 ---
@@ -89,6 +89,24 @@ transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.6s ease !imp
 /* 按钮动画 */
 button[kind="secondary"], div.stButton>button, div.stDownloadButton>button { transition: all .1s ease-in-out !important; }
 button[kind="secondary"]{ background:#F0F4F8 !important; color:#64B8FF !important; border-radius:12px !important; box-shadow:4px 4px 8px #d1d9e6,-4px -4px 8px #ffffff !important; padding:0px 25px !important; height:38px !important; margin:10px 0 !important; border:none !important; }
+
+/* --- 全站通用淡入动画引擎 --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 只要给任何 HTML 标签加上 class="fade-in-up"，它就不会闪现 */
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* 自动应用于后续所有闪现的 Streamlit 动态组件 */
+.status-text, 
+div:has(> .refine-text-container) + div, 
+div[data-testid="stProgressBar"] {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
 
 /* 手机端精准适配 */
 @media (max-width: 768px) {
