@@ -293,7 +293,7 @@ st.markdown("""
 with st.sidebar:
 # --- Icon Header ---
     st.markdown(f'''
-        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: -75px; padding-top: 20px; position: relative; z-index: 99;">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: -65px; padding-top: 20px; position: relative; z-index: 99;">
             <div style="
                 width: 105px; height: 105px; border-radius: 50%; 
                 background: #F0F4F8; display: flex; align-items: center; justify-content: center;
