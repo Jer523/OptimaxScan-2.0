@@ -70,6 +70,19 @@ div.stDownloadButton>button:active,
     margin-bottom:139px
     border: 1px solid rgba(255,255,255,0.5) !important;
     
+/* --- 新增：平滑平展动画 --- */
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+    max-height: 2000px !important; /* 给一个足够大的高度上限 */
+    overflow: hidden !important;
+    }
+    
+    [data-testid="stFileUploader"] ul {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* 按钮动画 */
