@@ -270,7 +270,7 @@ with st.sidebar:
         <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-bottom: 4.5px;">
             支持格式 | FORMATS
         </div>
-        <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 1.2px;">
+        <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 1.2px; margin-bottom: 2px;">
             PDF, JPG, PNG, HEIC
         </div>
         <div style="text-align: center; font-size: 0.85em; color: #A0AEC0; font-weight: 400; line-height: 1.4;">
