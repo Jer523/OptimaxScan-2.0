@@ -67,6 +67,7 @@ div.stDownloadButton>button:active,
     border-radius: 20px !important;
     box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff !important;
     padding: 20px !important;
+    margin-bottom:39px
     border: 1px solid rgba(255,255,255,0.5) !important; }
 
 /* 按钮动画 */
