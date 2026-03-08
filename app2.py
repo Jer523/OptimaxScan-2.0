@@ -489,7 +489,7 @@ unsafe_allow_html=True
                 all_processed_bytes.append(page_bytes)
             
             real_progress = (idx + 1) / len(uploaded_files)
-            dvirtual_progress += (real_progress - virtual_progress) * smoothing
+            virtual_progress += (real_progress - virtual_progress) * smoothing
             progress_bar.progress(virtual_progress)
             progress_bar.progress(1.0)
 
