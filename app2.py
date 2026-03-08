@@ -278,7 +278,7 @@ st.markdown("""
 /* 和Home Page的方框对齐：消除侧边栏顶部默认间距并上移整体内容 */
 [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
     padding-top: 0 !important;
-    margin-top: -8px !important;
+    margin-top: -6px !important;
 
 /* 侧边栏卡片：保持和主界面一致的凸起感 */
 .sidebar-card {
