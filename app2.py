@@ -290,7 +290,7 @@ st.markdown("""
     color: #64B8FF;
     font-weight: 600;
     text-align: center;
-    margin-bottom: -1px;
+    margin-bottom: -65px;
 }
 </style>
 """, unsafe_allow_html=True)
