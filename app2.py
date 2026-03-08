@@ -287,7 +287,7 @@ with st.sidebar:
         </div>
          <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6">
             1. 上传素材 | Upload Files<br>
-            2. 开始优化 | Click Start Refining<br>
+            2. 开始优化 | Start Refining<br>
             分析: 光线/清晰度自适应修复<br>
             压缩: 体积优化，画质无损<br>
             排版: 统一 Letter Size 布局<br>
