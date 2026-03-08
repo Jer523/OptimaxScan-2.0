@@ -260,8 +260,16 @@ div[data-testid="stProgressBar"]{
 
 # --- 4. 侧边栏内容 ---
 with st.sidebar:
-    st.markdown('<div class="sidebar-card">设置 | SETTINGS</div>', unsafe_allow_html=True)
-    st.info("💡 提示：支持 PDF, PNG, JPG 及 HEIC 格式。")
+    st.markdown('''
+    <div class="sidebar-card">
+        <div style="text-align: center; font-weight: bold; margin-bottom: 12px;">
+            设置 | SETTINGS
+        </div>
+        <div style="text-align: left; font-size: 0.9em; opacity: 0.85; line-height: 1.5;">
+            💡 提示：支持 PDF, PNG, JPG 及 HEIC 格式。
+        </div>
+    </div>
+    ''', unsafe_allow_html=True)
 
 # --- 5. 业务逻辑 ---
 
