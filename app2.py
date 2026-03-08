@@ -280,7 +280,7 @@ with st.sidebar:
             上传提示 | TIPS
         </div>
         <div style="text-align: left; font-size: 0.85em; color: #A0AEC0; font-weight: 400; line-height: 1.4;">
-            支持多文件、多格式同步混合上传。<br>
+            支持多文件、多格式混合上传<br>
             You can upload multiple files in different formats at once.
         </div>
     </div>
