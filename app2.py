@@ -272,6 +272,7 @@ with st.sidebar:
         <div style="text-align: center; font-size: 0.95em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 1.2px;">
             PDF, JPG, PNG, HEIC
         </div>
+    </div>
         
     <div class="sidebar-card">
         <div style="text-align: left; font-size: 0.85em; color: #64B8FF; font-weight: 600; margin-bottom: 4.5px;">
