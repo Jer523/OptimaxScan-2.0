@@ -291,11 +291,14 @@ with st.sidebar:
         </div>
             <div style="text-align: left; font-size: 0.7em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.7px">
             分析: 光线/清晰度自适应修复<br>
+            Analysis: Auto-fix light and clarity<br>
             压缩: 体积优化，画质无损<br>
+            Compress: Size optimized without quality loss<br>
             排版: 统一 Letter Size 布局<br>
+            Layout: Standard 8.5×11 Letter size
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6">  
-            3. 获取黑白扫描 PDF
+            3. 获取黑白扫描 | Download B&W SCANNED PDF
         </div>
     </div>
     ''', unsafe_allow_html=True)
