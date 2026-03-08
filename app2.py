@@ -107,6 +107,8 @@ img {
     transition: filter 0.3s ease; /* 增加平滑过渡 */
 }
 
+img { filter: drop-shadow(4px 6px 10px rgba(100, 184, 255, 0.35)) !important; }
+
 /* 当鼠标悬停时，阴影稍微加强，增加互动感 */
 img:hover {
     filter: drop-shadow(6px 8px 15px rgba(100, 184, 255, 0.5));
