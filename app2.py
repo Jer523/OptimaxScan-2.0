@@ -288,7 +288,7 @@ with st.sidebar:
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.3px; margin-left: 14px">
             1. 上传素材 | Upload Files<br>
         </div>
-        <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; margin-left: 14px">
+        <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: -0.1px; margin-left: 14px">
             2. 智能优化 | Start Refining
         </div>
             <div style="text-align: left; font-size: 0.7em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.7px; margin-left: 14px">
