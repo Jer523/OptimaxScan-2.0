@@ -274,7 +274,7 @@ with st.sidebar:
             PDF, JPG, PNG, HEIC
         </div>
         <div style="text-align: center; font-size: 0.85em; color: #A0AEC0; font-weight: 400; line-height: 1.4;">
-            支持多文件、多格式混合上传<br>
+            允许不同格式文件混合多选上传<br>
             You can upload multiple files in different formats at once.
         </div>
     </div>
