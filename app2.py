@@ -287,15 +287,15 @@ with st.sidebar:
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6">
             1. 上传素材 | Upload Files<br>
-            2. 开始优化 | Start Refining
+            2. 智能优化 | Start Refining
         </div>
             <div style="text-align: left; font-size: 0.7em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.7px">
             分析: 光线/清晰度自适应修复<br>
-            Analysis: Auto-fix light and clarity<br>
+            Auto-fix light and clarity<br>
             压缩: 体积优化，画质无损<br>
-            Compress: Size optimized without quality loss<br>
+            CLossless Size Optimization<br>
             排版: 统一 Letter Size 布局<br>
-            Layout: Standard 8.5×11 Letter size
+            Standard 8.5×11 Layout
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6">  
             3. 获取黑白扫描 | Download B&W SCANNED PDF
@@ -319,7 +319,7 @@ if uploaded_files:
 f'<div class="queued-title" style="visibility:hidden;height:0;margin:0;padding:0;"><img src="data:image/png;base64,{folder}" style="height:0;"> 待优化素材 | QUEUED</div>',
 unsafe_allow_html=True
 )
-    st.markdown(f'''<div style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{star}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">开始优化 | START REFINING</span></div>''',unsafe_allow_html=True)
+    st.markdown(f'''<div style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{star}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">智能优化 | START REFINING</span></div>''',unsafe_allow_html=True)
     st.markdown('<style>div[data-testid="stVerticalBlock"] > div:has(div.stButton) { margin-top:-92px !important; }</style>',unsafe_allow_html=True)
 
     if st.button(" ",use_container_width=True, key="refine_btn"):
