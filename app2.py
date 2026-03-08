@@ -291,7 +291,22 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-  st.markdown('''
+# --- Icon Header ---
+    st.markdown(f'''
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-bottom: 25px; padding-top: 20px;">
+            <div style="
+                width: 100px; height: 100px; border-radius: 50%; 
+                background: #F0F4F8; display: flex; align-items: center; justify-content: center;
+                box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
+                margin-bottom: 5px;
+            ">
+                <img src="data:image/png;base64,{Icon}" style="width: 80px; filter: drop-shadow(4px 4px 8px #d1d9e6);">
+            </div>
+            <div style="color: #BDC3C7; font-size: 13px; font-weight: 400; font-family: sans-serif; letter-spacing: 0.5px;">OptimaxScan v2.0</div>
+        </div>
+    ''', unsafe_allow_html=True)
+    
+    st.markdown('''
     <div class="sidebar-card">
         <div style="text-align: center; font-size: 1.1em; font-weight: 600; margin-bottom: 1px;">
             支持格式 | FORMATS
