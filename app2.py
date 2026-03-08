@@ -159,7 +159,7 @@ def process_and_compress_to_letter(pil_img):
 
 def process_scan_layered_from_mem(pil_img, is_small):
     """原始内核：分层图像处理算法"""
-    img_cv = cv2.cvtColor(np.array(pil_img.convert('RGB')), cv2.COLOR_RGB2BGR)
+    img_cv = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
     gray = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY)
     
     if is_small:
