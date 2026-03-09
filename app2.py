@@ -492,7 +492,8 @@ unsafe_allow_html=True
         
         for idx, file in enumerate(uploaded_files):
             now = time.time()
-
+            display_progress += 0.05
+            progress_bar.progress(min(display_progress,0.95))
             if now - last_update > 0.05:   # 每50ms推进一次
                 display_progress += 0.015
                 display_progress = min(display_progress, real_progress + 0.05)
@@ -509,6 +510,8 @@ unsafe_allow_html=True
                 except: continue
             else:
                 img = Image.open(io.BytesIO(file_bytes))
+                display_progress += 0.15
+                progress_bar.progress(min(display_progress,0.95))
                 img = ImageOps.exif_transpose(img)
 
                 if img.mode != "RGB":
@@ -520,11 +523,14 @@ unsafe_allow_html=True
             
             for pil_img in temp_images:
                 status = get_image_status(pil_img, file_size_kb)
+                progress_bar.progress(min(display_progress,0.95))
                 if status == "KEEP_FILE":
                     page_bytes = process_and_compress_to_letter(pil_img)
                 else:
                     processed_img = process_scan_layered_from_mem(pil_img, file_size_kb < 200)
                     page_bytes = process_and_compress_to_letter(processed_img)
+                    display_progress += 0.35
+                    progress_bar.progress(min(display_progress,0.98))
                 all_processed_bytes.append(page_bytes)
             
             real_progress = (idx + 1) / len(uploaded_files)
