@@ -34,18 +34,27 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     padding:45px 20px; text-align:center; margin-bottom:39px; 
 }
 .main-title { 
-font-weight:800; font-size:52px; 
-    background: linear-gradient(135deg, #64B8FF 0%, #42F2BF 40%, #ffffff 50%, #42F2BF 60%, #64B8FF 100%);
-    background-size: 300% auto;
+    font-weight:800; font-size:52px; 
+    /* 修改颜色：将白色改为 rgba(255,255,255,0.6) 更加柔和 */
+    background: linear-gradient(
+        120deg, 
+        #64B8FF 30%, 
+        #42F2BF 45%, 
+        rgba(255,255,255,0.6) 50%, 
+        #42F2BF 55%, 
+        #64B8FF 70%
+    );
+    background-size: 200% auto; /* 缩小尺寸，让流动更平稳 */
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     margin: 0; 
-    animation: titleShimmer 6s ease-in-out infinite;
+    /* 核心修复：linear 保证速度一致，8s 增加流动的间隔感 */
+    animation: titleShimmer 8s linear infinite; 
 }
 
 @keyframes titleShimmer {
-    0% { background-position: 100% center; }
-    100% { background-position: -100% center; }
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
 }
 .sub-title { color:#A0AEC0; font-size:16px; margin-top:10px; }
 
