@@ -45,7 +45,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; }
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
-.fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+.fade-in-up { animation: fadeInUp 0.6s ease-out forwards; will-change: transform, opacity;}
 
 /* 状态文字居中 */
 .status-text { 
