@@ -75,7 +75,7 @@ div.stDownloadButton>button:active,
 } 
 
 /* 上传文件 */
-.stFileUploader{ background: #F0F4F8 !important;
+.stFileUploader{ background: #F0F4F8 !important;}
     border-radius: 20px !important;
     box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff !important;
     padding: 20px !important;
