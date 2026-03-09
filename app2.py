@@ -1,4 +1,4 @@
-import streamlit as st
+8ximport streamlit as st
 import streamlit.components.v1 as components
 import cv2
 cv2.setNumThreads(4)
@@ -489,7 +489,7 @@ with st.sidebar:
             压缩: 体积优化，画质无损<br>
             Lossless size optimization<br>
             排版: 统一 Letter Size 布局<br>
-            Standard 8.5×11 Layout
+            Standard 8.5 × 11 Layout
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; margin-left: 14px">  
             3. 保存黑白 | Export B&W
