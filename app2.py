@@ -16,7 +16,7 @@ register_heif_opener()
 st.set_page_config(
     page_title="OPTIMAX SCAN",
     page_icon="OptimaxScan Icon.png",
-    layout="centered",
+    layout="wide",
     initial_sidebar_state="collapsed"
 )
 
