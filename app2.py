@@ -37,7 +37,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     font-weight:800; font-size:52px; 
     background: linear-gradient(
         120deg, 
-        #64B8FF 0%, 
+        #64B8FF 10%, 
         #42F2BF 25%, 
         #64B8FF 40%, 
         rgba(255,255,255,034) 50%, 
