@@ -560,6 +560,18 @@ unsafe_allow_html=True
         # 【最终节点】收尾至完美的 100%
         progress_bar.progress(1.0)
 
+        # 自动滚动到底部
+        st.markdown("""
+        <script>
+        setTimeout(function() {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+        }, 300);
+        </script>
+        """, unsafe_allow_html=True)
+
 # --- 6. Footnotes ---
 
 st.markdown('<div class="footer">Optimax Scan Engine v2.0 | © 2026 Jerry Yin</div>',unsafe_allow_html=True)
