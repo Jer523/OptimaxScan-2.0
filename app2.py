@@ -38,47 +38,28 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     font-size: 52px;
     margin: 0;
 
-    /* 第一层：活动的高光（收窄区间到 48%-52%，形成一条细光） */
-    /* 第二层：固定的蓝绿底色 */
+    /* 第一层：极其克制的高光 (0.15) | 第二层：固定的蓝绿底色 */
     background-image: 
-        linear-gradient(
-            110deg, 
-            rgba(255, 255, 255, 0) 45%, 
-            rgba(255, 255, 255, 0.35) 50%, 
-            rgba(255, 255, 255, 0) 55%
-        ),
+        linear-gradient(110deg, transparent 45%, rgba(255,255,255,0.15) 50%, transparent 55%),
         linear-gradient(135deg, #64B8FF, #42F2BF);
 
-    /* 高光层宽度设为 200%，底色层设为 100% */
-    background-size: 200% 100%, 100% 100%;
+    /* 关键：高光层拉伸到 300% 保证有足够的“助跑”距离，底色 100% 保持不动 */
+    background-size: 300% 100%, 100% 100%;
     
-    /* 初始位置：高光在左边，底色在原位不动 */
-    background-position: -100% 0, 0 0;
-    background-repeat: no-repeat;
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* 动画：8s 扫过一次，linear 保证平滑 */
-    animation: pureShine 5.5s linear infinite;
+    /* 使用 6s 或 8s，linear 确保匀速，不会在开头或结尾减速卡顿 */
+    animation: pureShine 6s linear infinite;
 }
 
 @keyframes pureShine {
+    /* 修正百分比：从 100% 到 0% 是最稳的循环方式 */
     0% {
-        /* 第一个坐标（高光）从左侧 150% 开始 */
-        background-position: 150% 0, 0 0;
-    }
-    100% {
-        /* 扫向右侧 -150% */
-        background-position: -150% 0, 0 0;
-    }
-}
-@keyframes shineOnly {
-    0% {
-        background-position: -100% 0, 0 0;
-    }
-    100% {
         background-position: 100% 0, 0 0;
+    }
+    100% {
+        background-position: 0% 0, 0 0;
     }
 }
 .sub-title { color:#A0AEC0; font-size:16px; margin-top:10px; }
