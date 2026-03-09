@@ -33,10 +33,44 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     box-shadow:15px 15px 35px #d1d9e6, -15px -15px 35px #ffffff; 
     padding:45px 20px; text-align:center; margin-bottom:39px; 
 }
-.main-title { 
-    font-weight:800; font-size:52px; 
-    background:linear-gradient(135deg,#64B8FF,#42F2BF); 
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:0; 
+.main-title {
+    font-weight: 800;
+    font-size: 52px;
+    margin: 0;
+
+    /* 核心逻辑：定义两层背景 */
+    background-image: 
+        /* 第一层：活动的高光层 (从透明到微白再到透明) */
+        linear-gradient(
+            110deg, 
+            rgba(255, 255, 255, 0) 40%, 
+            rgba(255, 255, 255, 0.02) 50%, 
+            rgba(255, 255, 255, 0) 60%
+        ),
+        /* 第二层：固定的蓝绿底色层 */
+        linear-gradient(135deg, #64B8FF, #42F2BF);
+
+    /* 设置背景尺寸：高光层设为200%宽度以便移动，底色层设为100%保持静止 */
+    background-size: 200% 100%, 100% 100%;
+    
+    /* 初始位置：高光在左侧视野外，底色在原位 */
+    background-position: -100% 0, 0 0;
+    background-repeat: no-repeat;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* 动画：只改变第一个背景（高光）的位置，第二个背景固定 0 0 */
+    animation: shineOnly 8s linear infinite;
+}
+
+@keyframes shineOnly {
+    0% {
+        background-position: -100% 0, 0 0;
+    }
+    100% {
+        background-position: 100% 0, 0 0;
+    }
 }
 .sub-title { color:#A0AEC0; font-size:16px; margin-top:10px; }
 @keyframes titleShimmer {
