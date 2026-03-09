@@ -217,18 +217,18 @@ def process_and_compress_to_letter(pil_img):
     
     q = 90
     output = io.BytesIO()
-    canvas.save(output, format="JPEG", quality=q, optimize=True)
+    canvas.save(output, format="JPEG", quality=q)
     while output.tell() / 1024 > 450 and q > 20:
         q -= 5
         output = io.BytesIO()
-        canvas.save(output, format="JPEG", quality=q, optimize=True)
+        canvas.save(output, format="JPEG", quality=q)
     return output.getvalue()
 
 def process_scan_layered_from_mem(pil_img, is_small):
     """Optimax Scan Engine v2 核心算法"""
 
     pil_img = ImageOps.exif_transpose(pil_img)
-    pil_img.thumbnail((1400,1400), Image.Resampling.BILINEAR)
+    pil_img.thumbnail((2000,2000), Image.Resampling.BILINEAR)
 
     img_cv = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
     gray = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY)
@@ -261,7 +261,7 @@ def process_scan_layered_from_mem(pil_img, is_small):
         _, black_mask = cv2.threshold(gray, 70, 255, cv2.THRESH_BINARY_INV)
 
         num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(
-            black_mask, connectivity=8
+            black_mask, connectivity=5
         )
 
         valid_black_mask = np.zeros_like(black_mask)
