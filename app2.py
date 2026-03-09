@@ -6,7 +6,6 @@ from PIL import Image, ImageOps
 import img2pdf
 import io
 import base64
-import time
 from pdf2image import convert_from_bytes
 from pillow_heif import register_heif_opener
 register_heif_opener()
@@ -526,26 +525,18 @@ unsafe_allow_html=True
                 page_base = file_base_pct + (page_idx / num_pages) * file_chunk_pct
                 page_chunk = file_chunk_pct / num_pages
                 
-                # 【进度节点 2】分析图片状态 (推进到 15%)
                 progress_bar.progress(min(page_base + page_chunk * 0.15, 0.99))
                 status = get_image_status(pil_img, file_size_kb)
-                
-                # 【进度节点 2】分析图片状态
-                progress_bar.progress(min(page_base + page_chunk * 0.15, 0.99))
-                status = get_image_status(pil_img, file_size_kb)
-                
-                # 【进度节点 3】准备处理
+
                 progress_bar.progress(min(page_base + page_chunk * 0.25, 0.99))
                 
                 if status == "KEEP_FILE":
                     page_bytes = process_and_compress_to_letter(pil_img)
                     progress_bar.progress(min(page_base + page_chunk * 0.85, 0.99))
                 else:
-                    # 【进度节点 3.5】在进入最卡顿的 OpenCV 之前，给一个缓冲推力
-                    # 配合 1.8s 的 CSS 动画，这 15% 的差距够它缓慢滑行一两秒了
                     progress_bar.progress(min(page_base + page_chunk * 0.40, 0.99))
                     
-                    # OpenCV 核心处理（这里最耗时）
+                    # OpenCV 核心处理
                     processed_img = process_scan_layered_from_mem(pil_img, file_size_kb < 200)
                     
                     # 【进度节点 4】OpenCV处理完成，猛推一波
