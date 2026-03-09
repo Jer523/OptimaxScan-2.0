@@ -35,24 +35,10 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
 }
 .main-title { 
     font-weight:800; font-size:52px; 
-    background: linear-gradient(
-        120deg, 
-        #64B8FF 10%, 
-        #42F2BF 25%, 
-        #64B8FF 40%, 
-        rgba(255,255,255,034) 50%, 
-        #42F2BF 60%, 
-        #64B8FF 75%
-        #64B8FF 100%
-    );
-    background-size: 300% auto; /* 缩小尺寸，让流动更平稳 */
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent; 
-    margin: 0; 
-    /* 核心修复：linear 保证速度一致，8s 增加流动的间隔感 */
-    animation: titleShimmer 12s linear infinite; 
+    background:linear-gradient(135deg,#64B8FF,#42F2BF); 
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:0; 
 }
-
+.sub-title { color:#A0AEC0; font-size:16px; margin-top:10px; }
 @keyframes titleShimmer {
     0% { background-position: 200% center; }
     100% { background-position: -200% center; }
