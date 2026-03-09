@@ -482,9 +482,11 @@ visual_progress = 0
 
 if uploaded_files:
     st.markdown(
-    f'<div class="queued-title" style="visibility:hidden;height:0;margin:0;padding:0;"><img src="data:image/png;base64,{folder}" style="height:0;"> 待优化素材 | QUEUED</div>',unsafe_allow_html=True)
-    </style>',unsafe_allow_html=True)
+f'<div class="queued-title" style="visibility:hidden;height:0;margin:0;padding:0;"><img src="data:image/png;base64,{folder}" style="height:0;"> 待优化素材 | QUEUED</div>',
+unsafe_allow_html=True
+)
     st.markdown(f'''<div style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{star}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">开始优化 | START REFINING</span></div>''',unsafe_allow_html=True)
+    st.markdown('<style>div[data-testid="stVerticalBlock"] > div:has(div.stButton) { margin-top:-92px !important; }</style>',unsafe_allow_html=True)
 
     if st.button(" ",use_container_width=True, key="refine_btn"):
         all_processed_bytes = []
