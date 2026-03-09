@@ -81,7 +81,7 @@ div.stDownloadButton>button:active,
     padding: 20px !important;
     margin-bottom:139px;
     border: 1px solid rgba(255,255,255,0.5) !important;
-} 
+    
 /* --- 新增：平滑平展动画 --- */
 transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.6s ease !important;
     max-height: 2000px !important; 
@@ -131,7 +131,6 @@ img:hover {
 /* ===== Mobile Sidebar Overlay Fix ===== */
 @media (max-width:768px){
 
-/* Sidebar 变成浮层 */
 [data-testid="stSidebar"]{
     position:fixed !important;
     left:0 !important;
@@ -141,17 +140,14 @@ img:hover {
     z-index:2000 !important;
 }
 
-/* 阻止主页面被推开 */
 [data-testid="stAppViewContainer"] > .main{
     margin-left:0 !important;
 }
 
-/* 防止 Sidebar 挤压布局 */
 [data-testid="stAppViewContainer"]{
     display:block !important;
 }
 
-/* 恢复关闭按钮 */
 button[kind="header"]{
     z-index:3000 !important;
 }
