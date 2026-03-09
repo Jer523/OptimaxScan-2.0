@@ -306,6 +306,9 @@ def process_scan_layered_from_mem(pil_img, is_small):
 st.markdown("""
 <style>
 /* --- 进度条流动与流光核 --- */
+[data-testid="stProgressBar"] > div > div {
+    transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
 div[data-testid="stProgressBar"]{
     margin-left:0.25em;
     position:relative;
