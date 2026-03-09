@@ -228,7 +228,7 @@ def process_scan_layered_from_mem(pil_img, is_small):
     """Optimax Scan Engine v2 核心算法"""
 
     pil_img = ImageOps.exif_transpose(pil_img)
-    pil_img.thumbnail((2000,2000), Image.Resampling.BILINEAR)
+    pil_img.thumbnail((1400,1400), Image.Resampling.BILINEAR)
 
     img_cv = cv2.cvtColor(np.array(pil_img), cv2.COLOR_RGB2BGR)
     gray = cv2.cvtColor(img_cv, cv2.COLOR_BGR2GRAY)
