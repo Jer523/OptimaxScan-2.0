@@ -446,13 +446,13 @@ with st.sidebar:
     st.markdown('''
     <div class="sidebar-card">
         <div style="text-align: center; font-size: 1.1em; color: #64B8FF; font-weight: 600; margin-bottom: 7px">
-            上传提示 | TUTORIAL
+            上传步骤 | TUTORIAL
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.25px; margin-left: 14px">
             1. 上传素材 | Upload Files<br>
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: -0.05px; margin-left: 14px">
-            2. 智能优化 | Start Refining
+            2. 开始优化 | Start Refining
         </div>
             <div style="text-align: left; font-size: 0.7em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.7px; margin-left: 28px">
             分析: 智能修复光线/清晰度<br>
