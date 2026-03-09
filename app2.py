@@ -489,7 +489,7 @@ unsafe_allow_html=True
 
     if st.button(" ",use_container_width=True, key="refine_btn"):
         all_processed_bytes = []
-        progress_bar = st.progress(0.01)
+        progress_bar = st.progress(0)
         visual_progress = 0
 
         def smooth_progress(target, duration=0.4):
