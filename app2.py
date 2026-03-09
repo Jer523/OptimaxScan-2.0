@@ -245,9 +245,9 @@ def process_scan_layered_from_mem(pil_img, is_small):
 
         final = cv2.fastNlMeansDenoising(
             final, None,
-            h=5,
+            h=10,
             templateWindowSize=7,
-            searchWindowSize=21
+            searchWindowSize=15
         )
 
         _, white_bg_mask = cv2.threshold(final, 220, 255, cv2.THRESH_BINARY)
