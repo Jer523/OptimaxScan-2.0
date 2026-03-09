@@ -34,9 +34,18 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     padding:45px 20px; text-align:center; margin-bottom:39px; 
 }
 .main-title { 
-    font-weight:800; font-size:52px; 
-    background:linear-gradient(135deg,#64B8FF,#42F2BF); 
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:0; 
+font-weight:800; font-size:52px; 
+    background: linear-gradient(135deg, #64B8FF 0%, #42F2BF 40%, #ffffff 50%, #42F2BF 60%, #64B8FF 100%);
+    background-size: 300% auto;
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    margin: 0; 
+    animation: titleShimmer 6s ease-in-out infinite;
+}
+
+@keyframes titleShimmer {
+    0% { background-position: 100% center; }
+    100% { background-position: -100% center; }
 }
 .sub-title { color:#A0AEC0; font-size:16px; margin-top:10px; }
 
