@@ -44,12 +44,12 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
         linear-gradient(
             110deg, 
             rgba(255, 255, 255, 0) 45%, 
-            rgba(255, 255, 255, 0.15) 50%, 
+            rgba(255, 255, 255, 0.5) 50%, 
             rgba(255, 255, 255, 0) 55%
         ),
         linear-gradient(135deg, #64B8FF, #42F2BF);
 
-    /* 关键：高光层宽度设为 200%，底色层设为 100% */
+    /* 高光层宽度设为 200%，底色层设为 100% */
     background-size: 200% 100%, 100% 100%;
     
     /* 初始位置：高光在左边，底色在原位不动 */
