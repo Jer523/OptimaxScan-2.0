@@ -60,7 +60,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     -webkit-text-fill-color: transparent;
 
     /* 动画：8s 扫过一次，linear 保证平滑 */
-    animation: pureShine 6.5s linear infinite;
+    animation: pureShine 5.5s linear infinite;
 }
 
 @keyframes pureShine {
