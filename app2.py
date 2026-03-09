@@ -49,8 +49,8 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* 6s linear 确保匀速 */
-    animation: pureShine 6s linear infinite;
+    /* 7s linear 确保匀速 */
+    animation: pureShine 7s linear infinite;
 }
 
 @keyframes pureShine {
