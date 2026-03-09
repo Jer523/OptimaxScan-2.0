@@ -523,13 +523,12 @@ unsafe_allow_html=True
                 page_base = file_base_pct + (page_idx / num_pages) * file_chunk_pct
                 page_chunk = file_chunk_pct / num_pages
                 
-                progress_bar.progress(min(page_base + page_chunk * 0.15, 0.99))
+
                 status = get_image_status(pil_img, file_size_kb)
                 
                 if status == "KEEP_FILE":
                     # --- [快车道] 小文件/原生文件：直接完成，不拉慢 ---
                     page_bytes = process_and_compress_to_letter(pil_img)
-                    progress_bar.progress(min(page_base + page_chunk * 1.0, 0.99))
                 else:
                     steps = 15 
                     for i in range(1, steps + 1):
