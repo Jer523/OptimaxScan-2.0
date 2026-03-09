@@ -564,14 +564,17 @@ unsafe_allow_html=True
         # 自动滚动到底部
         components.html("""
         <script>
-        setTimeout(function() {
-            window.scrollTo({
-                top: document.body.scrollHeight,
+        function scrollToBottom(){
+            const parentDoc = window.parent.document;
+            window.parent.scrollTo({
+                top: parentDoc.body.scrollHeight,
                 behavior: "smooth"
             });
-        }, 300);
-        </script>
-        """, height=0)
+        }
+
+setTimeout(scrollToBottom, 800);
+</script>
+""", height=0)
 
 # --- 6. Footnotes ---
 
