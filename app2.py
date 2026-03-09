@@ -523,7 +523,7 @@ unsafe_allow_html=True
                 page_base = file_base_pct + (page_idx / num_pages) * file_chunk_pct
                 page_chunk = file_chunk_pct / num_pages
                 
-
+                progress_bar.progress(min(page_base + page_chunk * 0.15, 0.99))
                 status = get_image_status(pil_img, file_size_kb)
                 
                 if status == "KEEP_FILE":
