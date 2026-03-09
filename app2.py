@@ -533,18 +533,18 @@ unsafe_allow_html=True
                     page_bytes = process_and_compress_to_letter(pil_img)
                     progress_bar.progress(min(page_base + page_chunk * 1.0, 0.99))
                 else:
-                    # --- [慢车道] 扫描件：开启匀速滑行阻尼 ---
-                    # 先推到 40%，配合 1.8s 的 CSS 动画，它会开始缓慢滑行
-                    progress_bar.progress(min(page_base + page_chunk * 0.40, 0.99))
-          
+                    # --- [慢车道] 启动滑行，不要瞬间跳跃，而是平稳滑行到 30% ---
+                    for start_glide in [0.20, 0.25, 0.30]:
+                        progress_bar.progress(min(page_base + page_chunk * start_glide, 0.99))
+                        time.sleep(0.15) # 这里的阻尼感会让用户觉得程序在“认真准备”
+                        
                     # OpenCV 核心处理
                     processed_img = process_scan_layered_from_mem(pil_img, file_size_kb < 200)
 
-                    # --- 平滑滑行 (从 40% 匀速推向 85%) ---
-                    # 即使 OpenCV 处理完了，我们也分三步“拉”它一下，不让它瞬移
-                    for glide_pct in [0.55, 0.70, 0.85]:
-                        progress_bar.progress(min(page_base + page_chunk * glide_pct, 0.99))
-                        time.sleep(0.1) # 给予 0.1 秒的微小阻尼，让视觉极其平顺
+                    # --- 收尾 ---
+                    for end_glide in [0.45, 0.60, 0.75, 0.85]:
+                        progress_bar.progress(min(page_base + page_chunk * end_glide, 0.99))
+                        time.sleep(0.1)
                     page_bytes = process_and_compress_to_letter(processed_img)
                     
                 all_processed_bytes.append(page_bytes)
