@@ -79,7 +79,7 @@ div.stDownloadButton>button:active,
     border-radius: 20px !important;
     box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff !important;
     padding: 20px !important;
-    margin-bottom:139px
+    margin-bottom:139px;
     border: 1px solid rgba(255,255,255,0.5) !important;
     
 /* --- 新增：平滑平展动画 --- */
@@ -186,6 +186,29 @@ check_mark=get_base64("Check Mark.png")
 download=get_base64("download.png")
 Icon=get_base64("OptimaxScan Icon.png")
 upload=get_base64("Upload.png")
+
+/* 强制 Sidebar 变成 overlay，不参与主布局 */
+@media (max-width: 768px) {
+
+    [data-testid="stSidebar"] {
+        position: fixed !important;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 1001;
+    }
+
+    section[data-testid="stSidebar"] {
+        position: fixed !important;
+        transform: translateX(0);
+    }
+
+    /* 主页面锁定宽度，避免 reflow */
+    .main {
+        width: 100% !important;
+    }
+
+}
 
 # --- 2. 注入原始脚本的核心功能内核 ---
 
