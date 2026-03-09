@@ -556,12 +556,6 @@ unsafe_allow_html=True
         st.markdown('<style>div.stDownloadButton { margin-top:-92px !important; }</style>',unsafe_allow_html=True)
 
         final_pdf = img2pdf.convert(all_processed_bytes)
-        st.download_button(label=" ", data=final_pdf, file_name="Optimax_Refined.pdf", mime="application/pdf", use_container_width=True)
-        
-        # 【最终节点】收尾至完美的 100%
-        progress_bar.progress(1.0)
-
-        # 自动滚动到底部
         st.download_button(
             label=" ",
             data=final_pdf,
@@ -571,8 +565,12 @@ unsafe_allow_html=True
             key="download_pdf"
         )
 
-st.markdown('<div id="download_anchor"></div>', unsafe_allow_html=True)
+        st.markdown('<div id="download_anchor"></div>', unsafe_allow_html=True)
+        
+        # 【最终节点】收尾至完美的 100%
+        progress_bar.progress(1.0)
 
+        # 自动滚动到底部
 components.html("""
     <script>
     setTimeout(function() {
