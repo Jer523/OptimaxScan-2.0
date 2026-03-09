@@ -495,8 +495,7 @@ unsafe_allow_html=True
         for file_idx, file in enumerate(uploaded_files):
             # 计算当前文件在总进度中的基础占比和每份份额
             file_base_pct = file_idx / total_files
-            file_chunk_pct = 1.0 / total_files     
-            progress_bar.progress(file_base_pct + file_chunk_pct * 0.01)
+            file_chunk_pct = 1.0 / total_files
             
             file_bytes = file.read()
             file_size_kb = len(file_bytes) / 1024
@@ -528,21 +527,21 @@ unsafe_allow_html=True
                     # --- [快车道] 小文件/原生文件：直接完成，不拉慢 ---
                     page_bytes = process_and_compress_to_letter(pil_img)
                 else:
-                    steps = 15 
+                    steps = 20 
                     for i in range(1, steps + 1):
                         # 计算当前微步的进度比例 (从 0.05 到 0.30)
-                        glide_in = 0.05 + (i / steps) * 0.25 
+                        glide_in = 0.05 + (i / steps) * 0.34 
                         progress_bar.progress(min(page_base + page_chunk * glide_in, 0.99))
                         # 0.08秒的阻尼：总启动耗时约 1.2 秒，给人一种“正在深度扫描”的高级感
-                        time.sleep(0.08)
+                        time.sleep(0.06)
                         
                     # OpenCV 核心处理
                     processed_img = process_scan_layered_from_mem(pil_img, file_size_kb < 200)
 
                     # --- 收尾 ---
-                    for end_glide in [0.45, 0.60, 0.75, 0.85]:
+                    for end_glide in [0.45, 0.9, 0.8]:
                         progress_bar.progress(min(page_base + page_chunk * end_glide, 0.99))
-                        time.sleep(0.1)
+                        time.sleep(0.04)
                     page_bytes = process_and_compress_to_letter(processed_img)
                     
                 all_processed_bytes.append(page_bytes)
