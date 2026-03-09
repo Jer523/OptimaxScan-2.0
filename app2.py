@@ -527,7 +527,7 @@ unsafe_allow_html=True
                     # --- [快车道] 小文件/原生文件：直接完成，不拉慢 ---
                     page_bytes = process_and_compress_to_letter(pil_img)
                 else:
-                    steps = 16
+                    steps = 8
                     for i in range(1, steps + 1):
                         # 计算当前微步的进度比例 (从 0.05 到 0.30)
                         glide_in = 0.05 + (i / steps) * 0.34 
