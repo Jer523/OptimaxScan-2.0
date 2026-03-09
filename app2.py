@@ -502,7 +502,7 @@ with st.sidebar:
 st.markdown("""
 <div class="title-card">
 <div class="main-title">OPTIMAX SCAN</div>
-<div class="sub-title">Analog Essence • Digital Precision.</div>
+<div class="sub-title">Analog Essence • Digital Precision</div>
 </div>
 """,unsafe_allow_html=True)
 
