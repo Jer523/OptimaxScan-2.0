@@ -496,6 +496,8 @@ unsafe_allow_html=True
             # 计算当前文件在总进度中的基础占比和每份份额
             file_base_pct = file_idx / total_files
             file_chunk_pct = 1.0 / total_files     
+            progress_bar.progress(file_base_pct + file_chunk_pct * 0.01)
+            
             file_bytes = file.read()
             file_size_kb = len(file_bytes) / 1024
             
