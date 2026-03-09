@@ -6,7 +6,6 @@ from PIL import Image, ImageOps
 import img2pdf
 import io
 import base64
-import time  # 精密阻尼器
 from pdf2image import convert_from_bytes
 from pillow_heif import register_heif_opener
 register_heif_opener()
@@ -307,7 +306,7 @@ st.markdown("""
 <style>
 /* --- 进度条流动与流光核 --- */
 [data-testid="stProgressBar"] > div > div {
-    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 div[data-testid="stProgressBar"]{
     margin-left:0.25em;
@@ -488,7 +487,7 @@ unsafe_allow_html=True
 
     if st.button(" ",use_container_width=True, key="refine_btn"):
         all_processed_bytes = []
-        progress_bar = st.progress(0.01) # 从 0 开始，不要一开始就给数值
+        progress_bar = st.progress(0.0) # 从 0 开始，不要一开始就给数值
         
         total_files = len(uploaded_files)
         
@@ -496,6 +495,9 @@ unsafe_allow_html=True
             # 计算当前文件在总进度中的基础占比和每份份额
             file_base_pct = file_idx / total_files
             file_chunk_pct = 1.0 / total_files
+            
+            # 【进度节点 1】开始读取文件 (占据当前文件的 5%)
+            progress_bar.progress(file_base_pct + file_chunk_pct * 0.05)
             
             file_bytes = file.read()
             file_size_kb = len(file_bytes) / 1024
@@ -519,32 +521,32 @@ unsafe_allow_html=True
             if num_pages == 0: continue
             
             for page_idx, pil_img in enumerate(temp_images):
+                # 如果是多页 PDF，继续细分进度份额
                 page_base = file_base_pct + (page_idx / num_pages) * file_chunk_pct
                 page_chunk = file_chunk_pct / num_pages
+                
+                progress_bar.progress(min(page_base + page_chunk * 0.15, 0.99))
                 status = get_image_status(pil_img, file_size_kb)
+
+                progress_bar.progress(min(page_base + page_chunk * 0.25, 0.99))
                 
                 if status == "KEEP_FILE":
-                    # --- [快车道] 小文件/原生文件：直接完成，不拉慢 ---
                     page_bytes = process_and_compress_to_letter(pil_img)
+                    progress_bar.progress(min(page_base + page_chunk * 0.85, 0.99))
                 else:
-                    steps = 20 
-                    for i in range(1, steps + 1):
-                        # 计算当前微步的进度比例 (从 0.05 到 0.30)
-                        glide_in = 0.05 + (i / steps) * 0.34 
-                        progress_bar.progress(min(page_base + page_chunk * glide_in, 0.99))
-                        # 0.08秒的阻尼：总启动耗时约 1.2 秒，给人一种“正在深度扫描”的高级感
-                        time.sleep(0.06)
-                        
+                    progress_bar.progress(min(page_base + page_chunk * 0.40, 0.99))
+                    
                     # OpenCV 核心处理
                     processed_img = process_scan_layered_from_mem(pil_img, file_size_kb < 200)
-
-                    # --- 收尾 ---
-                    for end_glide in [0.45, 0.9, 0.8]:
-                        progress_bar.progress(min(page_base + page_chunk * end_glide, 0.99))
-                        time.sleep(0.04)
+                    
+                    # 【进度节点 4】OpenCV处理完成，猛推一波
+                    progress_bar.progress(min(page_base + page_chunk * 0.85, 0.99))
                     page_bytes = process_and_compress_to_letter(processed_img)
                     
                 all_processed_bytes.append(page_bytes)
+                
+                # 【进度节点 5】单页压缩并保存完成 (推进到 100%)
+                progress_bar.progress(min(page_base + page_chunk * 1.0, 0.99))
 
         st.markdown(f'''<div class="status-text" style="display:flex;align-items:center;letter-spacing:-0.35px;"><img src="data:image/png;base64,{check_mark}" style="width:22px;margin-right:8px;"> 处理完成 | TASKS COMPLETE</div>''',unsafe_allow_html=True)
         st.markdown(f'''<div style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{download}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">保存文件 | DOWNLOAD PDF</span></div>''',unsafe_allow_html=True)
