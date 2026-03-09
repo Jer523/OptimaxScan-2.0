@@ -1,28 +1,4 @@
 import streamlit as st
-
-st.markdown(
-    """
-    <style>
-    /* 1. 彻底隐藏顶部 Header 容器及其背景 */
-    header[data-testid="stHeader"] {
-        background-color: rgba(0, 0, 0, 0) !important;
-        height: 0px !important;
-    }
-
-    /* 2. 移除可能存在的顶部填充，确保 UI 顶到最上方 */
-    .main .block-container {
-        padding-top: 0rem !important;
-    }
-
-    /* 3. 再次确认全局背景色，防止出现黑色块 */
-    .stApp {
-        background-color: #F0F4F8 !important;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 import streamlit.components.v1 as components
 import cv2
 cv2.setNumThreads(4)
