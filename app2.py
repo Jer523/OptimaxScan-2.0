@@ -307,7 +307,7 @@ st.markdown("""
 <style>
 /* --- 进度条流动与流光核 --- */
 [data-testid="stProgressBar"] > div > div {
-    transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 div[data-testid="stProgressBar"]{
     margin-left:0.25em;
@@ -488,7 +488,7 @@ unsafe_allow_html=True
 
     if st.button(" ",use_container_width=True, key="refine_btn"):
         all_processed_bytes = []
-        progress_bar = st.progress(0.0) # 从 0 开始，不要一开始就给数值
+        progress_bar = st.progress(0.01) # 从 0 开始，不要一开始就给数值
         
         total_files = len(uploaded_files)
         
