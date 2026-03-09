@@ -488,7 +488,17 @@ unsafe_allow_html=True
 
     if st.button(" ",use_container_width=True, key="refine_btn"):
         all_processed_bytes = []
-        progress_bar = st.progress(0.01) # 从 0 开始，不要一开始就给数值
+        progress_bar = st.progress(0.01)
+        visual_progress = 0.01
+
+        def smooth_progress(target, duration=0.4):
+            nonlocal visual_progress
+            steps = 12
+            step = (target - visual_progress) / steps
+            for _ in range(steps):
+                visual_progress += step
+                progress_bar.progress(min(visual_progress, 0.99))
+                time.sleep(duration / steps)
         
         total_files = len(uploaded_files)
         
@@ -527,15 +537,15 @@ unsafe_allow_html=True
                     # --- [快车道] 小文件/原生文件：直接完成，不拉慢 ---
                     page_bytes = process_and_compress_to_letter(pil_img)
                 else:
-                    progress_bar.progress(min(page_base + page_chunk * 0.25, 0.99))
+                    smooth_progress(min(page_base + page_chunk * 0.25, 0.99))
                         
                     # OpenCV 核心处理
                     processed_img = process_scan_layered_from_mem(pil_img, file_size_kb < 200)
 
                     # --- 收尾 ---
-                    progress_bar.progress(min(page_base + page_chunk * 0.55, 0.99))
+                    smooth_progress(min(page_base + page_chunk * 0.55, 0.99))
+                    smooth_progress(min(page_base + page_chunk * 0.85, 0.99))
                     page_bytes = process_and_compress_to_letter(processed_img)
-                    progress_bar.progress(min(page_base + page_chunk * 0.85, 0.99))
                     
                 all_processed_bytes.append(page_bytes)
 
