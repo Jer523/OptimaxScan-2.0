@@ -39,7 +39,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     
     /* 1. 合并背景：上层是极淡高光（0.15），下层是固定蓝绿 */
     background-image: 
-        linear-gradient(110deg, transparent 45%, rgba(255,255,255,0.15) 50%, transparent 55%),
+        linear-gradient(110deg, transparent 45%, rgba(255,255,255,0.3) 50%, transparent 55%),
         linear-gradient(135deg, #64B8FF, #42F2BF);
 
     /* 2. 只有高光层拉伸到 200% */
