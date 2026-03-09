@@ -44,7 +44,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
         linear-gradient(
             110deg, 
             rgba(255, 255, 255, 0) 45%, 
-            rgba(255, 255, 255, 0.6) 50%, 
+            rgba(255, 255, 255, 0.35) 50%, 
             rgba(255, 255, 255, 0) 55%
         ),
         linear-gradient(135deg, #64B8FF, #42F2BF);
