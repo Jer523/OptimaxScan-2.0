@@ -524,7 +524,7 @@ unsafe_allow_html=True
             real_progress = (idx + 1) / len(uploaded_files)
             display_progress += (real_progress - display_progress) * 0.35
             progress_bar.progress(display_progress)
-            time.sleep(0.03)
+            time.sleep(0.05)
 
         st.markdown(f'''<div class="status-text" style="display:flex;align-items:center;letter-spacing:-0.35px;"><img src="data:image/png;base64,{check_mark}" style="width:22px;margin-right:8px;"> 处理完成 | TASKS COMPLETE</div>''',unsafe_allow_html=True)
         st.markdown(f'''<div style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{download}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">保存文件 | DOWNLOAD PDF</span></div>''',unsafe_allow_html=True)
