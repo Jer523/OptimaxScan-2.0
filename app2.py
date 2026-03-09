@@ -33,7 +33,23 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     box-shadow:15px 15px 35px #d1d9e6, -15px -15px 35px #ffffff; 
     padding:45px 20px; text-align:center; margin-bottom:39px; 
 }
-
+.main-title { 
+    font-weight:800; font-size:52px; 
+    background: linear-gradient(
+        120deg, 
+        #64B8FF 34%, 
+        #42F2BF 45%, 
+        rgba(255,255,255,0.4) 50%, 
+        #42F2BF 55%, 
+        #64B8FF 70%
+    );
+    background-size: 200% auto; /* 缩小尺寸，让流动更平稳 */
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    margin: 0; 
+    /* 核心修复：linear 保证速度一致，8s 增加流动的间隔感 */
+    animation: titleShimmer 12s linear infinite; 
+}
 
 @keyframes titleShimmer {
     0% { background-position: 200% center; }
