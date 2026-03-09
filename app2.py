@@ -38,18 +38,18 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     font-size: 52px;
     margin: 0;
 
-    /* 第一层：极其克制的高光 (0.15) | 第二层：固定的蓝绿底色 */
+    /* 第一层：极其克制的高光 (0.35) | 第二层：固定的蓝绿底色 */
     background-image: 
-        linear-gradient(110deg, transparent 45%, rgba(255,255,255,0.3) 50%, transparent 55%),
+        linear-gradient(110deg, transparent 45%, rgba(255,255,255,0.35) 50%, transparent 55%),
         linear-gradient(135deg, #64B8FF, #42F2BF);
 
-    /* 关键：高光层拉伸到 300% 保证有足够的“助跑”距离，底色 100% 保持不动 */
+    /* 高光层拉伸到 300% 保证有足够的“助跑”距离，底色 100% 保持不动 */
     background-size: 300% 100%, 100% 100%;
     
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* 使用 6s 或 8s，linear 确保匀速，不会在开头或结尾减速卡顿 */
+    /* 6s linear 确保匀速 */
     animation: pureShine 6s linear infinite;
 }
 
