@@ -23,6 +23,30 @@ st.set_page_config(
 # --- 2. 注入 CSS ---
 st.markdown("""
 <style>
+
+/* 强制 Sidebar 变成 overlay，不参与主布局 */
+@media (max-width: 768px) {
+
+    [data-testid="stSidebar"] {
+        position: fixed !important;
+        left: 0;
+        top: 0;
+        height: 100vh;
+        z-index: 1001;
+    }
+
+    section[data-testid="stSidebar"] {
+        position: fixed !important;
+        transform: translateX(0);
+    }
+
+    /* 主页面锁定宽度，避免 reflow */
+    .main {
+        width: 100% !important;
+    }
+
+}
+
 /* 全局基础 */
 html,body,.stApp { height:100%; background:#F0F4F8; }
 .main .block-container { padding-top:10vh; max-width:750px; margin:auto; padding-bottom: 120px; }
@@ -186,29 +210,6 @@ check_mark=get_base64("Check Mark.png")
 download=get_base64("download.png")
 Icon=get_base64("OptimaxScan Icon.png")
 upload=get_base64("Upload.png")
-
-/* 强制 Sidebar 变成 overlay，不参与主布局 */
-@media (max-width: 768px) {
-
-    [data-testid="stSidebar"] {
-        position: fixed !important;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        z-index: 1001;
-    }
-
-    section[data-testid="stSidebar"] {
-        position: fixed !important;
-        transform: translateX(0);
-    }
-
-    /* 主页面锁定宽度，避免 reflow */
-    .main {
-        width: 100% !important;
-    }
-
-}
 
 # --- 2. 注入原始脚本的核心功能内核 ---
 
