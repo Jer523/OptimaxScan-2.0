@@ -36,26 +36,50 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
 .main-title {
     font-weight: 800;
     font-size: 52px;
-    
-    /* 1. 合并背景：上层是极淡高光（0.15），下层是固定蓝绿 */
+    margin: 0;
+
+    /* 第一层：活动的高光（收窄区间到 48%-52%，形成一条细光） */
+    /* 第二层：固定的蓝绿底色 */
     background-image: 
-        linear-gradient(110deg, transparent 45%, rgba(255,255,255,0.3) 50%, transparent 55%),
+        linear-gradient(
+            110deg, 
+            rgba(255, 255, 255, 0) 45%, 
+            rgba(255, 255, 255, 0.35) 50%, 
+            rgba(255, 255, 255, 0) 55%
+        ),
         linear-gradient(135deg, #64B8FF, #42F2BF);
 
-    /* 2. 只有高光层拉伸到 200% */
+    /* 高光层宽度设为 200%，底色层设为 100% */
     background-size: 200% 100%, 100% 100%;
     
+    /* 初始位置：高光在左边，底色在原位不动 */
+    background-position: -100% 0, 0 0;
+    background-repeat: no-repeat;
+
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* 3. 动画：只移动第一层背景，6s 循环 */
-    animation: pureShine 6s linear infinite;
+    /* 动画：8s 扫过一次，linear 保证平滑 */
+    animation: pureShine 5.5s linear infinite;
 }
 
 @keyframes pureShine {
-    /* 重点：第二个坐标永远是 0 0，保证蓝绿底色不动 */
-    0% { background-position: 150% 0, 0 0; }
-    100% { background-position: -150% 0, 0 0; }
+    0% {
+        /* 第一个坐标（高光）从左侧 150% 开始 */
+        background-position: 150% 0, 0 0;
+    }
+    100% {
+        /* 扫向右侧 -150% */
+        background-position: -150% 0, 0 0;
+    }
+}
+@keyframes shineOnly {
+    0% {
+        background-position: -100% 0, 0 0;
+    }
+    100% {
+        background-position: 100% 0, 0 0;
+    }
 }
 .sub-title { color:#A0AEC0; font-size:16px; margin-top:10px; }
 @keyframes titleShimmer {
