@@ -495,11 +495,7 @@ unsafe_allow_html=True
         for file_idx, file in enumerate(uploaded_files):
             # 计算当前文件在总进度中的基础占比和每份份额
             file_base_pct = file_idx / total_files
-            file_chunk_pct = 1.0 / total_files
-            
-            # 【进度节点 1】开始读取文件 (占据当前文件的 5%)
-            progress_bar.progress(file_base_pct + file_chunk_pct * 0.05)
-            
+            file_chunk_pct = 1.0 / total_files     
             file_bytes = file.read()
             file_size_kb = len(file_bytes) / 1024
             
@@ -538,7 +534,6 @@ unsafe_allow_html=True
                         # 计算当前微步的进度比例 (从 0.05 到 0.30)
                         glide_in = 0.05 + (i / steps) * 0.25 
                         progress_bar.progress(min(page_base + page_chunk * glide_in, 0.99))
-                        
                         # 0.08秒的阻尼：总启动耗时约 1.2 秒，给人一种“正在深度扫描”的高级感
                         time.sleep(0.08)
                         
@@ -552,9 +547,6 @@ unsafe_allow_html=True
                     page_bytes = process_and_compress_to_letter(processed_img)
                     
                 all_processed_bytes.append(page_bytes)
-                
-                # 收尾
-                progress_bar.progress(min(page_base + page_chunk * 1.0, 0.99))
 
         st.markdown(f'''<div class="status-text" style="display:flex;align-items:center;letter-spacing:-0.35px;"><img src="data:image/png;base64,{check_mark}" style="width:22px;margin-right:8px;"> 处理完成 | TASKS COMPLETE</div>''',unsafe_allow_html=True)
         st.markdown(f'''<div style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{download}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">保存文件 | DOWNLOAD PDF</span></div>''',unsafe_allow_html=True)
