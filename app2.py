@@ -477,6 +477,7 @@ st.markdown("""
 """,unsafe_allow_html=True)
 
 uploaded_files=st.file_uploader("",accept_multiple_files=True,label_visibility="collapsed")
+visual_progress = 0
 
 if uploaded_files:
     st.markdown(
@@ -492,7 +493,7 @@ unsafe_allow_html=True
         visual_progress = 0.01
 
         def smooth_progress(target, duration=0.4):
-            nonlocal visual_progress
+            global visual_progress
             steps = 12
             step = (target - visual_progress) / steps
             for _ in range(steps):
