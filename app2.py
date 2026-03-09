@@ -24,8 +24,8 @@ st.set_page_config(
 st.markdown("""
 <style>
 /* 全局基础 */
-html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction:column; }
-.main .block-container { padding-top:10vh; max-width:750px; padding-bottom: 120px; }
+html,body,.stApp { height:100%; background:#F0F4F8; }
+.main .block-container { padding-top:10vh; max-width:750px; margin:auto; padding-bottom: 120px; }
 
 /* 标题卡片 */
 .title-card { 
@@ -45,7 +45,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
-.fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+.fade-in-up { animation: fadeInUp 0.6s ease-out forwards; will-change: transform, opacity;}
 
 /* 状态文字居中 */
 .status-text { 
@@ -79,7 +79,7 @@ div.stDownloadButton>button:active,
     border-radius: 20px !important;
     box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff !important;
     padding: 20px !important;
-    margin-bottom:139px
+    margin-bottom:139px;
     border: 1px solid rgba(255,255,255,0.5) !important;
     
 /* --- 新增：平滑平展动画 --- */
@@ -128,6 +128,37 @@ img:hover {
     -webkit-filter: drop-shadow(2px 4px 10px rgba(100, 184, 255, 0.6)) !important;
 }
 
+/* ===== Mobile Sidebar Overlay Fix ===== */
+@media (max-width:768px){
+
+/* Sidebar 变成 overlay */
+[data-testid="stSidebar"]{
+    position:fixed !important;
+    left:0 !important;
+    top:0 !important;
+    width:260px !important;
+    height:100vh !important;
+    z-index:2000 !important;
+    flex-shrink:0 !important;
+}
+
+/* 阻止主容器被推开 */
+[data-testid="stAppViewContainer"]{
+    margin-left:0 !important;
+}
+
+/* 阻止内部容器被推开 */
+[data-testid="stAppContainer"]{
+    margin-left:0 !important;
+}
+
+/* 保证菜单按钮在最上层 */
+button[kind="header"]{
+    z-index:3000 !important;
+}
+
+}
+
 /* 手机端精准适配 */
 @media (max-width: 768px) {
     /* 标题微调 */
@@ -170,7 +201,7 @@ img:hover {
     width: 100% !important;
     text-align: center !important;
 }
-
+}
 </style>
 """, unsafe_allow_html=True)
 
@@ -367,18 +398,11 @@ st.markdown("""
     border: none !important;
 }
 
-/* --- 核心修复：防止手机端侧边栏展开时内容被挤压变形 --- */
-[data-testid="stSidebarUserContent"], 
-[data-testid="stSidebar"] > div:first-child {
-    min-width: 280px !important; 
-    overflow-x: hidden !important;
-}
-
 /* 和Home Page的方框对齐：消除侧边栏顶部默认间距并上移整体内容 */
 [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
     padding-top: 0 !important;
     margin-top: -6.3px !important;
-
+}
 /* 侧边栏卡片：保持和主界面一致的凸起感 */
 .sidebar-card {
     background: #F0F4F8;
@@ -390,7 +414,6 @@ st.markdown("""
     font-weight: 600;
     text-align: center;
     margin-bottom: -10px;
-    min-width: 240px !important;
 }
 </style>
 """, unsafe_allow_html=True)
