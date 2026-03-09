@@ -37,13 +37,15 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     font-weight:800; font-size:52px; 
     background: linear-gradient(
         120deg, 
-        #64B8FF 34%, 
-        #42F2BF 45%, 
-        rgba(255,255,255,0.4) 50%, 
-        #42F2BF 55%, 
-        #64B8FF 70%
+        #64B8FF 0%, 
+        #42F2BF 25%, 
+        #64B8FF 40%, 
+        rgba(255,255,255,034) 50%, 
+        #42F2BF 60%, 
+        #64B8FF 75%
+        #64B8FF 100%
     );
-    background-size: 200% auto; /* 缩小尺寸，让流动更平稳 */
+    background-size: 300% auto; /* 缩小尺寸，让流动更平稳 */
     -webkit-background-clip: text; 
     -webkit-text-fill-color: transparent; 
     margin: 0; 
