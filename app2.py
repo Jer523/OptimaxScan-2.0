@@ -597,7 +597,7 @@ unsafe_allow_html=True
         st.download_button(
             label=" ",
             data=final_pdf,
-            file_name="Optimax_Refined.pdf",
+            file_name="optimax_processed.pdf",
             mime="application/pdf",
             use_container_width=True,
             key="download_pdf"
