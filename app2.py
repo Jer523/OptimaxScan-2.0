@@ -6,6 +6,7 @@ from PIL import Image, ImageOps
 import img2pdf
 import io
 import base64
+import time  # 精密阻尼器
 from pdf2image import convert_from_bytes
 from pillow_heif import register_heif_opener
 register_heif_opener()
@@ -521,31 +522,34 @@ unsafe_allow_html=True
             if num_pages == 0: continue
             
             for page_idx, pil_img in enumerate(temp_images):
-                # 如果是多页 PDF，继续细分进度份额
                 page_base = file_base_pct + (page_idx / num_pages) * file_chunk_pct
                 page_chunk = file_chunk_pct / num_pages
                 
                 progress_bar.progress(min(page_base + page_chunk * 0.15, 0.99))
                 status = get_image_status(pil_img, file_size_kb)
-
-                progress_bar.progress(min(page_base + page_chunk * 0.25, 0.99))
                 
                 if status == "KEEP_FILE":
+                    # --- [快车道] 小文件/原生文件：直接完成，不拉慢 ---
                     page_bytes = process_and_compress_to_letter(pil_img)
-                    progress_bar.progress(min(page_base + page_chunk * 0.85, 0.99))
+                    progress_bar.progress(min(page_base + page_chunk * 1.0, 0.99))
                 else:
+                    # --- [慢车道] 扫描件：开启匀速滑行阻尼 ---
+                    # 先推到 40%，配合 1.8s 的 CSS 动画，它会开始缓慢滑行
                     progress_bar.progress(min(page_base + page_chunk * 0.40, 0.99))
-                    
+          
                     # OpenCV 核心处理
                     processed_img = process_scan_layered_from_mem(pil_img, file_size_kb < 200)
-                    
-                    # 【进度节点 4】OpenCV处理完成，猛推一波
-                    progress_bar.progress(min(page_base + page_chunk * 0.85, 0.99))
+
+                    # --- 平滑滑行 (从 40% 匀速推向 85%) ---
+                    # 即使 OpenCV 处理完了，我们也分三步“拉”它一下，不让它瞬移
+                    for glide_pct in [0.55, 0.70, 0.85]:
+                        progress_bar.progress(min(page_base + page_chunk * glide_pct, 0.99))
+                        time.sleep(0.1) # 给予 0.1 秒的微小阻尼，让视觉极其平顺
                     page_bytes = process_and_compress_to_letter(processed_img)
                     
                 all_processed_bytes.append(page_bytes)
                 
-                # 【进度节点 5】单页压缩并保存完成 (推进到 100%)
+                # 收尾
                 progress_bar.progress(min(page_base + page_chunk * 1.0, 0.99))
 
         st.markdown(f'''<div class="status-text" style="display:flex;align-items:center;letter-spacing:-0.35px;"><img src="data:image/png;base64,{check_mark}" style="width:22px;margin-right:8px;"> 处理完成 | TASKS COMPLETE</div>''',unsafe_allow_html=True)
