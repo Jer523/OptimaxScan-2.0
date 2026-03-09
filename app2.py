@@ -38,32 +38,41 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     font-size: 52px;
     margin: 0;
 
-    /* 核心逻辑：定义两层背景 */
+    /* 第一层：活动的高光（收窄区间到 48%-52%，形成一条细光） */
+    /* 第二层：固定的蓝绿底色 */
     background-image: 
-        /* 第一层：活动的高光层 (从透明到微白再到透明) */
         linear-gradient(
             110deg, 
-            rgba(255, 255, 255, 0) 40%, 
-            rgba(255, 255, 255, 0.02) 50%, 
-            rgba(255, 255, 255, 0) 60%
+            rgba(255, 255, 255, 0) 45%, 
+            rgba(255, 255, 255, 0.15) 50%, 
+            rgba(255, 255, 255, 0) 55%
         ),
-        /* 第二层：固定的蓝绿底色层 */
         linear-gradient(135deg, #64B8FF, #42F2BF);
 
-    /* 设置背景尺寸：高光层设为200%宽度以便移动，底色层设为100%保持静止 */
+    /* 关键：高光层宽度设为 200%，底色层设为 100% */
     background-size: 200% 100%, 100% 100%;
     
-    /* 初始位置：高光在左侧视野外，底色在原位 */
+    /* 初始位置：高光在左边，底色在原位不动 */
     background-position: -100% 0, 0 0;
     background-repeat: no-repeat;
 
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* 动画：只改变第一个背景（高光）的位置，第二个背景固定 0 0 */
-    animation: shineOnly 8s linear infinite;
+    /* 动画：8s 扫过一次，linear 保证平滑 */
+    animation: pureShine 8s linear infinite;
 }
 
+@keyframes pureShine {
+    0% {
+        /* 第一个坐标（高光）从左侧 150% 开始 */
+        background-position: 150% 0, 0 0;
+    }
+    100% {
+        /* 扫向右侧 -150% */
+        background-position: -150% 0, 0 0;
+    }
+}
 @keyframes shineOnly {
     0% {
         background-position: -100% 0, 0 0;
