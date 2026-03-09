@@ -307,7 +307,7 @@ st.markdown("""
 <style>
 /* --- 进度条流动与流光核 --- */
 [data-testid="stProgressBar"] > div > div {
-    transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 div[data-testid="stProgressBar"]{
     margin-left:0.25em;
