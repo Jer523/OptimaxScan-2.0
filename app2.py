@@ -527,22 +527,15 @@ unsafe_allow_html=True
                     # --- [快车道] 小文件/原生文件：直接完成，不拉慢 ---
                     page_bytes = process_and_compress_to_letter(pil_img)
                 else:
-                    steps = 8
-                    for i in range(1, steps + 1):
-                        # 计算当前微步的进度比例 (从 0.05 到 0.30)
-                        glide_in = 0.05 + (i / steps) * 0.34 
-                        progress_bar.progress(min(page_base + page_chunk * glide_in, 0.99))
-                        # 0.08秒的阻尼：总启动耗时约 1.2 秒，给人一种“正在深度扫描”的高级感
-                        time.sleep(0.06)
+                    progress_bar.progress(min(page_base + page_chunk * 0.25, 0.99))
                         
                     # OpenCV 核心处理
                     processed_img = process_scan_layered_from_mem(pil_img, file_size_kb < 200)
 
                     # --- 收尾 ---
-                    for end_glide in [0.45, 0.7, 0.9]:
-                        progress_bar.progress(min(page_base + page_chunk * end_glide, 0.99))
-                        time.sleep(0.04)
-                    page_bytes = process_and_compress_to_letter(processed_img)
+                    progress_bar.progress(min(page_base + page_chunk * 0.55, 0.99))
+                     page_bytes = process_and_compress_to_letter(processed_img)
+                    progress_bar.progress(min(page_base + page_chunk * 0.85, 0.99))
                     
                 all_processed_bytes.append(page_bytes)
 
