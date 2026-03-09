@@ -367,6 +367,13 @@ st.markdown("""
     border: none !important;
 }
 
+/* --- 核心修复：防止手机端侧边栏展开时内容被挤压变形 --- */
+[data-testid="stSidebarUserContent"], 
+[data-testid="stSidebar"] > div:first-child {
+    min-width: 280px !important; 
+    overflow-x: hidden !important;
+}
+
 /* 和Home Page的方框对齐：消除侧边栏顶部默认间距并上移整体内容 */
 [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
     padding-top: 0 !important;
