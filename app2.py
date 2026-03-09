@@ -573,19 +573,19 @@ unsafe_allow_html=True
 
 st.markdown('<div id="download_anchor"></div>', unsafe_allow_html=True)
 
-        components.html("""
-            <script>
-            setTimeout(function() {
-                 const el = window.parent.document.getElementById("download_anchor");
-                if (el){
-                    el.scrollIntoView({
-                        behavior: "smooth",
-                        block: "center"
-                    });
-                }
-            }, 700);
-            </script>
-            """, height=0)
+components.html("""
+    <script>
+    setTimeout(function() {
+        const el = window.parent.document.getElementById("download_anchor");
+        if (el){
+            el.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+    }, 700);
+    </script>
+    """, height=0)
 
 # --- 6. Footnotes ---
 
