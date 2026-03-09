@@ -552,7 +552,7 @@ unsafe_allow_html=True
                 all_processed_bytes.append(page_bytes)
 
         st.markdown(f'''<div class="status-text fade-in-up" style="display:flex;align-items:center;letter-spacing:-0.35px;"><img src="data:image/png;base64,{check_mark}" style="width:22px;margin-right:8px;">处理完成 | TASKS COMPLETE</div>''', unsafe_allow_html=True)
-        st.markdown(f'''<div style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{download}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">保存文件 | DOWNLOAD PDF</span></div>''',unsafe_allow_html=True)
+        st.markdown(f'''<div class="fade-in-up" style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{download}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">保存文件 | DOWNLOAD PDF</span></div>''', unsafe_allow_html=True)
         st.markdown('<style>div.stDownloadButton { margin-top:-92px !important; }</style>',unsafe_allow_html=True)
 
         final_pdf = img2pdf.convert(all_processed_bytes)
