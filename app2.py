@@ -261,7 +261,7 @@ def process_scan_layered_from_mem(pil_img, is_small):
         _, black_mask = cv2.threshold(gray, 70, 255, cv2.THRESH_BINARY_INV)
 
         num_labels, labels, stats, _ = cv2.connectedComponentsWithStats(
-            black_mask, connectivity=5
+            black_mask, connectivity=8
         )
 
         valid_black_mask = np.zeros_like(black_mask)
