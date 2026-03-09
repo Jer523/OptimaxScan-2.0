@@ -12,7 +12,7 @@ from pdf2image import convert_from_bytes
 from pillow_heif import register_heif_opener
 register_heif_opener()
 
-# --- 1. 深度拟态 UI 配置 ---
+# --- 📍 1. 深度拟态 UI 配置 ---
 st.set_page_config(
     page_title="OPTIMAX SCAN",
     page_icon="OptimaxScan Icon.png",
@@ -20,7 +20,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# --- 2. 注入 CSS ---
+# --- 📍 2. 注入 CSS ---
 st.markdown("""
 <style>
 /* 全局基础 */
@@ -187,7 +187,7 @@ download=get_base64("download.png")
 Icon=get_base64("OptimaxScan Icon.png")
 upload=get_base64("Upload.png")
 
-# --- 2. 注入原始脚本的核心功能内核 ---
+# --- 📍 3. 注入原始脚本的核心功能内核 ---
 
 def get_image_status(pil_img, f_size_kb):
     """智能检测：判断是扫描件还是原生数字文件"""
@@ -303,7 +303,7 @@ def process_scan_layered_from_mem(pil_img, is_small):
 
     return Image.fromarray(cv2.cvtColor(final, cv2.COLOR_GRAY2RGB))
 
-# --- 3. 进度条动画 ---
+# --- 📍 4. 进度条动画 ---
 st.markdown("""
 <style>
 /* --- 进度条流动与流光核 --- */
@@ -357,7 +357,7 @@ div[data-testid="stProgressBar"]{
 </style>
 """,unsafe_allow_html=True)
 
-# --- 4. 侧边栏 ---
+# --- 📍 5. 侧边栏 ---
 st.markdown("""
 <style>
 /* 侧边栏基础拟态 */
@@ -468,7 +468,7 @@ with st.sidebar:
     </div>
     ''', unsafe_allow_html=True)
 
-# --- 5. 业务逻辑 ---
+# --- 📍 6. 业务逻辑 ---
 
 st.markdown("""
 <div class="title-card">
@@ -589,6 +589,6 @@ unsafe_allow_html=True
         </script>
         """, height=0)
 
-# --- 6. Footnotes ---
+# --- 📍 7. Footnotes ---
 
 st.markdown('<div class="footer">Optimax Scan Engine v2.0 | © 2026 Jerry Yin</div>',unsafe_allow_html=True)
