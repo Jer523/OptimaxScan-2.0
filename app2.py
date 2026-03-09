@@ -44,7 +44,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
         linear-gradient(
             110deg, 
             rgba(255, 255, 255, 0) 45%, 
-            rgba(255, 255, 255, 0.5) 50%, 
+            rgba(255, 255, 255, 0.3) 50%, 
             rgba(255, 255, 255, 0) 55%
         ),
         linear-gradient(135deg, #64B8FF, #42F2BF);
@@ -60,7 +60,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     -webkit-text-fill-color: transparent;
 
     /* 动画：8s 扫过一次，linear 保证平滑 */
-    animation: pureShine 8s linear infinite;
+    animation: pureShine 6.5s linear infinite;
 }
 
 @keyframes pureShine {
