@@ -39,7 +39,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
         120deg, 
         #64B8FF 34%, 
         #42F2BF 45%, 
-        rgba(255,255,255,0.2) 50%, 
+        rgba(100, 184, 255, 0.4) 50%, 
         #42F2BF 55%, 
         #64B8FF 70%
     );
