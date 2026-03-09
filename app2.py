@@ -367,17 +367,11 @@ st.markdown("""
     border: none !important;
 }
 
-/* --- "抽屉式"滑动，拒绝内部挤压 --- */
-[data-testid="stSidebar"] {
-    overflow-x: hidden !important; /* 关键1：让外层变成一个剪裁窗口，遮住内部多余的部分 */
-}
-
+/* --- 核心修复：防止手机端侧边栏展开时内容被挤压变形 --- */
 [data-testid="stSidebarUserContent"], 
 [data-testid="stSidebar"] > div:first-child {
-    width: 336px !important; /* 关键2：强制写死内部绝对宽度（336px是Streamlit侧边栏标准宽度） */
-    min-width: 336px !important;
-    max-width: 336px !important;
-    flex-shrink: 0 !important; /* 关键3：严禁被弹性布局强制压缩 */
+    min-width: 280px !important; 
+    overflow-x: hidden !important;
 }
 
 /* 和Home Page的方框对齐：消除侧边栏顶部默认间距并上移整体内容 */
