@@ -1,5 +1,6 @@
 import streamlit as st
 import cv2
+cv2.setNumThreads(4)
 import numpy as np
 from PIL import Image, ImageOps
 import img2pdf
