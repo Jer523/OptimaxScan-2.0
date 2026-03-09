@@ -6,6 +6,7 @@ from PIL import Image, ImageOps
 import img2pdf
 import io
 import base64
+import time
 from pdf2image import convert_from_bytes
 from pillow_heif import register_heif_opener
 register_heif_opener()
@@ -485,11 +486,19 @@ unsafe_allow_html=True
     if st.button(" ",use_container_width=True, key="refine_btn"):
         all_processed_bytes = []
         progress_bar = st.progress(0.01)   # 先显示一点颜色
-        virtual_progress = 0.02            # 当前显示进度
+        display_progress = 0.01
         real_progress = 0                  # 真实进度
         smoothing = 0.18                   # 平滑系数
+        last_update = time.time()
         
         for idx, file in enumerate(uploaded_files):
+            now = time.time()
+
+            if now - last_update > 0.05:   # 每50ms推进一次
+                display_progress += 0.015
+                display_progress = min(display_progress, real_progress + 0.05)
+                progress_bar.progress(display_progress)
+                last_update = now
             file_bytes = file.read()
             file_size_kb = len(file_bytes) / 1024
             
