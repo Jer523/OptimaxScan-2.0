@@ -24,7 +24,7 @@ st.set_page_config(
 st.markdown("""
 <style>
 /* 全局基础 */
-html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction:column; }
+html,body,.stApp { height:100%; background:#F0F4F8; }
 .main .block-container { padding-top:10vh; max-width:750px; padding-bottom: 120px; }
 
 /* 标题卡片 */
