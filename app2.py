@@ -44,7 +44,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
         linear-gradient(135deg, #64B8FF, #42F2BF);
 
     /* 高光层拉伸到 300% 保证有足够的“助跑”距离，底色 100% 保持不动 */
-    background-size: 800% 100%, 100% 100%;
+    background-size: 1800% 100%, 100% 100%;
     
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
