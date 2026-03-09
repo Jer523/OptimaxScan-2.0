@@ -487,7 +487,7 @@ with st.sidebar:
             分析: 智能修复光线/清晰度<br>
             Auto-fix light and clarity<br>
             压缩: 体积优化，画质无损<br>
-            Lossless Size Optimization<br>
+            Lossless size optimization<br>
             排版: 统一 Letter Size 布局<br>
             Standard 8.5×11 Layout
         </div>
