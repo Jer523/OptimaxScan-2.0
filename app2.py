@@ -545,8 +545,8 @@ unsafe_allow_html=True
 
                     # --- 收尾 ---
                     smooth_progress(min(page_base + page_chunk * 0.55, 0.99))
-                    smooth_progress(min(page_base + page_chunk * 0.85, 0.99))
                     page_bytes = process_and_compress_to_letter(processed_img)
+                    smooth_progress(min(page_base + page_chunk * 0.85, 0.99))
                     
                 all_processed_bytes.append(page_bytes)
 
