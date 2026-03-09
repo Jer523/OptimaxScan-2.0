@@ -488,12 +488,18 @@ unsafe_allow_html=True
 
     if st.button(" ",use_container_width=True, key="refine_btn"):
         all_processed_bytes = []
-        progress_bar = st.progress(0.01)   # 先显示一点颜色
-        display_progress = 0.01
-        real_progress = 0                  # 真实进度
-        last_update = time.time()
+        progress_bar = st.progress(0.0) # 从 0 开始，不要一开始就给数值
         
-        for idx, file in enumerate(uploaded_files):
+        total_files = len(uploaded_files)
+        
+        for file_idx, file in enumerate(uploaded_files):
+            # 计算当前文件在总进度中的基础占比和每份份额
+            file_base_pct = file_idx / total_files
+            file_chunk_pct = 1.0 / total_files
+            
+            # 【进度节点 1】开始读取文件 (占据当前文件的 5%)
+            progress_bar.progress(file_base_pct + file_chunk_pct * 0.05)
+            
             file_bytes = file.read()
             file_size_kb = len(file_bytes) / 1024
             
@@ -506,28 +512,41 @@ unsafe_allow_html=True
             else:
                 img = Image.open(io.BytesIO(file_bytes))
                 img = ImageOps.exif_transpose(img)
-
                 if img.mode != "RGB":
                     img = img.convert("RGB")
-
                 pil_img = img
                 pil_img.thumbnail((3000,3000), Image.Resampling.BILINEAR)
                 temp_images.append(pil_img)
             
-            for pil_img in temp_images:
+            num_pages = len(temp_images)
+            if num_pages == 0: continue
+            
+            for page_idx, pil_img in enumerate(temp_images):
+                # 如果是多页 PDF，继续细分进度份额
+                page_base = file_base_pct + (page_idx / num_pages) * file_chunk_pct
+                page_chunk = file_chunk_pct / num_pages
+                
+                # 【进度节点 2】分析图片状态 (推进到 15%)
+                progress_bar.progress(min(page_base + page_chunk * 0.15, 0.99))
                 status = get_image_status(pil_img, file_size_kb)
-                progress_bar.progress(min(display_progress,0.95))
+                
+                # 【进度节点 3】准备进入核心算法 (推进到 25%)
+                progress_bar.progress(min(page_base + page_chunk * 0.25, 0.99))
+                
                 if status == "KEEP_FILE":
                     page_bytes = process_and_compress_to_letter(pil_img)
                 else:
+                    # OpenCV 核心处理（这里最耗时，但在进入前和出来后都有进度更新）
                     processed_img = process_scan_layered_from_mem(pil_img, file_size_kb < 200)
+                    
+                    # 【进度节点 4】OpenCV处理完成 (瞬间推到 80%)
+                    progress_bar.progress(min(page_base + page_chunk * 0.80, 0.99))
                     page_bytes = process_and_compress_to_letter(processed_img)
+                    
                 all_processed_bytes.append(page_bytes)
-            
-            real_progress = (idx + 1) / len(uploaded_files)
-            display_progress += (real_progress - display_progress) * 0.35
-            progress_bar.progress(display_progress)
-            time.sleep(0.05)
+                
+                # 【进度节点 5】单页压缩并保存完成 (推进到 100%)
+                progress_bar.progress(min(page_base + page_chunk * 1.0, 0.99))
 
         st.markdown(f'''<div class="status-text" style="display:flex;align-items:center;letter-spacing:-0.35px;"><img src="data:image/png;base64,{check_mark}" style="width:22px;margin-right:8px;"> 处理完成 | TASKS COMPLETE</div>''',unsafe_allow_html=True)
         st.markdown(f'''<div style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{download}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">保存文件 | DOWNLOAD PDF</span></div>''',unsafe_allow_html=True)
@@ -535,6 +554,8 @@ unsafe_allow_html=True
 
         final_pdf = img2pdf.convert(all_processed_bytes)
         st.download_button(label=" ", data=final_pdf, file_name="Optimax_Refined.pdf", mime="application/pdf", use_container_width=True)
+        
+        # 【最终节点】收尾至完美的 100%
         progress_bar.progress(1.0)
 
 # --- 6. Footnotes ---
