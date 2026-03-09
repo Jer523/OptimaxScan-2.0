@@ -35,12 +35,11 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
 }
 .main-title { 
     font-weight:800; font-size:52px; 
-    /* 修改颜色：将白色改为 rgba(255,255,255,0.6) 更加柔和 */
     background: linear-gradient(
         120deg, 
-        #64B8FF 30%, 
+        #64B8FF 34%, 
         #42F2BF 45%, 
-        rgba(255,255,255,0.6) 50%, 
+        rgba(255,255,255,0.2) 50%, 
         #42F2BF 55%, 
         #64B8FF 70%
     );
@@ -49,7 +48,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     -webkit-text-fill-color: transparent; 
     margin: 0; 
     /* 核心修复：linear 保证速度一致，8s 增加流动的间隔感 */
-    animation: titleShimmer 8s linear infinite; 
+    animation: titleShimmer 12s linear infinite; 
 }
 
 @keyframes titleShimmer {
