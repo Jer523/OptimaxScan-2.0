@@ -80,7 +80,7 @@ div.stDownloadButton>button:active,
     box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff !important;
     padding: 20px !important;
     margin-bottom:139px
-    border: 1px solid rgba(255,255,255,0.5) !important;
+    border: 1px solid rgba(255,255,255,0.5); !important;
     
 /* --- 新增：平滑平展动画 --- */
 transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.6s ease !important;
@@ -371,7 +371,7 @@ st.markdown("""
 [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
     padding-top: 0 !important;
     margin-top: -6.3px !important;
-
+}
 /* 侧边栏卡片：保持和主界面一致的凸起感 */
 .sidebar-card {
     background: #F0F4F8;
