@@ -529,6 +529,7 @@ unsafe_allow_html=True
 
         final_pdf = img2pdf.convert(all_processed_bytes)
         st.download_button(label=" ", data=final_pdf, file_name="Optimax_Refined.pdf", mime="application/pdf", use_container_width=True)
+        progress_bar.progress(1.0)
 
 # --- 6. Footnotes ---
 
