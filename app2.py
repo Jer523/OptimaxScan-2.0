@@ -488,7 +488,6 @@ unsafe_allow_html=True
         progress_bar = st.progress(0.01)   # 先显示一点颜色
         display_progress = 0.01
         real_progress = 0                  # 真实进度
-        smoothing = 0.18                   # 平滑系数
         last_update = time.time()
         
         for idx, file in enumerate(uploaded_files):
