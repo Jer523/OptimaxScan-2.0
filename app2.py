@@ -128,19 +128,32 @@ img:hover {
     -webkit-filter: drop-shadow(2px 4px 10px rgba(100, 184, 255, 0.6)) !important;
 }
 
-/* 手机端防止 Sidebar 压缩页面 */
-@media (max-width: 768px){
+/* ===== Mobile Sidebar Overlay Fix ===== */
+@media (max-width:768px){
 
+/* Sidebar 变成浮层 */
 [data-testid="stSidebar"]{
-    position: fixed !important;
-    left:0;
-    top:0;
-    height:100vh;
-    z-index:1000;
+    position:fixed !important;
+    left:0 !important;
+    top:0 !important;
+    width:260px !important;
+    height:100vh !important;
+    z-index:2000 !important;
 }
 
-[data-testid="stAppViewContainer"]{
+/* 阻止主页面被推开 */
+[data-testid="stAppViewContainer"] > .main{
     margin-left:0 !important;
+}
+
+/* 防止 Sidebar 挤压布局 */
+[data-testid="stAppViewContainer"]{
+    display:block !important;
+}
+
+/* 恢复关闭按钮 */
+button[kind="header"]{
+    z-index:3000 !important;
 }
 
 }
