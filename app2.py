@@ -492,7 +492,7 @@ unsafe_allow_html=True
         progress_bar = st.progress(0.01)
         visual_progress = 0.01
 
-        def smooth_progress(target, duration=0.8):
+        def smooth_progress(target, duration=0.4):
             global visual_progress
             steps = 12
             step = (target - visual_progress) / steps
