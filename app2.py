@@ -357,46 +357,47 @@ div[data-testid="stProgressBar"]{
 </style>
 """,unsafe_allow_html=True)
 
-# --- 4. 侧边栏 ---
+/* --- 4. 侧边栏：深度定制与防挤压内核 --- */
 st.markdown("""
 <style>
-/* 侧边栏基础拟态 */
+/* 侧边栏基础拟态底色 */
 [data-testid="stSidebar"] {
     background-color: #F0F4F8 !important;
     box-shadow: inset -10px 0 20px #d1d9e6 !important;
     border: none !important;
 }
 
-/* --- "抽屉式"滑动，拒绝内部挤压 --- */
-[data-testid="stSidebar"] {
-    overflow-x: hidden !important; /* 关键1：让外层变成一个剪裁窗口，遮住内部多余的部分 */
-}
-
-[data-testid="stSidebarUserContent"], 
-[data-testid="stSidebar"] > div:first-child {
-    width: 336px !important; /* 关键2：强制写死内部绝对宽度（336px是Streamlit侧边栏标准宽度） */
-    min-width: 336px !important;
-    max-width: 336px !important;
-    flex-shrink: 0 !important; /* 关键3：严禁被弹性布局强制压缩 */
-}
-
-/* 和Home Page的方框对齐：消除侧边栏顶部默认间距并上移整体内容 */
+/* 终极防挤压：直接锁定内部所有垂直块的宽度 */
 [data-testid="stSidebar"] [data-testid="stVerticalBlock"] {
+    width: 300px !important; /* 锁定宽度，确保拉出时内容不重排 */
     padding-top: 0 !important;
     margin-top: -6.3px !important;
+}
 
-/* 侧边栏卡片：保持和主界面一致的凸起感 */
+/* 确保内部容器不被 flex 压缩 */
+[data-testid="stSidebarUserContent"] {
+    min-width: 300px !important;
+    overflow-x: hidden !important;
+}
+
+/* 修正侧边栏卡片：锁定宽度并保持拟态感 */
 .sidebar-card {
     background: #F0F4F8;
     border-radius: 20px;
     padding: 63px 20px 25px 20px;
-    margin: 15px;
+    margin: 15px auto !important; /* 居中 */
     box-shadow: 6px 6px 12px #d1d9e6, -6px -6px 12px #ffffff;
     color: #64B8FF;
     font-weight: 600;
     text-align: center;
     margin-bottom: -10px;
-    min-width: 240px !important;
+    width: 270px !important; /* 稍微窄一点，留出边距 */
+    flex-shrink: 0 !important;
+}
+
+/* 强制文字不换行，防止挤压时的视觉破碎 */
+.sidebar-card div {
+    white-space: nowrap !important;
 }
 </style>
 """, unsafe_allow_html=True)
