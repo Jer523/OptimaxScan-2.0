@@ -217,11 +217,11 @@ def process_and_compress_to_letter(pil_img):
     
     q = 90
     output = io.BytesIO()
-    canvas.save(output, format="JPEG", quality=q)
+    canvas.save(output, format="JPEG", quality=q, optimize=True)
     while output.tell() / 1024 > 450 and q > 20:
         q -= 5
         output = io.BytesIO()
-        canvas.save(output, format="JPEG", quality=q)
+        canvas.save(output, format="JPEG", quality=q, optimize=True)
     return output.getvalue()
 
 def process_scan_layered_from_mem(pil_img, is_small):
