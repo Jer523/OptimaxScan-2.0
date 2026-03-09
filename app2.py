@@ -50,7 +50,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     -webkit-text-fill-color: transparent;
 
     /* 6s linear 确保匀速 */
-    animation: pureShine 6s linear infinite;
+    animation: pureShine 2s linear infinite;
 }
 
 @keyframes pureShine {
