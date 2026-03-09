@@ -296,8 +296,8 @@ def process_scan_layered_from_mem(pil_img, is_small):
         _, white_bg_mask = cv2.threshold(final, 235, 255, cv2.THRESH_BINARY)
         final[white_bg_mask == 255] = 255
 
-        gaussian_blur = cv2.GaussianBlur(final, (0, 0), 4)
-        final = cv2.addWeighted(final, 1.6, gaussian_blur, -0.6, 0)
+        gaussian_blur = cv2.GaussianBlur(final, (0, 0), 2.2)
+        final = cv2.addWeighted(final, 1.35, gaussian_blur, -0.35, 0)
 
     return Image.fromarray(cv2.cvtColor(final, cv2.COLOR_GRAY2RGB))
 
