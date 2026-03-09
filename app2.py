@@ -535,8 +535,10 @@ unsafe_allow_html=True
                 
                 if status == "KEEP_FILE":
                     page_bytes = process_and_compress_to_letter(pil_img)
+                    progress_bar.progress(min(page_base + page_chunk * 0.85, 0.99))
                 else:
                     # OpenCV 核心处理（这里最耗时，但在进入前和出来后都有进度更新）
+                    progress_bar.progress(min(page_base + page_chunk * 0.40, 0.99))
                     processed_img = process_scan_layered_from_mem(pil_img, file_size_kb < 200)
                     
                     # 【进度节点 4】OpenCV处理完成 (瞬间推到 80%)
