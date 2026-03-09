@@ -3,3 +3,8 @@ base = "light"
 primaryColor = "#64B8FF"
 backgroundColor = "#F0F4F8"
 secondaryBackgroundColor = "#ffffff"
+
+[client]
+# 设置为 "minimal" 可以隐藏 Fork 按钮和大部分菜单
+# 如果想彻底隐藏整个右上角工具栏，可以改为 "hidden"
+toolbarMode = "minimal"
