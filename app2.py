@@ -561,7 +561,7 @@ unsafe_allow_html=True
         progress_bar.progress(1.0)
 
         # 自动滚动到底部
-        st.markdown("""
+        components.html("""
         <script>
         setTimeout(function() {
             window.scrollTo({
@@ -570,7 +570,7 @@ unsafe_allow_html=True
             });
         }, 300);
         </script>
-        """, unsafe_allow_html=True)
+        """, height=0)
 
 # --- 6. Footnotes ---
 
