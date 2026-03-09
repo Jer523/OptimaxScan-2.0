@@ -562,19 +562,30 @@ unsafe_allow_html=True
         progress_bar.progress(1.0)
 
         # 自动滚动到底部
-        components.html("""
-        <script>
-        function scrollToBottom(){
-            const parentDoc = window.parent.document;
-            window.parent.scrollTo({
-                top: parentDoc.body.scrollHeight,
-                behavior: "smooth"
-            });
-        }
+        st.download_button(
+            label=" ",
+            data=final_pdf,
+            file_name="Optimax_Refined.pdf",
+            mime="application/pdf",
+            use_container_width=True,
+            key="download_pdf"
+        )
 
-setTimeout(scrollToBottom, 800);
-</script>
-""", height=0)
+st.markdown('<div id="download_anchor"></div>', unsafe_allow_html=True)
+
+        components.html("""
+            <script>
+            setTimeout(function() {
+                 const el = window.parent.document.getElementById("download_anchor");
+                if (el){
+                    el.scrollIntoView({
+                        behavior: "smooth",
+                        block: "center"
+                    });
+                }
+            }, 700);
+            </script>
+            """, height=0)
 
 # --- 6. Footnotes ---
 
