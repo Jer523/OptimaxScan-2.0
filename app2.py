@@ -533,10 +533,14 @@ unsafe_allow_html=True
                     page_bytes = process_and_compress_to_letter(pil_img)
                     progress_bar.progress(min(page_base + page_chunk * 1.0, 0.99))
                 else:
-                    # --- [慢车道] 启动滑行，不要瞬间跳跃，而是平稳滑行到 30% ---
-                    for start_glide in [0.20, 0.25, 0.30]:
-                        progress_bar.progress(min(page_base + page_chunk * start_glide, 0.99))
-                        time.sleep(0.15) # 这里的阻尼感会让用户觉得程序在“认真准备”
+                    steps = 15 
+                    for i in range(1, steps + 1):
+                        # 计算当前微步的进度比例 (从 0.05 到 0.30)
+                        glide_in = 0.05 + (i / steps) * 0.25 
+                        progress_bar.progress(min(page_base + page_chunk * glide_in, 0.99))
+                        
+                        # 0.08秒的阻尼：总启动耗时约 1.2 秒，给人一种“正在深度扫描”的高级感
+                        time.sleep(0.08)
                         
                     # OpenCV 核心处理
                     processed_img = process_scan_layered_from_mem(pil_img, file_size_kb < 200)
