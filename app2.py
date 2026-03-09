@@ -506,7 +506,7 @@ unsafe_allow_html=True
                 if img.mode != "RGB":
                     img = img.convert("RGB")
 
-                    pil_img = img
+                pil_img = img
                 pil_img.thumbnail((3000,3000), Image.Resampling.BILINEAR)
                 temp_images.append(pil_img)
             
