@@ -518,6 +518,8 @@ unsafe_allow_html=True
 
         def smooth_progress(target, duration=0.4):
             global visual_progress
+            if target <= visual_progress:
+                return
             steps = 12
             step = (target - visual_progress) / steps
             for _ in range(steps):
