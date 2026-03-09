@@ -25,7 +25,7 @@ st.markdown("""
 <style>
 /* 全局基础 */
 html,body,.stApp { height:100%; background:#F0F4F8; }
-.main .block-container { padding-top:10vh; width:100%; max-width:750px; padding-bottom: 120px; }
+.main .block-container { padding-top:10vh; max-width:750px; margin:auto; padding-bottom: 120px; }
 
 /* 标题卡片 */
 .title-card { 
