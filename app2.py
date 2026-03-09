@@ -23,30 +23,6 @@ st.set_page_config(
 # --- 2. 注入 CSS ---
 st.markdown("""
 <style>
-
-/* 强制 Sidebar 变成 overlay，不参与主布局 */
-@media (max-width: 768px) {
-
-    [data-testid="stSidebar"] {
-        position: fixed !important;
-        left: 0;
-        top: 0;
-        height: 100vh;
-        z-index: 1001;
-    }
-
-    section[data-testid="stSidebar"] {
-        position: fixed !important;
-        transform: translateX(0);
-    }
-
-    /* 主页面锁定宽度，避免 reflow */
-    .main {
-        width: 100% !important;
-    }
-
-}
-
 /* 全局基础 */
 html,body,.stApp { height:100%; background:#F0F4F8; }
 .main .block-container { padding-top:10vh; max-width:750px; margin:auto; padding-bottom: 120px; }
@@ -150,6 +126,23 @@ img:hover {
 [data-testid="stSidebar"] img {
     filter: drop-shadow(2px 4px 10px rgba(100, 184, 255, 0.6)) !important;
     -webkit-filter: drop-shadow(2px 4px 10px rgba(100, 184, 255, 0.6)) !important;
+}
+
+/* 手机端防止 Sidebar 压缩页面 */
+@media (max-width: 768px){
+
+[data-testid="stSidebar"]{
+    position: fixed !important;
+    left:0;
+    top:0;
+    height:100vh;
+    z-index:1000;
+}
+
+[data-testid="stAppViewContainer"]{
+    margin-left:0 !important;
+}
+
 }
 
 /* 手机端精准适配 */
