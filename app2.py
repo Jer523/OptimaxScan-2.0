@@ -530,7 +530,7 @@ unsafe_allow_html=True
             temp_images = []
             if file.name.lower().endswith('.pdf'):
                 try:
-                    smooth_progress(min(file_base_pct + file_chunk_pct * 0.2, 0.99), duration=3)
+                    smooth_progress(min(file_base_pct + file_chunk_pct * 0.3, 0.99), duration=4)
                     pages = convert_from_bytes(file_bytes)
                     temp_images.extend(pages)
                 except: continue
