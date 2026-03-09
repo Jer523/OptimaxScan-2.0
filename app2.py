@@ -530,19 +530,26 @@ unsafe_allow_html=True
                 progress_bar.progress(min(page_base + page_chunk * 0.15, 0.99))
                 status = get_image_status(pil_img, file_size_kb)
                 
-                # 【进度节点 3】准备进入核心算法 (推进到 25%)
+                # 【进度节点 2】分析图片状态
+                progress_bar.progress(min(page_base + page_chunk * 0.15, 0.99))
+                status = get_image_status(pil_img, file_size_kb)
+                
+                # 【进度节点 3】准备处理
                 progress_bar.progress(min(page_base + page_chunk * 0.25, 0.99))
                 
                 if status == "KEEP_FILE":
                     page_bytes = process_and_compress_to_letter(pil_img)
                     progress_bar.progress(min(page_base + page_chunk * 0.85, 0.99))
                 else:
-                    # OpenCV 核心处理（这里最耗时，但在进入前和出来后都有进度更新）
+                    # 【进度节点 3.5】在进入最卡顿的 OpenCV 之前，给一个缓冲推力
+                    # 配合 1.8s 的 CSS 动画，这 15% 的差距够它缓慢滑行一两秒了
                     progress_bar.progress(min(page_base + page_chunk * 0.40, 0.99))
+                    
+                    # OpenCV 核心处理（这里最耗时）
                     processed_img = process_scan_layered_from_mem(pil_img, file_size_kb < 200)
                     
-                    # 【进度节点 4】OpenCV处理完成 (瞬间推到 80%)
-                    progress_bar.progress(min(page_base + page_chunk * 0.80, 0.99))
+                    # 【进度节点 4】OpenCV处理完成，猛推一波
+                    progress_bar.progress(min(page_base + page_chunk * 0.85, 0.99))
                     page_bytes = process_and_compress_to_letter(processed_img)
                     
                 all_processed_bytes.append(page_bytes)
