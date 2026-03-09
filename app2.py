@@ -500,6 +500,7 @@ unsafe_allow_html=True
                 except: continue
             else:
                 pil_img = ImageOps.exif_transpose(Image.open(io.BytesIO(file_bytes))).convert("RGB")
+                pil_img.thumbnail((3000,3000), Image.Resampling.BILINEAR)
                 temp_images.append(pil_img)
             
             for pil_img in temp_images:
