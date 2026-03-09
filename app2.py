@@ -534,7 +534,7 @@ unsafe_allow_html=True
 
                     # --- 收尾 ---
                     progress_bar.progress(min(page_base + page_chunk * 0.55, 0.99))
-                     page_bytes = process_and_compress_to_letter(processed_img)
+                    page_bytes = process_and_compress_to_letter(processed_img)
                     progress_bar.progress(min(page_base + page_chunk * 0.85, 0.99))
                     
                 all_processed_bytes.append(page_bytes)
