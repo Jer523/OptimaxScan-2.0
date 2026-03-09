@@ -1,18 +1,4 @@
 import streamlit as st
-
-import streamlit as st
-
-st.set_page_config(
-    page_title="OPTIMAX SCAN",           # 改变浏览器标签页标题
-    page_icon="📄",                       # 改变图标
-    layout="centered",                   # 保持居中拟态感
-    menu_items={
-        'Get Help': None,
-        'Report a bug': None,
-        'About': "### OPTIMAX SCAN \n Analog Essence. Digital Precision." # 这里改 About 文案
-    }
-)
-
 import streamlit.components.v1 as components
 import cv2
 cv2.setNumThreads(4)
