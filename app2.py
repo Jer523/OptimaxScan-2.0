@@ -131,6 +131,7 @@ img:hover {
 /* ===== Mobile Sidebar Overlay Fix ===== */
 @media (max-width:768px){
 
+/* Sidebar 变成 overlay */
 [data-testid="stSidebar"]{
     position:fixed !important;
     left:0 !important;
@@ -138,16 +139,20 @@ img:hover {
     width:260px !important;
     height:100vh !important;
     z-index:2000 !important;
+    flex-shrink:0 !important;
 }
 
-[data-testid="stAppViewContainer"] > .main{
+/* 阻止主容器被推开 */
+[data-testid="stAppViewContainer"]{
     margin-left:0 !important;
 }
 
-[data-testid="stAppViewContainer"]{
-    display:block !important;
+/* 阻止内部容器被推开 */
+[data-testid="stAppContainer"]{
+    margin-left:0 !important;
 }
 
+/* 保证菜单按钮在最上层 */
 button[kind="header"]{
     z-index:3000 !important;
 }
