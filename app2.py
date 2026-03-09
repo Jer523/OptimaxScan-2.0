@@ -500,7 +500,13 @@ unsafe_allow_html=True
                     temp_images.extend(pages)
                 except: continue
             else:
-                pil_img = ImageOps.exif_transpose(Image.open(io.BytesIO(file_bytes))).convert("RGB")
+                img = Image.open(io.BytesIO(file_bytes))
+                img = ImageOps.exif_transpose(img)
+
+                if img.mode != "RGB":
+                    img = img.convert("RGB")
+
+                    pil_img = img
                 pil_img.thumbnail((3000,3000), Image.Resampling.BILINEAR)
                 temp_images.append(pil_img)
             
