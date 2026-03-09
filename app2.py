@@ -487,7 +487,6 @@ unsafe_allow_html=True
 )
     
 # --------------------------- 物品1 - Star.png --------------------------- 
-# display:flex = 把图标和文字 横向排在一行 | justify-content:center = 让整行内容 在页面水平居中 | align-items:center = 让图标和文字在垂直方向对齐 | height = 给整行留空间，数字越大，这一行就会往下推更多空间 ｜ z-index = 层级
     st.markdown(f'''<div style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{star}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">开始优化 | START REFINING</span></div>''',unsafe_allow_html=True)
 # ------------------------------------------------------------------------    
     st.markdown('<style>div[data-testid="stVerticalBlock"] > div:has(div.stButton) { margin-top:-92px !important; }</style>',unsafe_allow_html=True)
