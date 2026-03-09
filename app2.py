@@ -390,6 +390,7 @@ st.markdown("""
     font-weight: 600;
     text-align: center;
     margin-bottom: -10px;
+    min-width: 240px !important;
 }
 </style>
 """, unsafe_allow_html=True)
