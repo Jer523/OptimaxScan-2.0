@@ -307,7 +307,7 @@ st.markdown("""
 <style>
 /* --- 进度条流动与流光核 --- */
 [data-testid="stProgressBar"] > div > div {
-    transition: width 0.15s linear !important;
+    transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 div[data-testid="stProgressBar"]{
     margin-left:0.25em;
@@ -494,8 +494,7 @@ unsafe_allow_html=True
 
         def smooth_progress(target, duration=0.8):
             global visual_progress
-            target = max(visual_progress, target)
-            steps = 60
+            steps = 12
             step = (target - visual_progress) / steps
             for _ in range(steps):
                 visual_progress += step
