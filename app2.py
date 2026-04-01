@@ -49,8 +49,8 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    /* 6.5s linear 确保匀速 */
-    animation: pureShine 6.5s linear infinite;
+    /* 6s linear 确保匀速 */
+    animation: pureShine 5.5s linear infinite;
 }
 
 @keyframes pureShine {
@@ -485,11 +485,11 @@ with st.sidebar:
         </div>
             <div style="text-align: left; font-size: 0.7em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.7px; margin-left: 28px">
             分析: 智能修复光线/清晰度<br>
-            Auto-Fix Light and Clarity<br>
+            Auto-fix light and clarity<br>
             压缩: 体积优化，画质无损<br>
             Lossless Size Optimization<br>
             排版: 统一 Letter Size 布局<br>
-            Standard 8.5 × 11 Layout
+            Standard 8.5×11 Layout
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; margin-left: 14px">  
             3. 保存黑白 | Export B&W
@@ -502,7 +502,7 @@ with st.sidebar:
 st.markdown("""
 <div class="title-card">
 <div class="main-title">OPTIMAX SCAN</div>
-<div class="sub-title">Analog Essence • Digital Precision</div>
+<div class="sub-title">Refining your vision, one pixel at a time.</div>
 </div>
 """,unsafe_allow_html=True)
 
@@ -597,7 +597,7 @@ unsafe_allow_html=True
         st.download_button(
             label=" ",
             data=final_pdf,
-            file_name="optimax_processed.pdf",
+            file_name="Optimax_Refined.pdf",
             mime="application/pdf",
             use_container_width=True,
             key="download_pdf"
