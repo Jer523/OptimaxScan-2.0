@@ -518,6 +518,7 @@ unsafe_allow_html=True
     
 # 🔻——— 父容器：物品1(z:10顶层) + 物品3凹槽(z:2第三层) ———🔻
     st.markdown(f'<div style="position:relative;width:100%;height:100px;pointer-events:none;"><div style="position:absolute;bottom:2px;left:5%;width:90%;height:6px;background:#d1d9e6;border-radius:10px;box-shadow:inset 2px 2px 4px #b8bec8,inset -2px -2px 4px #eef1f5;z-index:2;"></div><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;z-index:10;"><img src="data:image/png;base64,{star}" style="width:25px;"><span style="color:#64B8FF;font-weight:600;">开始优化 | START REFINING</span></div></div>', unsafe_allow_html=True)
+    progress_placeholder = st.empty()
 # 🔺-----------------------------------------------------------------------🔺
 
 # 🔻--------------------------- 物品4 Button（最底层 z-index:1）---------------------------🔻
@@ -532,15 +533,7 @@ unsafe_allow_html=True
     # 🔺-----------------------------------------------------------------------🔺
         all_processed_bytes = []
         # 🔻——— 物品2 进度条（z-index:5 第二层，向上拉对准凹槽）———🔻
-        st.markdown('''<style>
-            div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stProgressBar"]) {
-                position: relative !important;
-                z-index: 5 !important;        /* ← 高于凹槽(z:2)，低于文字(z:10) */
-                margin-top: -100px !important; /* ← 微调：向上移动，对准凹槽位置 */
-                pointer-events: none !important;
-            }
-        </style>''', unsafe_allow_html=True)
-        progress_bar = st.progress(0.01)
+        progress_bar = progress_placeholder.progress(0.01)
         visual_progress = 0.01
         # 🔺-------------------------------------------------------------------🔺
 
