@@ -199,6 +199,7 @@ img:hover {
     width: 100% !important;
     text-align: center !important;
 }
+}
 
 </style>
 """, unsafe_allow_html=True)
