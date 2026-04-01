@@ -536,7 +536,7 @@ unsafe_allow_html=True
             div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stProgressBar"]) {
                 position: relative !important;
                 z-index: 5 !important;        /* ← 高于凹槽(z:2)，低于文字(z:10) */
-                margin-top: -48px !important; /* ← 微调：向上移动，对准凹槽位置 */
+                margin-top: -100px !important; /* ← 微调：向上移动，对准凹槽位置 */
                 pointer-events: none !important;
             }
         </style>''', unsafe_allow_html=True)
