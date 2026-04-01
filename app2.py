@@ -87,7 +87,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
 /* 拟态按钮通用样式 */
 div.stButton>button, div.stDownloadButton>button { 
     background:#F0F4F8 !important; color:#64B8FF !important; border-radius:20px !important; border:none !important; 
-    box-shadow:10px 10px 20px #d1d9e6, -10px -10px 20px #ffffff !important; font-weight:bold !important; height:65px !important; width:100% !important; 
+    box-shadow:10px 10px 20px #d1d9e6, -10px -10px 20px #ffffff !important; font-weight:bold !important; height:110px !important; width:100% !important; 
 }
 button:active,
 div.stButton>button:active,
@@ -517,13 +517,13 @@ unsafe_allow_html=True
 )
     
 # 🔻——— 父容器：物品1(z:10顶层) + 物品3凹槽(z:2第三层) ———🔻
-    st.markdown(f'<div style="position:relative;width:100%;height:90px;pointer-events:none;"><div style="position:absolute;bottom:6px;left:5%;width:90%;height:6px;background:#d1d9e6;border-radius:10px;box-shadow:inset 2px 2px 4px #b8bec8,inset -2px -2px 4px #eef1f5;z-index:2;"></div><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;z-index:10;"><img src="data:image/png;base64,{star}" style="width:25px;"><span style="color:#64B8FF;font-weight:600;">开始优化 | START REFINING</span></div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div style="position:relative;width:100%;height:110px;pointer-events:none;"><div style="position:absolute;bottom:6px;left:5%;width:90%;height:6px;background:#d1d9e6;border-radius:10px;box-shadow:inset 2px 2px 4px #b8bec8,inset -2px -2px 4px #eef1f5;z-index:2;"></div><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;z-index:10;"><img src="data:image/png;base64,{star}" style="width:25px;"><span style="color:#64B8FF;font-weight:600;">开始优化 | START REFINING</span></div></div>', unsafe_allow_html=True)
 # 🔺-----------------------------------------------------------------------🔺
 
 # 🔻--------------------------- 物品4 Button（最底层 z-index:1）---------------------------🔻
     st.markdown('''<style>
         div[data-testid="stVerticalBlock"] > div:has(div.stButton) {
-            margin-top: -90px !important;  /* ← 向上拉，和父容器重叠 */
+            margin-top: -110px !important;  /* ← 向上拉，和父容器重叠 */
             position: relative !important;
             z-index: 1 !important;         /* ← 最底层，但能接收点击 */
         }
