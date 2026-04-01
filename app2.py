@@ -107,7 +107,7 @@ div.stDownloadButton>button:active,
 .stFileUploader{ background: #F0F4F8 !important;
     border-radius: 20px !important;
     box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff !important;
-    padding: 20px !important;
+    padding: 0px !important;
     margin-bottom:20px;
     border: 1px solid rgba(255,255,255,0.5) !important;
     
