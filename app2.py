@@ -33,10 +33,39 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
     box-shadow:15px 15px 35px #d1d9e6, -15px -15px 35px #ffffff; 
     padding:45px 20px; text-align:center; margin-bottom:39px; 
 }
-.main-title { 
-    font-weight:800; font-size:52px; 
-    background:linear-gradient(135deg,#64B8FF,#42F2BF); 
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent; margin:0; 
+.main-title {
+    font-weight: 800;
+    font-size: 52px;
+    margin: 0;
+
+    /* 第一层：极其克制的高光 (0.35) | 第二层：固定的蓝绿底色 */
+    background-image: 
+        linear-gradient(110deg, transparent 45%, rgba(255,255,255,0.35) 50%, transparent 55%),
+        linear-gradient(135deg, #64B8FF, #42F2BF);
+
+    /* 高光层拉伸到 300% 保证有足够的“助跑”距离，底色 100% 保持不动 */
+    background-size: 500% 100%, 100% 100%;
+    
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    /* 6.5s linear 确保匀速 */
+    animation: pureShine 6.5s linear infinite;
+}
+
+@keyframes pureShine {
+    /* 修正百分比：从 100% 到 0% 是最稳的循环方式 */
+    0% {
+        background-position: 100% 0, 0 0;
+    }
+    100% {
+        background-position: 0% 0, 0 0;
+    }
+}
+.sub-title { color:#A0AEC0; font-size:16px; margin-top:10px; }
+@keyframes titleShimmer {
+    0% { background-position: 200% center; }
+    100% { background-position: -200% center; }
 }
 .sub-title { color:#A0AEC0; font-size:16px; margin-top:10px; }
 
@@ -79,7 +108,7 @@ div.stDownloadButton>button:active,
     border-radius: 20px !important;
     box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff !important;
     padding: 20px !important;
-    margin-bottom:139px
+    margin-bottom:139px;
     border: 1px solid rgba(255,255,255,0.5) !important;
     
 /* --- 新增：平滑平展动画 --- */
@@ -456,11 +485,11 @@ with st.sidebar:
         </div>
             <div style="text-align: left; font-size: 0.7em; color: #A0AEC0; font-weight: 400; line-height: 1.6; letter-spacing: 0.7px; margin-left: 28px">
             分析: 智能修复光线/清晰度<br>
-            Auto-fix light and clarity<br>
+            Auto-Fix Light and Clarity<br>
             压缩: 体积优化，画质无损<br>
             Lossless Size Optimization<br>
             排版: 统一 Letter Size 布局<br>
-            Standard 8.5×11 Layout
+            Standard 8.5 × 11 Layout
         </div>
         <div style="text-align: left; font-size: 0.9em; color: #A0AEC0; font-weight: 400; line-height: 1.6; margin-left: 14px">  
             3. 保存黑白 | Export B&W
@@ -473,7 +502,7 @@ with st.sidebar:
 st.markdown("""
 <div class="title-card">
 <div class="main-title">OPTIMAX SCAN</div>
-<div class="sub-title">Refining your vision, one pixel at a time.</div>
+<div class="sub-title">Analog Essence • Digital Precision</div>
 </div>
 """,unsafe_allow_html=True)
 
@@ -486,21 +515,75 @@ f'<div class="queued-title" style="visibility:hidden;height:0;margin:0;padding:0
 unsafe_allow_html=True
 )
     
-# 🔻--------------------------- 物品1 CCR - Star.png ---------------------------🔻 
-# display:flex = 把图标和文字 横向排在一行 | justify-content:center = 让整行内容 在页面水平居中 | align-items:center = 让图标和文字在垂直方向对齐 | height = 给整行留空间，数字越大，这一行就会往下推更多空间 ｜ z-index = 层级
-    st.markdown(f'''<div style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{star}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">开始优化 | START REFINING</span></div>''',unsafe_allow_html=True)
-# 🔺-----------------------------------------------------------------------🔺   
-# 🔻--------------------------- 物品5 CCR - Button.png ---------------------------🔻
-# margin-top - 92 = 向上移动 92px
-    st.markdown('<style>div[data-testid="stVerticalBlock"] > div:has(div.stButton) { margin-top:-92px !important; }</style>',unsafe_allow_html=True)
+# 🔻——— 父容器：文字(z:10 顶层) + 凹槽(z:2 第三层) ———🔻
+    st.markdown(f'''
+    <div style="
+        position: relative;
+        width: 100%;
+        height: 65px;            /* ← 等于按钮高度，不撑开后续内容 */
+        pointer-events: none;    /* ← 点击穿透到物品4按钮 */
+    ">
 
-    if st.button(" ",use_container_width=True, key="refine_btn"):
+        <!-- 物品3：进度条凹槽 | z-index:2 第三层 -->
+        <div style="
+            position: absolute;
+            bottom: 14px;        /* ← 微调：凹槽距父容器底部距离 */
+            left: 5%;
+            width: 90%;
+            height: 6px;
+            background: #d1d9e6;
+            border-radius: 10px;
+            box-shadow: inset 2px 2px 4px #b8bec8, inset -2px -2px 4px #eef1f5;
+            z-index: 2;
+        "></div>
+
+        <!-- 物品1：Star.png + 开始优化文字 | z-index:10 最顶层 -->
+        <div style="
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 10;
+        ">
+            <img src="data:image/png;base64,{star}" style="width:25px;">
+            <span style="color:#64B8FF; font-weight:600;">开始优化 | START REFINING</span>
+        </div>
+
+    </div>
+    ''', unsafe_allow_html=True)
+# 🔺-----------------------------------------------------------------------🔺
+
+# 🔻--------------------------- 物品4 Button（最底层 z-index:1）---------------------------🔻
+    st.markdown('''<style>
+        div[data-testid="stVerticalBlock"] > div:has(div.stButton) {
+            margin-top: -65px !important;  /* ← 向上拉，和父容器重叠 */
+            position: relative !important;
+            z-index: 1 !important;         /* ← 最底层，但能接收点击 */
+        }
+    </style>''', unsafe_allow_html=True)
+    if st.button(" ", use_container_width=True, key="refine_btn"):
+    # 🔺-----------------------------------------------------------------------🔺
         all_processed_bytes = []
+        # 🔻——— 物品2 进度条（z-index:5 第二层，向上拉对准凹槽）———🔻
+        st.markdown('''<style>
+            div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stProgressBar"]) {
+                position: relative !important;
+                z-index: 5 !important;        /* ← 高于凹槽(z:2)，低于文字(z:10) */
+                margin-top: -30px !important; /* ← 微调：向上移动，对准凹槽位置 */
+                pointer-events: none !important;
+            }
+        </style>''', unsafe_allow_html=True)
         progress_bar = st.progress(0.01)
         visual_progress = 0.01
+        # 🔺-------------------------------------------------------------------🔺
 
         def smooth_progress(target, duration=0.4):
             global visual_progress
+            if target <= visual_progress:
+                return
             steps = 12
             step = (target - visual_progress) / steps
             for _ in range(steps):
@@ -521,6 +604,7 @@ unsafe_allow_html=True
             temp_images = []
             if file.name.lower().endswith('.pdf'):
                 try:
+                    smooth_progress(min(file_base_pct + file_chunk_pct * 0.2, 0.99), duration=0.3)
                     pages = convert_from_bytes(file_bytes)
                     temp_images.extend(pages)
                 except: continue
@@ -565,7 +649,7 @@ unsafe_allow_html=True
         st.download_button(
             label=" ",
             data=final_pdf,
-            file_name="Optimax_Refined.pdf",
+            file_name="optimax_processed.pdf",
             mime="application/pdf",
             use_container_width=True,
             key="download_pdf"
