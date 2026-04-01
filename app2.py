@@ -516,45 +516,8 @@ f'<div class="queued-title" style="visibility:hidden;height:0;margin:0;padding:0
 unsafe_allow_html=True
 )
     
-# 🔻——— 父容器：文字(z:10 顶层) + 凹槽(z:2 第三层) ———🔻
-    st.markdown(f'''
-    <div style="
-        position: relative;
-        width: 100%;
-        height: 65px;            /* ← 等于按钮高度，不撑开后续内容 */
-        pointer-events: none;    /* ← 点击穿透到物品4按钮 */
-    ">
-
-        <!-- 物品3：进度条凹槽 | z-index:2 第三层 -->
-        <div style="
-            position: absolute;
-            bottom: 14px;        /* ← 微调：凹槽距父容器底部距离 */
-            left: 5%;
-            width: 90%;
-            height: 6px;
-            background: #d1d9e6;
-            border-radius: 10px;
-            box-shadow: inset 2px 2px 4px #b8bec8, inset -2px -2px 4px #eef1f5;
-            z-index: 2;
-        "></div>
-
-        <!-- 物品1：Star.png + 开始优化文字 | z-index:10 最顶层 -->
-        <div style="
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            z-index: 10;
-        ">
-            <img src="data:image/png;base64,{star}" style="width:25px;">
-            <span style="color:#64B8FF; font-weight:600;">开始优化 | START REFINING</span>
-        </div>
-
-    </div>
-    ''', unsafe_allow_html=True)
+# 🔻——— 父容器：物品1(z:10顶层) + 物品3凹槽(z:2第三层) ———🔻
+    st.markdown(f'<div style="position:relative;width:100%;height:65px;pointer-events:none;"><div style="position:absolute;bottom:14px;left:5%;width:90%;height:6px;background:#d1d9e6;border-radius:10px;box-shadow:inset 2px 2px 4px #b8bec8,inset -2px -2px 4px #eef1f5;z-index:2;"></div><div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;z-index:10;"><img src="data:image/png;base64,{star}" style="width:25px;"><span style="color:#64B8FF;font-weight:600;">开始优化 | START REFINING</span></div></div>', unsafe_allow_html=True)
 # 🔺-----------------------------------------------------------------------🔺
 
 # 🔻--------------------------- 物品4 Button（最底层 z-index:1）---------------------------🔻
