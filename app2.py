@@ -368,7 +368,7 @@ div[data-testid="stProgressBar"]{
 .stProgress > div > div { 
     background-color: transparent !important; 
     border-radius: 10px !important; 
-    height: 6px !important;
+    height: 60px !important;
     box-shadow: none !important; 
 }
 
