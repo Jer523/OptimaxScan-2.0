@@ -359,7 +359,8 @@ st.markdown("""
     transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 div[data-testid="stProgressBar"]{
-    margin-left:0.25em;
+    margin-left:5% !important;
+    width:90% !important;
     position:relative;
     overflow:hidden;
 }
@@ -367,7 +368,7 @@ div[data-testid="stProgressBar"]{
 .stProgress > div > div { 
     background-color: transparent !important; 
     border-radius: 10px !important; 
-    height: 8px !important; 
+    height: 6px !important;
     box-shadow: none !important; 
 }
 
