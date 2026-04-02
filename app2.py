@@ -360,28 +360,27 @@ st.markdown("""
 }
 div[data-testid="stProgressBar"]{
     margin-left:5% !important;
-    width:9% !important;
+    width:90% !important;
     position:relative;
     overflow:hidden;
 }
 
-.stProgress > div > div { 
-    background-color: transparent !important; 
-    border-radius: 10px !important; 
+div[data-testid="stProgressBar"] > div {
+    background-color: transparent !important;
+    border-radius: 10px !important;
     height: 6px !important;
-    box-shadow: none !important; 
+    box-shadow: none !important;
 }
 
-/* 进度条主体与平滑过渡 */
-.stProgress > div > div > div > div { 
-    background: linear-gradient(to right, #64B8FF, #42F2BF) !important; 
-    border-radius: 10px !important; 
+div[data-testid="stProgressBar"] > div > div {
+    background: linear-gradient(to right, #64B8FF, #42F2BF) !important;
+    border-radius: 10px !important;
     position: relative;
     overflow: hidden;
 }
 
 /* 进度条流光动画 (来自 14 copy.py) */
-.stProgress > div > div > div > div::after {
+div[data-testid="stProgressBar"] > div > div::after {
     content:"";
     position:absolute;
     top:0;
