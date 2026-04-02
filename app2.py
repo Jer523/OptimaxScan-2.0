@@ -406,6 +406,16 @@ div[data-testid="stProgressBar"] > div > div::after {
 </style>
 """,unsafe_allow_html=True)
 
+import streamlit.components.v1 as components
+components.html("""
+<script>
+setTimeout(function(){
+    var all = window.parent.document.querySelectorAll('[class*="progress"], [class*="Progress"], [role="progressbar"]');
+    all.forEach(function(el){ console.log(el.outerHTML.substring(0, 300)); });
+}, 3000);
+</script>
+""", height=0)
+
 # --- 📍 5. 侧边栏 ---
 st.markdown("""
 <style>
