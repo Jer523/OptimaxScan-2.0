@@ -409,15 +409,24 @@ div[data-testid="stProgressBar"] > div > div::after {
 # --- 📍 4.5 进度条 DOM 诊断（用完删掉）---
 components.html("""
 <script>
-setTimeout(function(){
-    var results = [];
-    var byRole = window.parent.document.querySelectorAll('[role="progressbar"]');
-    var byClass = window.parent.document.querySelectorAll('[class*="progress"], [class*="Progress"]');
-    byRole.forEach(function(el){ results.push("ROLE: " + el.outerHTML.substring(0,400)); });
-    byClass.forEach(function(el){ results.push("CLASS: " + el.outerHTML.substring(0,400)); });
-    if(results.length === 0){ console.log("NOTHING FOUND"); }
-    results.forEach(function(r){ console.log(r); });
-}, 4000);
+var doc = window.parent.document;
+var observer = new MutationObserver(function(mutations){
+    mutations.forEach(function(m){
+        m.addedNodes.forEach(function(node){
+            if(node.nodeType === 1){
+                var testid = node.getAttribute && node.getAttribute('data-testid');
+                var all = node.querySelectorAll && node.querySelectorAll('*');
+                if(testid){ console.log('NEW NODE testid=' + testid + ' | ' + node.outerHTML.substring(0,300)); }
+                if(all){ all.forEach(function(child){
+                    var cid = child.getAttribute('data-testid');
+                    if(cid){ console.log('CHILD testid=' + cid + ' | ' + child.outerHTML.substring(0,300)); }
+                }); }
+            }
+        });
+    });
+});
+observer.observe(doc.body, {childList:true, subtree:true});
+console.log('Observer started');
 </script>
 """, height=0)
 
