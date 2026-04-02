@@ -543,8 +543,9 @@ unsafe_allow_html=True
     if st.button(" ", use_container_width=True, key="refine_btn"):
     # 🔺-----------------------------------------------------------------------🔺
         all_processed_bytes = []
-        # 🔻——— 物品2 进度条（z-index:5 第二层，向上拉对准凹槽）———🔻
-        progress_bar = progress_placeholder.progress(0.01)
+        # 🔻——— 物品2 进度条（渲染在按钮下方，用CSS拉回凹槽位置）———🔻
+        st.markdown('<style>div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stProgressBar"]) { margin-top:-80px !important; margin-bottom:80px !important; position:relative !important; z-index:5 !important; pointer-events:none !important; }</style>', unsafe_allow_html=True)
+        progress_bar = st.progress(0.01)
         visual_progress = 0.01
         # 🔺-------------------------------------------------------------------🔺
 
