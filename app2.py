@@ -87,7 +87,7 @@ html,body,.stApp { height:100%; background:#F0F4F8; display:flex; flex-direction
 /* 拟态按钮通用样式 */
 div.stButton>button, div.stDownloadButton>button { 
     background:#F0F4F8 !important; color:#64B8FF !important; border-radius:20px !important; border:none !important; 
-    box-shadow:10px 10px 20px #d1d9e6, -10px -10px 20px #ffffff !important; font-weight:bold !important; height:100px !important; width:100% !important; 
+    box-shadow:10px 10px 20px #d1d9e6, -10px -10px 20px #ffffff !important; font-weight:bold !important; height:65px !important; width:100% !important; 
 }
 button:active,
 div.stButton>button:active,
@@ -101,32 +101,14 @@ div.stDownloadButton>button:active,
     background-color: transparent !important;
     border: none !important;
     display: flex !important;
-    overflow: visible !important;
-}
-
-[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"] {
-    display: flex !important;
-    visibility: visible !important;
-    height: auto !important;
-    max-height: none !important;
-    opacity: 1 !important;
-}
-
-[data-testid="stFileUploader"] section > div:first-child {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    width: 100% !important;
-    flex-wrap: wrap !important;
-}
+} 
 
 /* 上传文件 */
 .stFileUploader{ background: #F0F4F8 !important;
     border-radius: 20px !important;
     box-shadow: inset 8px 8px 16px #d1d9e6, inset -8px -8px 16px #ffffff !important;
     padding: 20px !important;
-    margin-bottom:0px;
+    margin-bottom:139px
     border: 1px solid rgba(255,255,255,0.5) !important;
     
 /* --- 新增：平滑平展动画 --- */
@@ -216,7 +198,6 @@ img:hover {
     justify-content: center !important;
     width: 100% !important;
     text-align: center !important;
-}
 }
 
 </style>
@@ -354,34 +335,33 @@ def process_scan_layered_from_mem(pil_img, is_small):
 # --- 📍 4. 进度条动画 ---
 st.markdown("""
 <style>
-div[data-testid="stProgressBar"] { background: red !important; }
 /* --- 进度条流动与流光核 --- */
 [data-testid="stProgressBar"] > div > div {
     transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 div[data-testid="stProgressBar"]{
-    margin-left:5% !important;
-    width:90% !important;
+    margin-left:0.25em;
     position:relative;
     overflow:hidden;
 }
 
-div[data-testid="stProgressBar"] > div {
-    background-color: transparent !important;
-    border-radius: 10px !important;
-    height: 6px !important;
-    box-shadow: none !important;
+.stProgress > div > div { 
+    background-color: transparent !important; 
+    border-radius: 10px !important; 
+    height: 8px !important; 
+    box-shadow: none !important; 
 }
 
-div[data-testid="stProgressBar"] > div > div {
-    background: linear-gradient(to right, #64B8FF, #42F2BF) !important;
-    border-radius: 10px !important;
+/* 进度条主体与平滑过渡 */
+.stProgress > div > div > div > div { 
+    background: linear-gradient(to right, #64B8FF, #42F2BF) !important; 
+    border-radius: 10px !important; 
     position: relative;
     overflow: hidden;
 }
 
 /* 进度条流光动画 (来自 14 copy.py) */
-div[data-testid="stProgressBar"] > div > div::after {
+.stProgress > div > div > div > div::after {
     content:"";
     position:absolute;
     top:0;
@@ -405,30 +385,6 @@ div[data-testid="stProgressBar"] > div > div::after {
 .footer{ position: fixed; bottom: 0; left: 0; width: 100%; background: #F0F4F8; text-align:center; color:#BDC3C7; font-size:13px; padding-bottom:20px; padding-top:10px; z-index: 999; }
 </style>
 """,unsafe_allow_html=True)
-
-# --- 📍 4.5 进度条 DOM 诊断（用完删掉）---
-components.html("""
-<script>
-var doc = window.parent.document;
-var observer = new MutationObserver(function(mutations){
-    mutations.forEach(function(m){
-        m.addedNodes.forEach(function(node){
-            if(node.nodeType === 1){
-                var testid = node.getAttribute && node.getAttribute('data-testid');
-                var all = node.querySelectorAll && node.querySelectorAll('*');
-                if(testid){ console.log('NEW NODE testid=' + testid + ' | ' + node.outerHTML.substring(0,300)); }
-                if(all){ all.forEach(function(child){
-                    var cid = child.getAttribute('data-testid');
-                    if(cid){ console.log('CHILD testid=' + cid + ' | ' + child.outerHTML.substring(0,300)); }
-                }); }
-            }
-        });
-    });
-});
-observer.observe(doc.body, {childList:true, subtree:true});
-console.log('Observer started');
-</script>
-""", height=0)
 
 # --- 📍 5. 侧边栏 ---
 st.markdown("""
@@ -559,20 +515,18 @@ f'<div class="queued-title" style="visibility:hidden;height:0;margin:0;padding:0
 unsafe_allow_html=True
 )
     
-# 🔻——— 父容器 ———🔻
-    st.markdown(f'<div style="position:relative;z-index:10;width:100%;height:100px;pointer-events:none;"><div style="position:absolute;bottom:2px;left:5%;width:90%;height:6px;background:#d1d9e6;border-radius:10px;box-shadow:inset 2px 2px 4px #b8bec8,inset -2px -2px 4px #eef1f5;"></div><div style="position:absolute;top:60%;left:50%;transform:translate(-50%,-50%);display:flex;align-items:center;gap:10px;"><img src="data:image/png;base64,{star}" style="width:25px;"><span style="color:#64B8FF;font-weight:600;">开始优化 | START REFINING</span></div></div>', unsafe_allow_html=True)
-# 🔺---🔺
+# 🔻--------------------------- 物品1 CCR - Star.png ---------------------------🔻 
+# display:flex = 把图标和文字 横向排在一行 | justify-content:center = 让整行内容 在页面水平居中 | align-items:center = 让图标和文字在垂直方向对齐 | height = 给整行留空间，数字越大，这一行就会往下推更多空间 ｜ z-index = 层级
+    st.markdown(f'''<div style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{star}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">开始优化 | START REFINING</span></div>''',unsafe_allow_html=True)
+# 🔺-----------------------------------------------------------------------🔺   
+# 🔻--------------------------- 物品5 CCR - Button.png ---------------------------🔻
+# margin-top - 92 = 向上移动 92px
+    st.markdown('<style>div[data-testid="stVerticalBlock"] > div:has(div.stButton) { margin-top:-92px !important; }</style>',unsafe_allow_html=True)
 
-# 🔻——— 物品4 Button ———🔻
-    st.markdown('<style>div[data-testid="stVerticalBlock"] > div:has(div.stButton){margin-top:-100px !important;position:relative !important;z-index:1 !important;}</style>', unsafe_allow_html=True)
-    if st.button(" ", use_container_width=True, key="refine_btn"):
-    # 🔺-----------------------------------------------------------------------🔺
+    if st.button(" ",use_container_width=True, key="refine_btn"):
         all_processed_bytes = []
-        # 🔻——— 物品2 进度条（渲染在按钮下方，用CSS拉回凹槽位置）———🔻
-        st.markdown('<style>div[data-testid="stVerticalBlock"] > div:has(div[data-testid="stProgressBar"]){margin-top:-80px !important;margin-bottom:80px !important;position:relative !important;z-index:5 !important;pointer-events:none !important;}</style>', unsafe_allow_html=True)
         progress_bar = st.progress(0.01)
         visual_progress = 0.01
-        # 🔺-------------------------------------------------------------------🔺
 
         def smooth_progress(target, duration=0.4):
             global visual_progress
@@ -636,7 +590,7 @@ unsafe_allow_html=True
                 all_processed_bytes.append(page_bytes)
 
         st.markdown(f'''<div class="status-text fade-in-up" style="display:flex;align-items:center;letter-spacing:-0.35px;"><img src="data:image/png;base64,{check_mark}" style="width:22px;margin-right:8px;">处理完成 | TASKS COMPLETE</div>''', unsafe_allow_html=True)
-        st.markdown(f'''<div class="fade-in-up" style="display:flex;align-items:center;justify-content:center;height:90px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{download}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">保存文件 | DOWNLOAD PDF</span></div>''', unsafe_allow_html=True)
+        st.markdown(f'''<div class="fade-in-up" style="display:flex;align-items:center;justify-content:center;height:65px;pointer-events:none;position:relative;z-index:10;"><img src="data:image/png;base64,{download}" style="width:25px;margin-right:10px;"><span style="color:#64B8FF;font-weight:600;">保存文件 | DOWNLOAD PDF</span></div>''', unsafe_allow_html=True)
         st.markdown('<style>div.stDownloadButton { margin-top:-92px !important; }</style>',unsafe_allow_html=True)
 
         final_pdf = img2pdf.convert(all_processed_bytes)
