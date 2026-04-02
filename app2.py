@@ -406,13 +406,18 @@ div[data-testid="stProgressBar"] > div > div::after {
 </style>
 """,unsafe_allow_html=True)
 
-import streamlit.components.v1 as components
+# --- 📍 4.5 进度条 DOM 诊断（用完删掉）---
 components.html("""
 <script>
 setTimeout(function(){
-    var all = window.parent.document.querySelectorAll('[class*="progress"], [class*="Progress"], [role="progressbar"]');
-    all.forEach(function(el){ console.log(el.outerHTML.substring(0, 300)); });
-}, 3000);
+    var results = [];
+    var byRole = window.parent.document.querySelectorAll('[role="progressbar"]');
+    var byClass = window.parent.document.querySelectorAll('[class*="progress"], [class*="Progress"]');
+    byRole.forEach(function(el){ results.push("ROLE: " + el.outerHTML.substring(0,400)); });
+    byClass.forEach(function(el){ results.push("CLASS: " + el.outerHTML.substring(0,400)); });
+    if(results.length === 0){ console.log("NOTHING FOUND"); }
+    results.forEach(function(r){ console.log(r); });
+}, 4000);
 </script>
 """, height=0)
 
