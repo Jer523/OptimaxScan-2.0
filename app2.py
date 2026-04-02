@@ -354,6 +354,7 @@ def process_scan_layered_from_mem(pil_img, is_small):
 # --- 📍 4. 进度条动画 ---
 st.markdown("""
 <style>
+div[data-testid="stProgressBar"] { background: red !important; }
 /* --- 进度条流动与流光核 --- */
 [data-testid="stProgressBar"] > div > div {
     transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
