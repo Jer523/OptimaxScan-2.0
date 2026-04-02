@@ -360,7 +360,7 @@ st.markdown("""
 }
 div[data-testid="stProgressBar"]{
     margin-left:5% !important;
-    width:90% !important;
+    width:9% !important;
     position:relative;
     overflow:hidden;
 }
@@ -368,7 +368,7 @@ div[data-testid="stProgressBar"]{
 .stProgress > div > div { 
     background-color: transparent !important; 
     border-radius: 10px !important; 
-    height: 60px !important;
+    height: 6px !important;
     box-shadow: none !important; 
 }
 
