@@ -101,17 +101,25 @@ div.stDownloadButton>button:active,
     background-color: transparent !important;
     border: none !important;
     display: flex !important;
-    min-height: 80px !important;
     overflow: visible !important;
 }
 
-[data-testid="stFileUploader"] section {
+[data-testid="stFileUploader"] [data-testid="stFileUploaderDropzone"] {
+    display: flex !important;
+    visibility: visible !important;
+    height: auto !important;
+    max-height: none !important;
+    opacity: 1 !important;
+}
+
+[data-testid="stFileUploader"] section > div:first-child {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
+    justify-content: space-between !important;
+    width: 100% !important;
     flex-wrap: wrap !important;
-    overflow: visible !important;
-} 
+}
 
 /* 上传文件 */
 .stFileUploader{ background: #F0F4F8 !important;
