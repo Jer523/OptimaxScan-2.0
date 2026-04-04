@@ -97,49 +97,24 @@ div.stDownloadButton>button:active,
     transform: translateY(2px) !important; 
 }
 
-/* ===== 上传框：横向布局（左文字 + 右按钮）===== */
 [data-testid="stFileUploaderDropzone"] {
     background-color: transparent !important;
     border: none !important;
     display: flex !important;
-    flex-direction: row !important;
-    justify-content: space-between !important;
+    justify-content: center !important;
     align-items: center !important;
-    padding: 12px 8px !important;
-    min-height: unset !important;
-    gap: 16px !important;
+    min-height: 80px !important;
 }
 
-/* 文字区：显示出来，左对齐，隐藏 SVG 图标 */
+/* 精准隐藏 Streamlit 内部的说明文字区（含200MB提示） */
 [data-testid="stFileUploaderDropzoneInstructions"] {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-}
-[data-testid="stFileUploaderDropzoneInstructions"] svg {
     display: none !important;
 }
-[data-testid="stFileUploaderDropzoneInstructions"] > div,
-[data-testid="stFileUploaderDropzoneInstructions"] > div > div {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    gap: 3px !important;
-}
 
-/* 第一行："Drag and drop files here" — 深色 */
-[data-testid="stFileUploaderDropzoneInstructions"] span {
-    color: #2D3748 !important;
-    font-size: 0.9em !important;
-    font-weight: 500 !important;
-}
-
-/* 第二行："Limit 200MB per file" — 小灰字 */
-[data-testid="stFileUploaderDropzoneInstructions"] small {
-    color: #A0AEC0 !important;
-    font-size: 0.75em !important;
-    font-weight: 400 !important;
+/* 居中 Browse files 按钮 */
+[data-testid="stFileUploader"] button {
+    display: block !important;
+    margin: 0 auto !important;
 }
 
 /* 上传文件 */
@@ -156,41 +131,9 @@ transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1), padding 0.6s ease !imp
     overflow: hidden !important;
 }
 
-/* ===== 已上传文件列表：每文件独占一行 ===== */
+/* 针对内部列表的平滑处理 */
 [data-testid="stFileUploader"] ul {
-    display: flex !important;
-    flex-direction: column !important;
-    list-style: none !important;
-    padding: 8px 0 0 0 !important;
-    margin: 0 !important;
-    gap: 4px !important;
     animation: fadeIn 0.5s ease-out forwards;
-}
-
-/* 每一行：文件名+图标靠右，X 按钮最右 */
-[data-testid="stFileUploader"] ul li {
-    display: flex !important;
-    flex-direction: row !important;
-    justify-content: flex-end !important;
-    align-items: center !important;
-    padding: 5px 4px !important;
-    width: 100% !important;
-    gap: 8px !important;
-}
-
-/* 文件名/图标内容区：右对齐 */
-[data-testid="stFileUploader"] ul li > div {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: flex-end !important;
-    text-align: right !important;
-    flex: 1 !important;
-}
-
-/* X 删除按钮：固定在最右 */
-[data-testid="stFileUploader"] ul li button {
-    flex-shrink: 0 !important;
-    margin-left: 4px !important;
 }
 
 @keyframes fadeIn {
@@ -419,7 +362,7 @@ div[data-testid="stProgressBar"]{
 .stProgress > div > div { 
     background-color: transparent !important; 
     border-radius: 10px !important; 
-    height: 5px !important; 
+    height: 8px !important; 
     box-shadow: none !important; 
 }
 
