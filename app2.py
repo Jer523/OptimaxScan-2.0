@@ -101,21 +101,7 @@ div.stDownloadButton>button:active,
     background-color: transparent !important;
     border: none !important;
     display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    min-height: 80px !important;
-}
-
-/* 精准隐藏 Streamlit 内部的说明文字区（含200MB提示） */
-[data-testid="stFileUploaderDropzoneInstructions"] {
-    display: none !important;
-}
-
-/* 居中 Browse files 按钮 */
-[data-testid="stFileUploader"] button {
-    display: block !important;
-    margin: 0 auto !important;
-}
+} 
 
 /* 上传文件 */
 .stFileUploader{ background: #F0F4F8 !important;
@@ -524,7 +510,6 @@ if "uploader_key" not in st.session_state:
     st.session_state.uploader_key = 0
 
 uploaded_files=st.file_uploader("",accept_multiple_files=True,label_visibility="collapsed", key=f"uploader_{st.session_state.uploader_key}")
-
 visual_progress = 0
 
 if uploaded_files:
