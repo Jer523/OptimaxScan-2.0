@@ -97,6 +97,59 @@ div.stDownloadButton>button:active,
     transform: translateY(2px) !important; 
 }
 
+/* ===== 标题重置按钮：外观与原标题卡片完全一致 ===== */
+div[data-testid="stVerticalBlock"] > div:first-child > div > button {
+    background: #F0F4F8 !important;
+    border-radius: 30px !important;
+    box-shadow: 15px 15px 35px #d1d9e6, -15px -15px 35px #ffffff !important;
+    height: auto !important;
+    min-height: 155px !important;
+    padding: 45px 20px !important;
+    width: 100% !important;
+    border: none !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 39px !important;
+    cursor: pointer !important;
+}
+div[data-testid="stVerticalBlock"] > div:first-child > div > button:active {
+    box-shadow: inset 10px 10px 22px #d1d9e6, inset -10px -10px 22px #ffffff !important;
+    transform: none !important;
+}
+/* 隐藏按钮内部的默认文字 */
+div[data-testid="stVerticalBlock"] > div:first-child > div > button > * {
+    display: none !important;
+}
+/* 用 ::before 渲染渐变动画主标题 */
+div[data-testid="stVerticalBlock"] > div:first-child > div > button::before {
+    content: "OPTIMAX SCAN";
+    font-weight: 800;
+    font-size: 52px;
+    background-image: 
+        linear-gradient(110deg, transparent 45%, rgba(255,255,255,0.35) 50%, transparent 55%),
+        linear-gradient(135deg, #64B8FF, #42F2BF);
+    background-size: 500% 100%, 100% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+    text-align: center;
+    animation: pureShine 6.5s linear infinite;
+}
+/* 用 ::after 渲染副标题 */
+div[data-testid="stVerticalBlock"] > div:first-child > div > button::after {
+    content: "Analog Essence • Digital Precision";
+    font-size: 16px;
+    font-weight: 400;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    -webkit-text-fill-color: #A0AEC0;
+    color: #A0AEC0;
+}
+
 [data-testid="stFileUploaderDropzone"] {
     background-color: transparent !important;
     border: none !important;
@@ -499,12 +552,10 @@ with st.sidebar:
 
 # --- 📍 6. 业务逻辑 ---
 
-st.markdown("""
-<div class="title-card">
-<div class="main-title">OPTIMAX SCAN</div>
-<div class="sub-title">Analog Essence • Digital Precision</div>
-</div>
-""",unsafe_allow_html=True)
+# 标题卡片 = 重置按钮，点击后回到初始状态
+if st.button(" ", key="title_reset_btn", use_container_width=True):
+    st.session_state.uploader_key += 1
+    st.rerun()
 
 if "uploader_key" not in st.session_state:
     st.session_state.uploader_key = 0
