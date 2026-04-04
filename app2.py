@@ -101,7 +101,15 @@ div.stDownloadButton>button:active,
     background-color: transparent !important;
     border: none !important;
     display: flex !important;
-} 
+    justify-content: center !important;
+    align-items: center !important;
+    min-height: 80px !important;
+}
+
+/* 隐藏提示文字区（"Drag and drop" + "200MB per file"），只留按钮 */
+[data-testid="stFileUploaderDropzone"] > div:first-child {
+    display: none !important;
+}
 
 /* 上传文件 */
 .stFileUploader{ background: #F0F4F8 !important;
