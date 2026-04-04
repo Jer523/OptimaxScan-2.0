@@ -106,9 +106,15 @@ div.stDownloadButton>button:active,
     min-height: 80px !important;
 }
 
-/* 隐藏提示文字区（"Drag and drop" + "200MB per file"），只留按钮 */
-[data-testid="stFileUploaderDropzone"] > div:first-child {
+/* 精准隐藏 Streamlit 内部的说明文字区（含200MB提示） */
+[data-testid="stFileUploaderDropzoneInstructions"] {
     display: none !important;
+}
+
+/* 居中 Browse files 按钮 */
+[data-testid="stFileUploader"] button {
+    display: block !important;
+    margin: 0 auto !important;
 }
 
 /* 上传文件 */
