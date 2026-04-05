@@ -340,11 +340,14 @@ st.markdown("""
     transition: width 1.8s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 div[data-testid="stProgressBar"]{
-    max-width: 10% !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
     position:relative;
     overflow:hidden;
+}
+
+.stProgress {
+    max-width: 85% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 .stProgress > div > div { 
