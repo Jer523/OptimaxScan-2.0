@@ -499,15 +499,81 @@ with st.sidebar:
 
 # --- 📍 6. 业务逻辑 ---
 
-st.markdown("""
-<div class="title-card">
-<div class="main-title">OPTIMAX SCAN</div>
-<div class="sub-title">Analog Essence • Digital Precision</div>
-</div>
-""",unsafe_allow_html=True)
-
 if "uploader_key" not in st.session_state:
     st.session_state.uploader_key = 0
+
+def reset_all():
+    st.session_state.uploader_key += 1
+
+# 标题重置按钮（第一个渲染的按钮，JS 会找到它并注入样式让它看起来像标题卡片）
+st.button(" ", key="title_reset_btn", use_container_width=True, on_click=reset_all)
+
+# JS：找到第一个 stButton 里的 button，注入标题卡片样式
+components.html("""
+<script>
+(function() {
+    function applyTitleStyle() {
+        var doc = window.parent.document;
+        var stBtns = doc.querySelectorAll('[data-testid="stButton"] button');
+        if (!stBtns || stBtns.length === 0) { setTimeout(applyTitleStyle, 150); return; }
+
+        var btn = stBtns[0]; // 第一个 stButton 就是标题重置按钮
+        btn.setAttribute('id', 'optimax-title-btn');
+
+        var old = doc.getElementById('optimax-title-style');
+        if (old) old.remove();
+
+        var s = doc.createElement('style');
+        s.id = 'optimax-title-style';
+        s.textContent = [
+            '#optimax-title-btn {',
+            '  height: 155px !important;',
+            '  border-radius: 30px !important;',
+            '  box-shadow: 15px 15px 35px #d1d9e6, -15px -15px 35px #ffffff !important;',
+            '  padding: 0 20px !important;',
+            '  margin-bottom: 39px !important;',
+            '  font-size: 0 !important;',
+            '  color: transparent !important;',
+            '  display: flex !important;',
+            '  flex-direction: column !important;',
+            '  align-items: center !important;',
+            '  justify-content: center !important;',
+            '}',
+            '#optimax-title-btn:active {',
+            '  box-shadow: inset 6px 6px 12px #d1d9e6, inset -6px -6px 12px #ffffff !important;',
+            '  transform: translateY(2px) !important;',
+            '}',
+            '#optimax-title-btn::before {',
+            '  content: "OPTIMAX SCAN";',
+            '  font-size: 52px;',
+            '  font-weight: 800;',
+            '  background-image: linear-gradient(110deg, transparent 45%, rgba(255,255,255,0.35) 50%, transparent 55%), linear-gradient(135deg, #64B8FF, #42F2BF);',
+            '  background-size: 500% 100%, 100% 100%;',
+            '  -webkit-background-clip: text;',
+            '  background-clip: text;',
+            '  -webkit-text-fill-color: transparent;',
+            '  display: block;',
+            '  text-align: center;',
+            '  animation: pureShine 6.5s linear infinite;',
+            '  line-height: 1.1;',
+            '}',
+            '#optimax-title-btn::after {',
+            '  content: "Analog Essence  \u2022  Digital Precision";',
+            '  font-size: 16px;',
+            '  font-weight: 400;',
+            '  -webkit-text-fill-color: #A0AEC0;',
+            '  color: #A0AEC0;',
+            '  display: block;',
+            '  margin-top: 10px;',
+            '  text-align: center;',
+            '}'
+        ].join('\\n');
+        doc.head.appendChild(s);
+    }
+    setTimeout(applyTitleStyle, 300);
+})();
+</script>
+""", height=0)
 
 uploaded_files=st.file_uploader("",accept_multiple_files=True,label_visibility="collapsed", key=f"uploader_{st.session_state.uploader_key}")
 visual_progress = 0
