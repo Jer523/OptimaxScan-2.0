@@ -506,10 +506,7 @@ st.markdown("""
 </div>
 """,unsafe_allow_html=True)
 
-if "uploader_key" not in st.session_state:
-    st.session_state.uploader_key = 0
-
-uploaded_files=st.file_uploader("",accept_multiple_files=True,label_visibility="collapsed", key=f"uploader_{st.session_state.uploader_key}")
+uploaded_files=st.file_uploader("",accept_multiple_files=True,label_visibility="collapsed")
 visual_progress = 0
 
 if uploaded_files:
@@ -597,16 +594,13 @@ unsafe_allow_html=True
         st.markdown('<style>div.stDownloadButton { margin-top:-92px !important; }</style>',unsafe_allow_html=True)
 
         final_pdf = img2pdf.convert(all_processed_bytes)
-        def reset_uploader():
-            st.session_state.uploader_key += 1
         st.download_button(
             label=" ",
             data=final_pdf,
             file_name="optimax_processed.pdf",
             mime="application/pdf",
             use_container_width=True,
-            key="download_pdf",
-            on_click=reset_uploader
+            key="download_pdf"
         )
 
         st.markdown('<div id="download_anchor"></div>', unsafe_allow_html=True)
