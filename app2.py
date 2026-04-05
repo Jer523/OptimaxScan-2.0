@@ -345,7 +345,7 @@ div[data-testid="stProgressBar"]{
 }
 
 .stProgress {
-    max-width: 99% !important;
+    max-width: 98% !important;
     margin-left: auto !important;
     margin-right: auto !important;
 }
