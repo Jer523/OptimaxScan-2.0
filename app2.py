@@ -499,15 +499,74 @@ with st.sidebar:
 
 # --- 📍 6. 业务逻辑 ---
 
+# 注入标题按钮专属 CSS（精准覆盖通用按钮样式）
 st.markdown("""
-<div class="title-card">
-<div class="main-title">OPTIMAX SCAN</div>
-<div class="sub-title">Analog Essence • Digital Precision</div>
-</div>
-""",unsafe_allow_html=True)
+<style>
+/* 标题重置按钮：外观与原始标题卡片完全一致 */
+div[data-testid="stButton"]:has(button[data-testid="baseButton-secondary"]#title_reset_btn),
+div[data-testid="stButton"]:has(> button.title-reset-btn) { display: block; }
+
+/* 用 element key 无法直接选，改用顺序：主内容区第一个 stButton */
+.main .block-container > div > div:nth-child(1) > div[data-testid="stButton"] > button,
+.main .block-container > div > div:nth-child(1) > div[data-testid="stButton"] > button:focus {
+    background: #F0F4F8 !important;
+    border-radius: 30px !important;
+    box-shadow: 15px 15px 35px #d1d9e6, -15px -15px 35px #ffffff !important;
+    height: 155px !important;
+    width: 100% !important;
+    border: none !important;
+    cursor: pointer !important;
+    color: transparent !important;
+    font-size: 0 !important;
+    margin-bottom: 39px !important;
+    padding: 0 !important;
+    position: relative !important;
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+.main .block-container > div > div:nth-child(1) > div[data-testid="stButton"] > button:active {
+    box-shadow: inset 10px 10px 22px #d1d9e6, inset -10px -10px 22px #ffffff !important;
+    transform: translateY(2px) !important;
+}
+.main .block-container > div > div:nth-child(1) > div[data-testid="stButton"] > button::before {
+    content: "OPTIMAX SCAN";
+    font-size: 52px !important;
+    font-weight: 800 !important;
+    background-image:
+        linear-gradient(110deg, transparent 45%, rgba(255,255,255,0.35) 50%, transparent 55%),
+        linear-gradient(135deg, #64B8FF, #42F2BF);
+    background-size: 500% 100%, 100% 100%;
+    -webkit-background-clip: text !important;
+    background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    display: block;
+    text-align: center;
+    animation: pureShine 6.5s linear infinite;
+    line-height: 1.1;
+}
+.main .block-container > div > div:nth-child(1) > div[data-testid="stButton"] > button::after {
+    content: "Analog Essence  •  Digital Precision";
+    font-size: 16px !important;
+    font-weight: 400 !important;
+    -webkit-text-fill-color: #A0AEC0 !important;
+    color: #A0AEC0 !important;
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+}
+</style>
+""", unsafe_allow_html=True)
 
 if "uploader_key" not in st.session_state:
     st.session_state.uploader_key = 0
+
+def reset_all():
+    st.session_state.uploader_key += 1
+
+st.button(" ", key="title_reset_btn", use_container_width=True, on_click=reset_all)
 
 uploaded_files=st.file_uploader("",accept_multiple_files=True,label_visibility="collapsed", key=f"uploader_{st.session_state.uploader_key}")
 visual_progress = 0
