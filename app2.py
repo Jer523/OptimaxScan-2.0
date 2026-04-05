@@ -527,7 +527,7 @@ components.html("""
         s.id = 'optimax-title-style';
         s.textContent = [
             '#optimax-title-btn {',
-            '  height: 155px !important;',
+            '  height: 182px !important;',
             '  border-radius: 30px !important;',
             '  box-shadow: 15px 15px 35px #d1d9e6, -15px -15px 35px #ffffff !important;',
             '  padding: 0 20px !important;',
